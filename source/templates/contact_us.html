@@ -1,0 +1,344 @@
+{% extends 'base.html' %} 
+
+{% block scripts %} 
+<script src="//code.jivosite.com/widget/EECNwVyQi1" async></script>
+
+{% endblock %}
+
+{% block head %} 
+<link rel="stylesheet" href="/static/styles/about_us.css">
+<style>
+
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 49.9%, transparent 50%), url(https://images.unsplash.com/photo-1551590192-8070a16d9f67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80);
+  background-size: cover;
+  border-radius: 0.3rem;
+  box-shadow: 0 1.2rem 4rem rgba(0, 0, 0, 0.2); }
+  @media only screen and (width: 75em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 64.9%, transparent 65%), url(https://images.unsplash.com/photo-1551590192-8070a16d9f67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80); } }
+  @media only screen and (width: 56.25em) {
+    .book {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(https://images.unsplash.com/photo-1551590192-8070a16d9f67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80); } }
+  .book__form {
+    width: 50%;
+    padding: 6rem; }
+    @media only screen and (width: 75em) {
+      .book__form {
+        width: 65%; } }
+    @media only screen and (width: 56.25em) {
+      .book__form {
+        width: 100%; } }
+
+        .form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form__input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+  transition: all 0.3s; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #55c57a; }
+    .form__input:focus:invalid {
+      border-bottom-color: #ff7730; }
+  .form__input::-webkit-input-placeholder {
+    color: #999; }
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  opacity: 1;
+  transform: translateY(0); }
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem; }
+
+.form__radio-button {
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: -0.4rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1.3rem;
+    width: 1.3rem;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0;
+    transition: opacity 0.2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
+  
+.row {
+  width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+    @media (width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  @media (width: 56.25em) {
+    .row {
+      width: 50rem;
+      padding: 0 3rem; } }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col"] {
+    float: left; }
+    .row [class^="col"]:not(:last-child) {
+      margin-right: 6rem; }
+      @media (width: 56.25em) {
+        .row [class^="col"]:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+    @media (width: 56.25em) {
+      .row [class^="col"] {
+        width: 100% !important; } }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 6rem * 2) / 3); }
+  .row .col-2-of-3 {
+    width: calc((((100% - 6rem * 2) / 3)) * 2 + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 6rem * 3) / 4); }
+  .row .col-2-of-4 {
+    width: calc((((100% - 6rem * 3) / 4) * 2) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(
+ (((100% - 6rem * 3) / 4)) * 3 + 6rem * 2); }
+ .heading-secondary {
+  display: inline-block;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: var(--background);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.25s;
+}.btn-c--theme {
+  background-color: var(--background);
+  color: #fff;
+}
+.btn-c--theme::after {
+  background-color: var(--background);
+}.btn-c,
+.btn-c:link,
+.btn-c:visited {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
+  transition: all 0.2s ease;
+  position: relative;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-c:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.btn-c:hover::after {
+  transform: scale(1.4, 1.6);
+  opacity: 0;
+}
+
+.btn-c:active,
+.btn-c:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-c::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+.mb-big {
+  margin-bottom: 8rem !important;
+}
+@media (max-width: 56.25em) {
+  .mb-big {
+    margin-bottom: 5rem !important;
+  }
+}
+
+.mb-md {
+  margin-bottom: 4rem !important;
+}
+@media (max-width: 56.25em) {
+  .mb-md {
+    margin-bottom: 3rem !important;
+  }
+}
+
+.mb-sm {
+  margin-bottom: 1.5rem !important;
+}
+
+.mt-big {
+  margin-top: 8rem !important;
+}
+@media (max-width: 56.25em) {
+  .mt-big {
+    margin-top: 5rem !important;
+  }
+}
+
+.mt-huge {
+  margin-top: 10rem !important;
+}
+@media only screen and (max-width: 37em) {
+    .row {
+        width: 100vw;
+    }
+
+    .book {
+        background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 99.9%, transparent 100%), url(https://images.unsplash.com/photo-1551590192-8070a16d9f67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80);
+    }
+
+    .book__form {
+        width: 90%;
+    }
+}
+</style>
+{% endblock %}
+
+{% block header_center %} 
+<ul class="header-center__list">
+  <li class="header__list-item">
+    <a href="{% url 'about-us-page' %}" class="header__link">hakkımızda</a>
+</li>
+<li class="header__list-item">
+    <a href="{% url 'contact-us-page' %}" class="header__link">iletişime geç</a>
+</li>
+<li class="header__list-item">
+    <a href="{% url 'dashboard-page' %}" class="header__link">beta versiyon</a>
+</li>
+</ul>
+{% endblock %}
+{% block title %}Justhink &ndash; İletişime Geç{% endblock %}
+
+
+{% block heading_link %} 
+{% url 'home' %}
+{% endblock %}
+
+{% block daily_summary %} 
+
+{% endblock %} 
+
+{% block publish_idea %} 
+
+{% endblock %}
+{% block main %} 
+<section class="section-book">
+    <div class="row">
+      <div class="book">
+        <div class="book__form">
+          <form action="/contact-us" class="form" method="post">
+            {% csrf_token %}
+            <div class="mb-md">
+              <h2 class="heading-secondary">İletişime Geç</h2>
+            </div>
+            <div class="form__group">
+              <input
+                type="text"
+                placeholder="İsim Soyisim"
+                class="form__input"
+                id="full-name"
+                name="full-name"
+                required
+              />
+              <label for="full-name" class="form__label">İsim Soyisim</label>
+            </div>
+            <div class="form__group">
+              <input
+                type="email"
+                placeholder="E-Posta Adresi"
+                class="form__input"
+                id="email-address"
+                name="email-address"
+                required
+              />
+              <label for="email-address" class="form__label"
+                >E-Posta Adresi</label
+              >
+            </div>
+            <div class="form__group">
+                <input
+                  type="text"
+                  placeholder="Mesaj"
+                  class="form__input"
+                  id="message"
+                  name="message"
+                  required
+                />
+                <label for="message" class="form__label"
+                  >Mesaj</label
+                >
+              </div>
+            <div class="form__group">
+              <button class="btn-c btn-c--theme">Gönder &rarr;</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock main %} 
+

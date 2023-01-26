@@ -1,0 +1,1468 @@
+
+{% load static %}
+{% load notification_extras %}
+{% load themes_extras %}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Justhink Yazılım Ekibi" />
+    <meta
+    name="description"
+    content="{% block page_description %}Justhink, insanları bir konu hakkında tartışmak için bir araya getiren öncü bir yeni nesil sosyal medya platformudur.{% endblock %}" 
+    />
+    <meta
+    name="keywords"
+    content="Justhink, justhink, jusTHINK, jusTHİNK, fikir, insanlar, düşünce, etik, süper insanlar, ekşisözlük, twitter, fikirler, düşünceler, ölümsüz, yok olmak, okul, ortam, beyin, fırtına, beyin fırtınası, mindstorming, inovasyon, gündelik, sohbet, akademik tartışma, tartışma, inovasyon,fikir,düşünmek,justhiink,bilgi,sözcük,karakter,cümle,düşünce,girişim,platform,fikir paylaşma,fikir paylaşma platformu ,limitless makers,startup,günlük düşünce,günlük fikir,inovatif düşünce,inovatif,akademik,justthink,justhing,justthink,justhınk,justhibk,justink,rutin,alışkanlık,üretim,üretmek,savunmak,fikir paylaş,yorum yap,argüman,metin,mantık,beyin,günlük konu,konu,içerik,yazılım,metin,departman,proje,akademik sohbet,sohbet,duygusal konular,akademik konular,felsefe,felsefi düşünce,teknoloji,teknolojik düşünce,oylama,puan,hesap,tema,kişiselleştirme,yorum,ayarlar,münazara,tartışma,akademik tartışma,elit ortam,elit tartışma,ekip,takım,yazılım ekibi ,yenilik,yenilikçi düşünce,tasarım odaklı düşünce,genç girişimciler,genç girişim,tasarım,misyon,vizyon,düşünme alışkanlığı,fikir üretme alışkanlığı,ifade özgürlüğü,özgürlük,ifade,website,uygulama,internet sitesi,desteklemek,desteklememek,just,liderlik tablosu,sıralama,trendler,favoriler,popülerite,popülerlik,popüler,beğeni,paylaşmak,paylaş ,yaratıcılık,üretkenlik,discord,twitter,instagram,gönderi,reels,video,youtube,eposta,mail,gmail,rekor,genç,yaşlı,öğrenci,yetişkin,hedef kitle,lise,üniversite,etkileşim,erişim,kolay erişim,problem,sorun,çözüm,inovatif çözüm,tarih,bilim,toplum,psikoloji,kişilik testleri,avcılık toplayıcılık,MBTI,yapay zeka,coğrafya mühendisliği,coğrafya ,ekonomi,şirket,marka,ikna etmek,hayvanat bahçeleri,arabalar,benzinli arabalar,elektrikli arabalar,acının kaynağı,aşkın kimyası,başarı,IQ,karizma,anaerkillik,anaerkil toplum,ataerkil toplum,aterkillik,bebek ehliyeti,sanat ,sanatçı,e-kitap,fiziksel kitap,kitap,mars,GDO,Etik,müzeler,sanal müzeler,fiziksel müzeler,nostalji ,nükleer enerji,tıp,endüstri,bilgisayar,telefon,akıllı telefon,cep telefonu,iletişim,kurgu,süper insan,insan,insanlık,ilk insan,çağ,yüzyıl,21.yüzyıl,tarım,çiftçilik,çiftçi,tükenmişlik sendromu,tükenmişlik ,adalet,hukuk,sağlık,sektör,gelcek,geçmiş,şimdi,arkadaşlık,arkadaş,hayat,an,tasarlamak,dizayn,bağlantı,link,şeffaflık,şeffaf ,topluluk,para,üyelik,üye,giriş ,dönüt,feedback,bildirim,dönüş,kavram,tematik,reklam,reklamcılık,artikel,enerji,biyolojik silah,söz,yazı,takas,çalışma,çalışmak,eğitim,değişim,eğitimde değişim,ekolojik sentez,ekoloji,bilim insanı,biyoloji,Kimya,yaşam,yaşam tarzı,alışmak,fikir belirtmek,katılım,her gün,puan sistemi,Alphan Bartu Altıntaş,Aybüke Uludemir,Berkay Şahin,İrem Aslı Baş,Furkan Esen,Kerem Kaya,Öykü Deniz Yaman,Kadircan Tüzüner,Oğulcan Öztürk,Dilau Pala,fizik,modern,kendimi nasıl geliştiririm,kişisel gelişim,bireysel fayda,birey ,halk,dünya,gezegenler,uzay,merak,araştırma,sosyal,sosyal medya,justhinnk,justjınk,justhıng,justhınk,mühendislik,mühendis ,zaman,alışmak,bağımlılık,meredith grey,thinkink app,thinkink  ,justhink uygulaması,justhink website,innovation,idea,topic,daily topic,idea sharing,social media,innovative thinking,new social media,yeni sosyal medya,özgür fikir,günün konusu,hizmet,sağlayıcı,ortam,fikir ortamı,düşünen insanlar,toplumsal bilinç,justhinkk,justtthink,düşünceli,film,kitap,bilgi kütüphanesi,bilgiler,justhink, yapay, hakkımızda, 1998den, algılama, nesnelerin, yerini, ğiştirebilme, özelliklerine"
+    />
+    <meta
+    name="google-site-verification"
+    content="MUpgXMLwErTODhvmdYiBd4iP2vJ9YTCh-ywN2vBigbY"
+    />
+    <meta name="theme-color" content="#4d1a5f">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="canonical" contenteditable="https://justhink.net{{request.path}}" href="https://justhink.net{{request.path}}">
+    <link rel="home" href="{% url 'index-page' %}"> 
+
+
+    <link rel="icon" type="image/x-icon" href="/static/favicons/{% get_theme_favicon profile.web_theme %}?version={% now 'U' %}9999999991001018"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicons/{% get_theme_favicon profile.web_theme %}?version={% now 'U' %}9999999991001018" />
+    <link rel="apple-touch-icon" href="/static/favicons/{% get_theme_favicon profile.web_theme %}?version={% now 'U' %}9999999991001018"/>
+
+
+    <title>{% block title %}Justhink{% endblock %}</title>
+
+    
+    {% if user.is_anonymous %}
+      <link rel="stylesheet" href="/static/styles/themes/thinker.css?version={% now 'U' %}9999999991001089"> 
+    {% elif profile.web_theme == "Thinker Tema" %}
+      <link rel="stylesheet" href="/static/styles/themes/thinker.css?version={% now 'U' %}9999999991001089">
+    {% elif profile.web_theme == "Ocean Tema" %}
+      <link rel="stylesheet" href="/static/styles/themes/ocean.css?version={% now 'U' %}9999999991001089">
+    {% elif profile.web_theme == "Forest Tema" %}
+      <link rel="stylesheet" href="/static/styles/themes/forest.css?version={% now 'U' %}9999999991001089">
+    {% elif profile.web_theme == "Sand Tema" %}
+      <link rel="stylesheet" href="/static/styles/themes/sand.css?version={% now 'U' %}9999999991001089">
+    {% else %}
+      <link rel="stylesheet" href="/static/styles/themes/thinker.css?version={% now 'U' %}9999999991001089">
+    {% endif %}
+
+    <!-- <link rel="stylesheet" href="/static/styles/themes/dark.css"> -->
+
+
+    <link rel="stylesheet" href="/static/fonts/stylesheet.css?version={% now 'U' %}9999999991001076" />
+    <link rel="stylesheet" href="/static/styles/base.css?version={% now 'U' %}9999999991001706668" />
+    <link rel="stylesheet" href="/static/styles/utilities.css?version={% now 'U' %}999999999" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="/static/src/script.js?version={% now 'U' %}999999999" defer></script>
+    {% block scripts %} {% endblock scripts %}
+
+    <!-- Event snippet for Kaydolma işlemi conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-10950066829/p0dKCMDfs4MYEI2Fs-Uo',
+            'event_callback': callback
+        });
+        return false;
+      }
+      </script>
+      
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9NKQ7T7XYV"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-9NKQ7T7XYV");
+    </script>
+
+    {% if section == "ideas" %}
+    <style>
+
+
+    </style>
+    {% endif %}
+
+    <style>
+      /* body:not(.fully-loaded) .header, body:not(.fully-loaded) main, body:not(.fully-loaded) .footer {display: block; z-index: -5;} */
+
+
+
+      .loading-screen {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: #e3e3e3;
+        transition: all 0.5s ease;
+        z-index: 100;
+      }
+
+      .loading-screen__logo {
+        width: 100%;
+        height: 100%;
+      }
+
+      .fully-loaded .loading-screen {
+        opacity: 0 !important;
+        visibility: hidden;
+      }
+
+      body:not(.fully-loaded) .loading-screen {
+        opacity: 1;
+      }
+
+      body:not(.fully-loaded) .loading-screen__logo {
+        position: relative;
+      }
+
+      body:not(.fully-loaded) .loading-element {
+        position: relative;
+      }
+
+      body:not(.fully-loaded) .loading-element::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 125%;
+        background-color: #e3e3e3;
+        z-index: 5;
+        animation: LoadingAnimation 2s infinite;
+      }
+
+      @keyframes LoadingAnimation {
+        0% {
+          transform: translateY(0);
+        }
+
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+
+      @keyframes FadeOutLoadingScreen {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+        }
+      }
+    </style>
+
+    <script defer>
+            
+      function detectVPN() {
+        var browserTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+
+        let fetchResult = fetch(`https://ipapi.co/json`, )
+        .then(function(response) { return response.json() })
+        .then(function (data) { 
+          var ipTimezone = data.timezone
+          console.log(`browser timezone: ${browserTimezone}`, `ip timezone: ${ipTimezone}`)
+          if (ipTimezone != browserTimezone) {
+            document.querySelector('main').parentNode.removeChild(document.querySelector('main'))
+            document.querySelector('body').classList.remove('fully-loaded')
+            return false;
+          }
+
+        })
+        return fetchResult
+      }
+
+
+       let fixBackground = (e) => {
+
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("serviceworker.js");
+            }
+
+          try {
+            if (navigator.appVersion.indexOf("Mac") != -1) {
+            document.querySelector('.daily-summary__content').style.top = '65%'
+            document.querySelector('.daily-summary__navigation-element').style.width = 'clamp(3rem, 3vh, 7.6rem) !important'
+
+        } else {
+          document.querySelector('.daily-summary__content').style.top = '50%'
+        }
+
+          } catch (error) {
+            
+          }
+          document.querySelector('body').classList.add('fully-loaded')
+          let vpnDetected = detectVPN()
+      }
+      document.addEventListener("DOMContentLoaded", fixBackground);
+
+      // THEMES 
+
+      
+    </script>
+
+    {% block head %} {% endblock head %}
+  </head>
+  <body>
+    <p lang="tr" class="onseo" style="  visibility: hidden;
+    opacity: 0;
+    position: absolute;">
+      {% block onseo_text %} 
+      jusTHINK, Limitless Makers kapsamında başlatılmış bir proje olup 6 üniversite ve 4 lise öğrencisi tarafından yürütülen bir fikir paylaşma platformudur. 12 Kasım’dan bari aktif olan ve inovatif fikirlerin öncelendiği bu platformda kullanıcılar jusTHINK ekibi tarafından seçilen günün konusu hakkındaki fikirlerini belirtirler.
+      JusTHINK sayesinde seçilen günün konusu hakkında editörlerimiz tarafından hazırlanan bilgi metninden/videosundan faydalanabilir, diğer insanların bu konu hakkındaki fikirlerinini görebilir ve fikirleri beğenip yorum atabilir. Her fikre saygı duyulan jusTHINK ortamında kullanıcılar, alınan beğeniler sayesinde puan kazanabilir, bu puanlarla liderlik tablosunda diğer kullanıcılar ile yarışabilir ve uygulama arayüzünü kişiselleştirebilirler.</p>
+      
+      {% endblock %}
+
+    <div class="darken">
+      
+    </div>
+
+    <div class="loading-screen">
+      <div class="loading-element">
+        <img
+          src="/static/logos/{% get_theme_logo profile.web_theme %}"
+          class="loading-screen__logo"
+          alt="Justhink"
+        />
+      </div>
+    </div>
+
+    <ul class="messages">
+      {% if messages %}
+      {% for message in messages %}
+      <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %}> -->
+      <div class="alert showAlert show">
+        <img src="{{ message.extra_tags }}" alt="Bildirim ikonu" class="msg" />
+
+        <span class="msg">{{ message }}</span>
+      </div>
+
+      {% endfor %}
+      {% endif %}
+    </ul>
+
+
+
+    <!-- {% if achievement_animation %} 
+      <div class="achievement-animation"><span class="achievement-animation__label">{{ achievement_animation }}+</span></div>
+    {% endif %} -->
+
+    <header class="header">
+      <div class="header__start">
+        <a
+          href="#"
+          class="hamburger-btn"
+          aria-label="Kullanıcı menüsünü genişletmek için tıkla."
+        >
+          <span class="header__hamburger-menu"></span>
+        </a>
+
+        <h1 class="header__heading">
+
+          <a href="{% block heading_link %}{% url 'index-page' %}{% endblock %}" aria-label="Justhink medyanın ana sayfasına git.">
+            <svg class="header__logo" width="252.50513px" height="77.70105px" viewBox="0 0 315.50513 77.70105" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <path d="M7.999 25.0515L58.8051 25.0515Q59.0015 25.0515 59.1976 25.0611Q59.3937 25.0708 59.5892 25.09Q59.7846 25.1093 59.9788 25.1381Q60.173 25.1669 60.3656 25.2052Q60.5582 25.2435 60.7487 25.2912Q60.9392 25.3389 61.1271 25.3959Q61.315 25.4529 61.4999 25.5191Q61.6848 25.5853 61.8662 25.6604Q62.0476 25.7355 62.2251 25.8195Q62.4026 25.9035 62.5758 25.996Q62.749 26.0886 62.9174 26.1895Q63.0858 26.2905 63.2491 26.3996Q63.4124 26.5087 63.5701 26.6257Q63.7278 26.7426 63.8796 26.8672Q64.0314 26.9918 64.1769 27.1236Q64.3224 27.2555 64.4613 27.3944Q64.6001 27.5332 64.732 27.6787Q64.8638 27.8242 64.9884 27.976Q65.113 28.1278 65.23 28.2855Q65.3469 28.4432 65.456 28.6065Q65.5651 28.7698 65.6661 28.9382Q65.767 29.1066 65.8596 29.2798Q65.9522 29.453 66.0361 29.6305Q66.1201 29.808 66.1952 29.9894Q66.2704 30.1708 66.3365 30.3557Q66.4027 30.5406 66.4597 30.7285Q66.5167 30.9164 66.5644 31.1069Q66.6121 31.2974 66.6504 31.49Q66.6887 31.6826 66.7175 31.8768Q66.7463 32.0711 66.7656 32.2665Q66.7848 32.4619 66.7945 32.658Q66.8041 32.8541 66.8041 33.0505L66.8041 67.1556Q66.8041 67.352 66.7945 67.5481Q66.7849 67.7442 66.7656 67.9397Q66.7464 68.1351 66.7175 68.3293Q66.6887 68.5235 66.6504 68.7161Q66.6121 68.9087 66.5644 69.0992Q66.5167 69.2897 66.4597 69.4776Q66.4027 69.6655 66.3365 69.8504Q66.2704 70.0353 66.1952 70.2167Q66.1201 70.3981 66.0361 70.5756Q65.9522 70.7531 65.8596 70.9263Q65.767 71.0995 65.6661 71.2679Q65.5651 71.4363 65.456 71.5996Q65.3469 71.7629 65.23 71.9206Q65.113 72.0783 64.9884 72.2301Q64.8638 72.3819 64.732 72.5274Q64.6001 72.6729 64.4613 72.8117Q64.3224 72.9506 64.1769 73.0825Q64.0314 73.2143 63.8796 73.3389Q63.7278 73.4635 63.5701 73.5805Q63.4124 73.6974 63.2491 73.8065Q63.0858 73.9156 62.9174 74.0166Q62.749 74.1175 62.5758 74.2101Q62.4026 74.3027 62.2251 74.3866Q62.0476 74.4706 61.8662 74.5457Q61.6848 74.6208 61.4999 74.687Q61.315 74.7532 61.1271 74.8102Q60.9392 74.8672 60.7487 74.9149Q60.5582 74.9626 60.3656 75.0009Q60.173 75.0392 59.9788 75.068Q59.7846 75.0968 59.5892 75.1161Q59.3937 75.1353 59.1976 75.145Q59.0015 75.1546 58.8051 75.1546L7.999 75.1546Q7.80264 75.1546 7.60651 75.145Q7.41038 75.1353 7.21496 75.1161Q7.01954 75.0968 6.8253 75.068Q6.63106 75.0392 6.43847 75.0009Q6.24588 74.9626 6.0554 74.9149Q5.86492 74.8672 5.67701 74.8102Q5.4891 74.7532 5.30422 74.687Q5.11933 74.6208 4.93791 74.5457Q4.7565 74.4706 4.57899 74.3866Q4.40148 74.3027 4.2283 74.2101Q4.05512 74.1175 3.88669 74.0166Q3.71826 73.9156 3.55499 73.8065Q3.39172 73.6974 3.234 73.5805Q3.07628 73.4635 2.92449 73.3389Q2.7727 73.2143 2.6272 73.0825Q2.4817 72.9506 2.34285 72.8117Q2.204 72.6729 2.07213 72.5274Q1.94026 72.3819 1.81569 72.2301Q1.69112 72.0783 1.57414 71.9206Q1.45717 71.7629 1.34807 71.5996Q1.23898 71.4363 1.13803 71.2679Q1.03708 71.0995 0.944512 70.9263Q0.851946 70.7531 0.76799 70.5756Q0.684033 70.3981 0.608888 70.2167Q0.533742 70.0353 0.467589 69.8504Q0.401436 69.6655 0.344434 69.4776Q0.287433 69.2897 0.23972 69.0992Q0.192007 68.9087 0.153699 68.7161Q0.11539 68.5235 0.0865771 68.3293Q0.0577644 68.1351 0.0385174 67.9397Q0.0192703 67.7442 0.00963514 67.5481Q0 67.352 0 67.1556L0 33.0505Q0 32.8541 0.00963514 32.658Q0.0192703 32.4619 0.0385174 32.2665Q0.0577644 32.0711 0.0865771 31.8768Q0.11539 31.6826 0.153699 31.49Q0.192007 31.2974 0.23972 31.1069Q0.287433 30.9164 0.344434 30.7285Q0.401436 30.5406 0.467589 30.3557Q0.533742 30.1708 0.608888 29.9894Q0.684033 29.808 0.76799 29.6305Q0.851946 29.453 0.944512 29.2798Q1.03708 29.1066 1.13803 28.9382Q1.23898 28.7698 1.34807 28.6065Q1.45717 28.4432 1.57414 28.2855Q1.69112 28.1278 1.81569 27.976Q1.94026 27.8242 2.07213 27.6787Q2.204 27.5332 2.34285 27.3944Q2.4817 27.2555 2.6272 27.1236Q2.7727 26.9918 2.92449 26.8672Q3.07628 26.7426 3.234 26.6257Q3.39172 26.5087 3.55499 26.3996Q3.71826 26.2905 3.88669 26.1895Q4.05512 26.0886 4.2283 25.996Q4.40148 25.9035 4.57899 25.8195Q4.7565 25.7355 4.93791 25.6604Q5.11933 25.5853 5.30422 25.5191Q5.4891 25.4529 5.67701 25.3959Q5.86492 25.3389 6.0554 25.2912Q6.24588 25.2435 6.43847 25.2052Q6.63106 25.1669 6.8253 25.1381Q7.01954 25.1093 7.21496 25.09Q7.41038 25.0708 7.60651 25.0611Q7.80264 25.0515 7.999 25.0515Z" id="path_1" />
+                <path d="M26.4433 6.95876C26.4433 3.11554 29.5588 0 33.4021 0C37.2453 0 40.3608 3.11554 40.3608 6.95876C40.3608 10.802 37.2453 13.9175 33.4021 13.9175C29.5588 13.9175 26.4433 10.802 26.4433 6.95876Z" id="path_2" />
+                <path d="M9.56602 30.6185L57.2381 30.6185Q57.4346 30.6185 57.6301 30.6378Q57.8256 30.657 58.0183 30.6954Q58.211 30.7337 58.399 30.7907Q58.587 30.8478 58.7685 30.9229Q58.95 30.9981 59.1232 31.0907Q59.2965 31.1833 59.4598 31.2925Q59.6232 31.4016 59.7751 31.5263Q59.9269 31.6509 60.0658 31.7898Q60.2048 31.9287 60.3294 32.0806Q60.454 32.2325 60.5632 32.3958Q60.6723 32.5592 60.7649 32.7324Q60.8575 32.9057 60.9327 33.0872Q61.0079 33.2687 61.0649 33.4567Q61.1219 33.6447 61.1603 33.8374Q61.1986 34.0301 61.2179 34.2256Q61.2371 34.4211 61.2371 34.6175L61.2371 48.8876Q61.2371 49.084 61.2179 49.2795Q61.1986 49.4751 61.1603 49.6677Q61.1219 49.8604 61.0649 50.0484Q61.0079 50.2364 60.9327 50.4179Q60.8575 50.5994 60.7649 50.7727Q60.6723 50.9459 60.5632 51.1093Q60.454 51.2726 60.3294 51.4245Q60.2048 51.5764 60.0658 51.7153Q59.9269 51.8542 59.7751 51.9788Q59.6232 52.1035 59.4598 52.2126Q59.2965 52.3218 59.1232 52.4144Q58.95 52.507 58.7685 52.5822Q58.587 52.6573 58.399 52.7144Q58.211 52.7714 58.0183 52.8097Q57.8256 52.8481 57.6301 52.8673Q57.4346 52.8866 57.2381 52.8866L9.56602 52.8866Q9.36956 52.8866 9.17405 52.8673Q8.97853 52.8481 8.78585 52.8097Q8.59317 52.7714 8.40517 52.7144Q8.21717 52.6573 8.03567 52.5822Q7.85416 52.507 7.6809 52.4144Q7.50764 52.3218 7.34429 52.2126Q7.18094 52.1035 7.02908 51.9788Q6.87721 51.8542 6.7383 51.7153Q6.59938 51.5764 6.47475 51.4245Q6.35012 51.2726 6.24097 51.1093Q6.13182 50.9459 6.03921 50.7727Q5.9466 50.5994 5.87142 50.4179Q5.79624 50.2364 5.73921 50.0484Q5.68218 49.8604 5.64386 49.6677Q5.60553 49.4751 5.58627 49.2795Q5.56702 49.084 5.56702 48.8876L5.56702 34.6175Q5.56702 34.4211 5.58627 34.2256Q5.60553 34.0301 5.64386 33.8374Q5.68218 33.6447 5.73921 33.4567Q5.79624 33.2687 5.87142 33.0872Q5.9466 32.9057 6.03921 32.7324Q6.13182 32.5592 6.24097 32.3958Q6.35012 32.2325 6.47475 32.0806Q6.59938 31.9287 6.7383 31.7898Q6.87721 31.6509 7.02908 31.5263Q7.18094 31.4016 7.34429 31.2925Q7.50764 31.1833 7.6809 31.0907Q7.85416 30.9981 8.03567 30.9229Q8.21717 30.8478 8.40517 30.7907Q8.59317 30.7337 8.78585 30.6954Q8.97853 30.657 9.17405 30.6378Q9.36956 30.6185 9.56602 30.6185Z" id="path_3" />
+                <path d="M33.402 13.9175L33.402 25.0515" id="path_4" />
+                <clipPath id="clip_1">
+                  <use xlink:href="#path_1" />
+                </clipPath>
+                <clipPath id="clip_2">
+                  <use xlink:href="#path_2" />
+                </clipPath>
+                <clipPath id="clip_3">
+                  <use xlink:href="#path_3" />
+                </clipPath>
+                <clipPath id="clip_4">
+                  <use xlink:href="#path_4" />
+                </clipPath>
+              </defs>
+              <g id="Grup-2">
+                <g id="Dikdörtgen-18">
+                  <g clip-path="url(#clip_1)">
+                    <use xlink:href="#path_1" fill="none" stroke="#FFFFFF" stroke-width="6" />
+                  </g>
+                </g>
+                <g id="Oval-3">
+                  <g clip-path="url(#clip_2)">
+                    <use xlink:href="#path_2" fill="none" stroke="#FFFFFF" stroke-width="6" />
+                  </g>
+                </g>
+                <g id="Dikdörtgen-19">
+                  <g clip-path="url(#clip_3)">
+                    <use xlink:href="#path_3" fill="none" stroke="#FFFFFF" stroke-width="6" />
+                  </g>
+                </g>
+                <g id="Grup" transform="translate(16.70102 55.670166)">
+                  <path d="M0 4.17526C0 1.86933 1.86933 0 4.17526 0C6.48119 0 8.35052 1.86933 8.35052 4.17526C8.35052 6.48119 6.48119 8.35052 4.17526 8.35052C1.86933 8.35052 0 6.48119 0 4.17526Z" id="Oval" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+                  <path d="M25.0515 4.17526C25.0515 1.86933 26.9209 0 29.2268 0C31.5327 0 33.4021 1.86933 33.4021 4.17526C33.4021 6.48119 31.5327 8.35052 29.2268 8.35052C26.9209 8.35052 25.0515 6.48119 25.0515 4.17526Z" id="Oval-2" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+                </g>
+                <path d="M29.2553 64.1671C29.1014 64.6024 29.2552 63.6792 29.2552 64.1671C29.2552 66.4731 31.1246 68.3424 33.4305 68.3424C35.7365 68.3424 37.6058 66.4731 37.6058 64.1672C37.6058 64.1672 37.6058 64.1671 37.6058 64.1671C37.6058 64.1671 37.6058 64.1671 37.6058 64.1671C37.6058 64.1671 37.6058 64.1671 37.6058 64.1671C37.6058 63.6793 37.6319 64.6391 37.6058 64.1672C37.6058 64.1672 29.2552 64.1671 29.2552 64.1671L29.2553 64.1671Z" id="Vektör" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+                <g id="Çizgi">
+                  <g clip-path="url(#clip_4)">
+                    <use xlink:href="#path_4" fill="none" stroke="#FFFFFF" stroke-width="40" stroke-linecap="square" />
+                  </g>
+                </g>
+                <path d="M33.0928 13.9237L33.0928 25.0237" id="Çizgi-4" fill="none" fill-rule="evenodd" stroke="#FFFFFF" stroke-width="3" stroke-linecap="square" />
+              </g>
+              <g id="jusTHINK" fill="#FFFFFF" transform="translate(83.50513 16.70105)">
+                <path d="M5.15 15.15Q5.9 15.9 7 15.9Q8.1 15.9 8.85 15.15Q9.6 14.4 9.6 13.3Q9.6 12.3 8.85 11.575Q8.1 10.85 7 10.85Q5.9 10.85 5.15 11.6Q4.4 12.35 4.4 13.35Q4.4 14.4 5.15 15.15ZM72 16.2L84.3 16.2L84.3 48L88 48L88 16.2L100.3 16.2L100.3 13L72 13L72 16.2ZM135.45 13L135.45 48L131.8 48L131.8 31.85L109.9 31.85L109.9 48L106.2 48L106.2 13L109.9 13L109.9 28.6L131.8 28.6L131.8 13L135.45 13ZM150.55 13L146.85 13L146.85 48L150.55 48L150.55 13ZM191.2 13L191.2 48L188.15 48L165.65 19.6L165.65 48L161.95 48L161.95 13L165 13L187.55 41.4L187.55 13L191.2 13ZM206.3 38.8L213.45 31.55L227.75 48L232.15 48L215.95 28.85L231.1 13L226.85 13L206.3 34.15L206.3 13L202.6 13L202.6 48L206.3 48L206.3 38.8ZM59.35 48.25Q56.15 48.25 53.225 47.325Q50.3 46.4 48.65 45L50.25 42.2Q51.9 43.5 54.4 44.325Q56.9 45.15 59.6 45.15Q63.2 45.15 64.925 44.025Q66.65 42.9 66.65 40.85Q66.65 39.4 65.7 38.575Q64.75 37.75 63.3 37.325Q61.85 36.9 59.45 36.5Q56.25 35.9 54.3 35.275Q52.35 34.65 50.975 33.15Q49.6 31.65 49.6 29Q49.6 25.7 52.35 23.6Q55.1 21.5 60 21.5Q62.55 21.5 65.1 22.175Q67.65 22.85 69.3 23.95L67.75 26.8Q64.5 24.55 60 24.55Q56.6 24.55 54.875 25.75Q53.15 26.95 53.15 28.9Q53.15 30.4 54.125 31.3Q55.1 32.2 56.55 32.625Q58 33.05 60.55 33.5Q63.7 34.1 65.6 34.7Q67.5 35.3 68.85 36.75Q70.2 38.2 70.2 40.75Q70.2 44.2 67.325 46.225Q64.45 48.25 59.35 48.25ZM-2.075 57.525Q-0.6 57.95 1.05 57.95Q4.75 57.95 6.75 55.8Q8.75 53.65 8.75 49.95L8.75 21.7L5.2 21.7L5.2 49.95Q5.2 52.4 4.075 53.65Q2.95 54.9 0.85 54.9Q-1.7 54.9 -3.25 53.55L-4.5 56.25Q-3.55 57.1 -2.075 57.525ZM42.35 48L42.35 21.7L38.8 21.7L38.8 35.5Q38.8 40 36.4 42.525Q34 45.05 29.85 45.05Q26.05 45.05 24 42.9Q21.95 40.75 21.95 36.6L21.95 21.7L18.4 21.7L18.4 36.95Q18.4 42.5 21.375 45.375Q24.35 48.25 29.5 48.25Q32.65 48.25 35.1 46.925Q37.55 45.6 38.95 43.2L38.95 48L42.35 48Z" />
+              </g>
+            </svg>
+            <img
+              src="/static/logos/{% get_theme_logo profile.web_theme %}"
+              class="header__logo--mobile"
+              alt="jusTHINK "
+            />
+            <!-- <svg
+
+              width="384.12372px"
+              height="77.70105px"
+              viewBox="0 0 384.12372 77.70105"
+              version="1.1"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <path
+                  d="M7.999 25.0515L58.8051 25.0515Q59.0015 25.0515 59.1976 25.0612Q59.3937 25.0708 59.5892 25.0901Q59.7846 25.1093 59.9788 25.1381Q60.173 25.1669 60.3656 25.2052Q60.5582 25.2436 60.7487 25.2913Q60.9392 25.339 61.1271 25.396Q61.315 25.453 61.4999 25.5191Q61.6848 25.5853 61.8662 25.6604Q62.0476 25.7356 62.2251 25.8195Q62.4026 25.9035 62.5758 25.9961Q62.749 26.0886 62.9174 26.1896Q63.0858 26.2905 63.2491 26.3996Q63.4124 26.5087 63.5701 26.6257Q63.7278 26.7427 63.8796 26.8672Q64.0314 26.9918 64.1769 27.1237Q64.3224 27.2555 64.4613 27.3944Q64.6001 27.5332 64.732 27.6787Q64.8638 27.8242 64.9884 27.976Q65.113 28.1278 65.23 28.2855Q65.3469 28.4433 65.456 28.6065Q65.5651 28.7698 65.6661 28.9382Q65.767 29.1067 65.8596 29.2798Q65.9522 29.453 66.0361 29.6305Q66.1201 29.808 66.1952 29.9895Q66.2704 30.1709 66.3365 30.3558Q66.4027 30.5406 66.4597 30.7286Q66.5167 30.9165 66.5644 31.1069Q66.6121 31.2974 66.6504 31.49Q66.6887 31.6826 66.7175 31.8768Q66.7463 32.0711 66.7656 32.2665Q66.7848 32.4619 66.7945 32.6581Q66.8041 32.8542 66.8041 33.0505L66.8041 67.1556Q66.8041 67.352 66.7945 67.5481Q66.7849 67.7443 66.7656 67.9397Q66.7464 68.1351 66.7175 68.3293Q66.6887 68.5236 66.6504 68.7162Q66.6121 68.9087 66.5644 69.0992Q66.5167 69.2897 66.4597 69.4776Q66.4027 69.6655 66.3365 69.8504Q66.2704 70.0353 66.1952 70.2167Q66.1201 70.3981 66.0361 70.5756Q65.9522 70.7532 65.8596 70.9263Q65.767 71.0995 65.6661 71.2679Q65.5651 71.4364 65.456 71.5996Q65.3469 71.7629 65.23 71.9206Q65.113 72.0784 64.9884 72.2301Q64.8638 72.3819 64.732 72.5274Q64.6001 72.6729 64.4613 72.8118Q64.3224 72.9506 64.1769 73.0825Q64.0314 73.2144 63.8796 73.3389Q63.7278 73.4635 63.5701 73.5805Q63.4124 73.6974 63.2491 73.8065Q63.0858 73.9156 62.9174 74.0166Q62.749 74.1175 62.5758 74.2101Q62.4026 74.3027 62.2251 74.3866Q62.0476 74.4706 61.8662 74.5457Q61.6848 74.6209 61.4999 74.687Q61.315 74.7532 61.1271 74.8102Q60.9392 74.8672 60.7487 74.9149Q60.5582 74.9626 60.3656 75.0009Q60.173 75.0392 59.9788 75.0681Q59.7846 75.0969 59.5892 75.1161Q59.3937 75.1354 59.1976 75.145Q59.0015 75.1546 58.8051 75.1546L7.999 75.1546Q7.80264 75.1546 7.60651 75.145Q7.41038 75.1354 7.21496 75.1161Q7.01954 75.0969 6.8253 75.068Q6.63106 75.0392 6.43847 75.0009Q6.24588 74.9626 6.0554 74.9149Q5.86492 74.8672 5.67701 74.8102Q5.4891 74.7532 5.30422 74.687Q5.11933 74.6209 4.93791 74.5457Q4.7565 74.4706 4.57899 74.3866Q4.40148 74.3027 4.2283 74.2101Q4.05512 74.1175 3.88669 74.0166Q3.71826 73.9156 3.55499 73.8065Q3.39172 73.6975 3.234 73.5805Q3.07628 73.4635 2.92449 73.3389Q2.7727 73.2144 2.6272 73.0825Q2.4817 72.9506 2.34285 72.8118Q2.204 72.6729 2.07213 72.5274Q1.94026 72.3819 1.81569 72.2301Q1.69112 72.0784 1.57414 71.9206Q1.45717 71.7629 1.34807 71.5996Q1.23898 71.4364 1.13803 71.2679Q1.03708 71.0995 0.944512 70.9263Q0.851946 70.7532 0.76799 70.5756Q0.684033 70.3981 0.608888 70.2167Q0.533742 70.0353 0.467589 69.8504Q0.401436 69.6655 0.344434 69.4776Q0.287433 69.2897 0.23972 69.0992Q0.192007 68.9087 0.153699 68.7162Q0.11539 68.5236 0.0865771 68.3293Q0.0577644 68.1351 0.0385174 67.9397Q0.0192703 67.7443 0.00963514 67.5481Q0 67.352 0 67.1556L0 33.0505Q0 32.8542 0.00963514 32.6581Q0.0192703 32.4619 0.0385174 32.2665Q0.0577644 32.0711 0.0865771 31.8768Q0.11539 31.6826 0.153699 31.49Q0.192007 31.2974 0.23972 31.1069Q0.287433 30.9165 0.344434 30.7286Q0.401436 30.5406 0.467589 30.3558Q0.533742 30.1709 0.608888 29.9895Q0.684033 29.808 0.76799 29.6305Q0.851946 29.453 0.944512 29.2798Q1.03708 29.1067 1.13803 28.9382Q1.23898 28.7698 1.34807 28.6065Q1.45717 28.4433 1.57414 28.2855Q1.69112 28.1278 1.81569 27.976Q1.94026 27.8242 2.07213 27.6787Q2.204 27.5332 2.34285 27.3944Q2.4817 27.2555 2.6272 27.1237Q2.7727 26.9918 2.92449 26.8672Q3.07628 26.7427 3.234 26.6257Q3.39172 26.5087 3.55499 26.3996Q3.71826 26.2905 3.88669 26.1896Q4.05512 26.0886 4.2283 25.9961Q4.40148 25.9035 4.57899 25.8195Q4.7565 25.7356 4.93791 25.6604Q5.11933 25.5853 5.30422 25.5191Q5.4891 25.453 5.67701 25.396Q5.86492 25.339 6.0554 25.2913Q6.24588 25.2436 6.43847 25.2052Q6.63106 25.1669 6.8253 25.1381Q7.01954 25.1093 7.21496 25.0901Q7.41038 25.0708 7.60651 25.0612Q7.80264 25.0515 7.999 25.0515Z"
+                  id="path_1"
+                />
+                <path
+                  d="M26.4433 6.95876C26.4433 3.11554 29.5588 0 33.4021 0C37.2453 0 40.3608 3.11554 40.3608 6.95876C40.3608 10.802 37.2453 13.9175 33.4021 13.9175C29.5588 13.9175 26.4433 10.802 26.4433 6.95876Z"
+                  id="path_2"
+                />
+                <path
+                  d="M9.56602 30.6186L57.2381 30.6186Q57.4346 30.6186 57.6301 30.6378Q57.8256 30.6571 58.0183 30.6954Q58.211 30.7337 58.399 30.7908Q58.587 30.8478 58.7685 30.923Q58.95 30.9981 59.1232 31.0908Q59.2965 31.1834 59.4598 31.2925Q59.6232 31.4017 59.7751 31.5263Q59.9269 31.6509 60.0658 31.7898Q60.2048 31.9288 60.3294 32.0806Q60.454 32.2325 60.5632 32.3958Q60.6723 32.5592 60.7649 32.7324Q60.8575 32.9057 60.9327 33.0872Q61.0079 33.2687 61.0649 33.4567Q61.1219 33.6447 61.1603 33.8374Q61.1986 34.0301 61.2179 34.2256Q61.2371 34.4211 61.2371 34.6176L61.2371 48.8876Q61.2371 49.0841 61.2179 49.2796Q61.1986 49.4751 61.1603 49.6678Q61.1219 49.8605 61.0649 50.0485Q61.0079 50.2364 60.9327 50.4179Q60.8575 50.5995 60.7649 50.7727Q60.6723 50.946 60.5632 51.1093Q60.454 51.2727 60.3294 51.4245Q60.2048 51.5764 60.0658 51.7153Q59.9269 51.8542 59.7751 51.9789Q59.6232 52.1035 59.4598 52.2126Q59.2965 52.3218 59.1232 52.4144Q58.95 52.507 58.7685 52.5822Q58.587 52.6574 58.399 52.7144Q58.211 52.7714 58.0183 52.8098Q57.8256 52.8481 57.6301 52.8673Q57.4346 52.8866 57.2381 52.8866L9.56602 52.8866Q9.36956 52.8866 9.17405 52.8673Q8.97853 52.8481 8.78585 52.8098Q8.59317 52.7714 8.40517 52.7144Q8.21717 52.6574 8.03567 52.5822Q7.85416 52.507 7.6809 52.4144Q7.50764 52.3218 7.34429 52.2126Q7.18094 52.1035 7.02908 51.9789Q6.87721 51.8542 6.7383 51.7153Q6.59938 51.5764 6.47475 51.4245Q6.35012 51.2727 6.24097 51.1093Q6.13182 50.946 6.03921 50.7727Q5.9466 50.5995 5.87142 50.4179Q5.79624 50.2364 5.73921 50.0484Q5.68218 49.8605 5.64386 49.6678Q5.60553 49.4751 5.58627 49.2796Q5.56702 49.0841 5.56702 48.8876L5.56702 34.6176Q5.56702 34.4211 5.58627 34.2256Q5.60553 34.0301 5.64386 33.8374Q5.68218 33.6447 5.73921 33.4567Q5.79624 33.2687 5.87142 33.0872Q5.9466 32.9057 6.03921 32.7324Q6.13182 32.5592 6.24097 32.3958Q6.35012 32.2325 6.47475 32.0806Q6.59938 31.9288 6.7383 31.7898Q6.87721 31.6509 7.02908 31.5263Q7.18094 31.4017 7.34429 31.2925Q7.50764 31.1834 7.6809 31.0908Q7.85416 30.9981 8.03567 30.923Q8.21717 30.8478 8.40517 30.7908Q8.59317 30.7337 8.78585 30.6954Q8.97853 30.6571 9.17405 30.6378Q9.36956 30.6186 9.56602 30.6186Z"
+                  id="path_3"
+                />
+                <path d="M33.402 13.9175L33.402 25.0516" id="path_4" />
+                <clipPath id="clip_1">
+                  <use xlink:href="#path_1" />
+                </clipPath>
+                <clipPath id="clip_2">
+                  <use xlink:href="#path_2" />
+                </clipPath>
+                <clipPath id="clip_3">
+                  <use xlink:href="#path_3" />
+                </clipPath>
+                <clipPath id="clip_4">
+                  <use xlink:href="#path_4" />
+                </clipPath>
+              </defs>
+              <g id="Grup-8">
+                <g id="Dikdörtgen-18">
+                  <g clip-path="url(#clip_1)">
+                    <use
+                      xlink:href="#path_1"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-width="6"
+                    />
+                  </g>
+                </g>
+                <g id="Oval-3">
+                  <g clip-path="url(#clip_2)">
+                    <use
+                      xlink:href="#path_2"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-width="6"
+                    />
+                  </g>
+                </g>
+                <g id="Dikdörtgen-19">
+                  <g clip-path="url(#clip_3)">
+                    <use
+                      xlink:href="#path_3"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-width="6"
+                    />
+                  </g>
+                </g>
+                <g id="Grup" transform="translate(16.70102 55.670105)">
+                  <path
+                    d="M0 4.17526C0 1.86933 1.86933 0 4.17526 0C6.48119 0 8.35052 1.86933 8.35052 4.17526C8.35052 6.48119 6.48119 8.35052 4.17526 8.35052C1.86933 8.35052 0 6.48119 0 4.17526Z"
+                    id="Oval"
+                    fill="#FFFFFF"
+                    fill-rule="evenodd"
+                    stroke="none"
+                  />
+                  <path
+                    d="M25.0516 4.17526C25.0516 1.86933 26.9209 0 29.2268 0C31.5327 0 33.4021 1.86933 33.4021 4.17526C33.4021 6.48119 31.5327 8.35052 29.2268 8.35052C26.9209 8.35052 25.0516 6.48119 25.0516 4.17526Z"
+                    id="Oval-2"
+                    fill="#FFFFFF"
+                    fill-rule="evenodd"
+                    stroke="none"
+                  />
+                </g>
+                <path
+                  d="M29.2553 64.1671C29.1014 64.6023 29.2552 63.6791 29.2552 64.1671C29.2552 66.473 31.1246 68.3423 33.4305 68.3423C35.7365 68.3423 37.6058 66.4731 37.6058 64.1671C37.6058 64.1671 37.6058 64.1671 37.6058 64.1671C37.6058 64.1671 37.6058 64.1671 37.6058 64.1671C37.6058 64.1671 37.6058 64.1671 37.6058 64.1671C37.6058 63.6792 37.6319 64.639 37.6058 64.1671C37.6058 64.1671 29.2552 64.1671 29.2552 64.1671L29.2553 64.1671Z"
+                  id="Vektör"
+                  fill="#FFFFFF"
+                  fill-rule="evenodd"
+                  stroke="none"
+                />
+                <g
+                  id="jusTHINK"
+                  fill="#FFFFFF"
+                  transform="translate(83.50513 16.70105)"
+                >
+                  <path
+                    d="M5.15 15.15Q5.9 15.9 7 15.9Q8.1 15.9 8.85 15.15Q9.6 14.4 9.6 13.3Q9.6 12.3 8.85 11.575Q8.1 10.85 7 10.85Q5.9 10.85 5.15 11.6Q4.4 12.35 4.4 13.35Q4.4 14.4 5.15 15.15ZM72 16.2L84.3 16.2L84.3 48L88 48L88 16.2L100.3 16.2L100.3 13L72 13L72 16.2ZM135.45 13L135.45 48L131.8 48L131.8 31.85L109.9 31.85L109.9 48L106.2 48L106.2 13L109.9 13L109.9 28.6L131.8 28.6L131.8 13L135.45 13ZM150.55 13L146.85 13L146.85 48L150.55 48L150.55 13ZM191.2 13L191.2 48L188.15 48L165.65 19.6L165.65 48L161.95 48L161.95 13L165 13L187.55 41.4L187.55 13L191.2 13ZM206.3 38.8L213.45 31.55L227.75 48L232.15 48L215.95 28.85L231.1 13L226.85 13L206.3 34.15L206.3 13L202.6 13L202.6 48L206.3 48L206.3 38.8ZM59.35 48.25Q56.15 48.25 53.225 47.325Q50.3 46.4 48.65 45L50.25 42.2Q51.9 43.5 54.4 44.325Q56.9 45.15 59.6 45.15Q63.2 45.15 64.925 44.025Q66.65 42.9 66.65 40.85Q66.65 39.4 65.7 38.575Q64.75 37.75 63.3 37.325Q61.85 36.9 59.45 36.5Q56.25 35.9 54.3 35.275Q52.35 34.65 50.975 33.15Q49.6 31.65 49.6 29Q49.6 25.7 52.35 23.6Q55.1 21.5 60 21.5Q62.55 21.5 65.1 22.175Q67.65 22.85 69.3 23.95L67.75 26.8Q64.5 24.55 60 24.55Q56.6 24.55 54.875 25.75Q53.15 26.95 53.15 28.9Q53.15 30.4 54.125 31.3Q55.1 32.2 56.55 32.625Q58 33.05 60.55 33.5Q63.7 34.1 65.6 34.7Q67.5 35.3 68.85 36.75Q70.2 38.2 70.2 40.75Q70.2 44.2 67.325 46.225Q64.45 48.25 59.35 48.25ZM-2.075 57.525Q-0.6 57.95 1.05 57.95Q4.75 57.95 6.75 55.8Q8.75 53.65 8.75 49.95L8.75 21.7L5.2 21.7L5.2 49.95Q5.2 52.4 4.075 53.65Q2.95 54.9 0.85 54.9Q-1.7 54.9 -3.25 53.55L-4.5 56.25Q-3.55 57.1 -2.075 57.525ZM42.35 48L42.35 21.7L38.8 21.7L38.8 35.5Q38.8 40 36.4 42.525Q34 45.05 29.85 45.05Q26.05 45.05 24 42.9Q21.95 40.75 21.95 36.6L21.95 21.7L18.4 21.7L18.4 36.95Q18.4 42.5 21.375 45.375Q24.35 48.25 29.5 48.25Q32.65 48.25 35.1 46.925Q37.55 45.6 38.95 43.2L38.95 48L42.35 48Z"
+                  />
+                </g>
+                <g id="Çizgi">
+                  <g clip-path="url(#clip_4)">
+                    <use
+                      xlink:href="#path_4"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-width="40"
+                      stroke-linecap="square"
+                    />
+                  </g>
+                </g>
+                <path
+                  d="M33.0928 13.9237L33.0928 25.0237"
+                  id="Çizgi-4"
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="#FFFFFF"
+                  stroke-width="3"
+                  stroke-linecap="square"
+                />
+              </g>
+            </svg> -->
+          </a>
+        </h1>
+      </div>
+
+      <div class="header__center">
+        {% block header_center %} 
+        <form action="search" method="get">
+          {% csrf_token %}
+
+          <div class="header__search-box">
+            <a
+              href="#"
+              class="header__search-btn"
+              aria-label="Justhink veritabanlarında fikir, kullanıcı ve daha birçok şeyi sorgula."
+            >
+              <svg
+                class="header__search-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"
+                />
+              </svg>
+            </a>
+            <input
+              type="text"
+              name="search-nonmobile"
+              id="search-nonmobile"
+              class="header__search-field"
+              placeholder="Dilediğiniz şeyi arayın."
+              required
+            />
+          </div>
+        </form>
+        {% endblock %}
+
+      </div>
+
+      <div class="header__end">
+        {% if user.is_authenticated %} 
+        <div class="notifications">
+          <a onclick="expandNotifications()" href="#" class="header__notifications-link" aria-label="Justhink'ten sana gelen bildirimlere bak." >
+            <svg class="header__notifications" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M5 19q-.425 0-.713-.288Q4 18.425 4 18t.287-.712Q4.575 17 5 17h1v-7q0-2.075 1.25-3.688Q8.5 4.7 10.5 4.2v-.7q0-.625.438-1.062Q11.375 2 12 2t1.062.438q.438.437.438 1.062v.7q2 .5 3.25 2.112Q18 7.925 18 10v7h1q.425 0 .712.288q.288.287.288.712t-.288.712Q19.425 19 19 19Zm7-7.5ZM12 22q-.825 0-1.412-.587Q10 20.825 10 20h4q0 .825-.587 1.413Q12.825 22 12 22Zm-4-5h8v-7q0-1.65-1.175-2.825Q13.65 6 12 6q-1.65 0-2.825 1.175Q8 8.35 8 10Z"/>
+            </svg>
+          </a>
+
+          <div class="notifications-box">
+            <h2 class="notifications__heading">Bildirimler</h2>
+
+
+            <ul class="notificaons-list">
+              {% for key, notification in profile.user_notifications.items %}
+              <li>
+                <a href="/view-notification/{{key}}" target="{% if key == 'GenelAnket' %}_blank{% else %}_self{% endif %}" class="notification-item {{notification.viewed}} {{key}}" style="color: inherit; text-decoration: none;">
+                  <p class="notification-item__content">{{ notification.notification_content }}</p>
+                  <p class="notification-item__details">{% get_notification_time notification.notification_details %}</p>
+                  <div class="notification-item__image-box">
+                    <img src="{% if notification.notification_image == 'robot' %}/static/logos/{% get_theme_logo profile.web_theme %}{% endif %}"
+                  alt="Bildirim temsili resmi" class="notification-item__image">
+                  </div>
+                </a>
+        
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- <form action="change_language" method="get" class="language-header">
+          {% csrf_token %}
+
+          <div class="header__language-switch language-switch">
+            <input
+              type="checkbox"
+              id="language-checkbox"
+              class="header__language-checkbox"
+            />
+
+            <label for="language-checkbox"></label>
+
+            <a
+              href="#"
+              class="on language-selection--primary"
+              aria-label="Site dilini Türkçe'ye çevir."
+              >TR</a
+            >
+            <a
+              href="#"
+              class="off language-selection--secondary"
+              aria-label="Site dilini İngilizce'ye çevir."
+              >ENG</a
+            >
+          </div>
+        </form> -->
+
+        {% if not user.is_authenticated %}
+        <a href="/login" class="btn btn--primary"
+          >Giriş Yap</a
+        >
+        {% else %}
+        <div class="profile">
+          
+          <div class="profile">
+            <a
+              href="#"
+              class="btn btn--primary"
+              aria-label="Justhink hesabınla etkileşime geç."
+              onclick="expandMyAccount()"
+              >Hesabım</a
+            >
+  
+            <div class="my-account" id="my-account">
+              <a style="text-decoration: none; color: inherit;" class="my-account__information">
+                <div class="my-account__information--basic">
+                  <div class="my-account__text-information">
+                    <span class="my-account__username">{{ user.username }}</span>
+                    <span class="my-account__email">{{ user.email|truncatechars:27 }}</span>
+                  </div>
+                  <div class="my-account__profile-photo">
+                    <img
+                      src="/static/logos/{% get_theme_logo profile.web_theme %}"
+                      alt="{{ user.username }} isimli kulanıcının profil fotoğrafı"
+                    />
+                  </div>
+                </div>
+                <span class="my-account__information--id"
+                  >User ID: 
+
+                  <div class="content" style="display: flex; align-items: center; gap: .6rem; cursor: pointer;" title="Tıkla ve arkadaşlarınla referans kodunu paylaşarak para kazan!" onclick="navigator.clipboard.writeText(`Hey, merhaba! Justhink platformuna aşağıdaki attığım linkten kayıt ol, ilk fikrini yaz ve ikimiz de puan kazanalım.\n\nhttps:\/\/justhink.net/login?reference_code=${this.querySelector('span').textContent}`), createNotification('success', 'Başarıyla davet linkin kopyalandı!')">
+                    <span >{{ profile.get_user_secret }}</span>
+                  
+                  <svg  xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+                    <circle cx="128" cy="256" r="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+                    <circle cx="384" cy="112" r="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+                    <circle cx="384" cy="400" r="48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m169.83 279.53l172.34 96.94m0-240.94l-172.34 96.94"/>
+                  </svg>
+                  </div>
+                  </span
+                
+                  >        
+              </a>
+              <nav class="my-account__navigation">
+                <ul class="my-account__list">
+                  <li class="my-account__list-item">
+                    <a href="{% url 'profile-page' user.username %}" class="my-account__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m9.25 22l-.4-3.2q-.325-.125-.612-.3q-.288-.175-.563-.375L4.7 19.375l-2.75-4.75l2.575-1.95Q4.5 12.5 4.5 12.337v-.675q0-.162.025-.337L1.95 9.375l2.75-4.75l2.975 1.25q.275-.2.575-.375q.3-.175.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3q.287.175.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.337v.675q0 .163-.05.338l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375q-.3.175-.6.3l-.4 3.2Zm2.8-6.5q1.45 0 2.475-1.025Q15.55 13.45 15.55 12q0-1.45-1.025-2.475Q13.5 8.5 12.05 8.5q-1.475 0-2.488 1.025Q8.55 10.55 8.55 12q0 1.45 1.012 2.475Q10.575 15.5 12.05 15.5Z"
+                        />
+                      </svg>
+  
+                      Hesap Ayarları</a
+                    >
+                  </li>
+                  <li class="my-account__list-item">
+                    <a href="{% url 'profile-page' user.username %}" class="my-account__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 24 24"
+                      >
+                        <g transform="rotate(180 12 12)">
+                          <path
+                            fill="currentColor"
+                            d="M7 15q-1.25 0-2.125-.875T4 12q0-1.25.875-2.125T7 9q1.25 0 2.125.875T10 12q0 1.25-.875 2.125T7 15Zm0 3q1.925 0 3.475-1.1T12.65 14H13l2 2l2-2l2.5 1.975l3.5-4L21.025 10H12.65q-.6-1.7-2.112-2.85Q9.025 6 7 6Q4.5 6 2.75 7.75T1 12q0 2.5 1.75 4.25T7 18Z"
+                          />
+                        </g>
+                      </svg>
+  
+                      Gizlilik Ayarları</a
+                    >
+                  </li>
+                  <li class="my-account__list-item">
+                    <a href="/shop" class="my-account__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1.04em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 512 496"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M448 69H137l-3-12q-5-23-22.5-37.5T70 5H21q-9 0-15 6T0 27q0 9 6 15t15 6h49q19 0 22 17l49 256q6 21 23.5 34t38.5 13h202q10 0 16-6t6-15q0-22-22-22H203q-14 0-20-12l-2-9h214q20 0 36.5-12t22.5-31l58-123v-5q0-27-18.5-45.5T448 69zM192 261h-19l-28-149h47v149zm85 0h-42V112h42v149zm86 0h-43V112h43v149zm53-17v2q-3 10-11 13V112h43q18 0 21 17zM256 432q0 18-12.5 30.5T213 475q-17 0-29.5-12.5T171 432t12.5-30.5T213 389q18 0 30.5 12.5T256 432zm171 0q0 18-12.5 30.5T384 475t-30.5-12.5T341 432t12.5-30.5T384 389t30.5 12.5T427 432z"
+                        />
+                      </svg>
+  
+                      Market</a
+                    >
+                  </li>
+                  <li class="my-account__list-item">
+                    <a href="#" class="my-account__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 1792 1792"
+                      >
+                        <g transform="rotate(180 896 896)">
+                          <path
+                            fill="currentColor"
+                            d="M896 0q182 0 348 71t286 191t191 286t71 348t-71 348t-191 286t-286 191t-348 71t-348-71t-286-191t-191-286T0 896t71-348t191-286T548 71T896 0zm0 128q-190 0-361 90l194 194q82-28 167-28t167 28l194-194q-171-90-361-90zM218 1257l194-194q-28-82-28-167t28-167L218 535q-90 171-90 361t90 361zm678 407q190 0 361-90l-194-194q-82 28-167 28t-167-28l-194 194q171 90 361 90zm0-384q159 0 271.5-112.5T1280 896t-112.5-271.5T896 512T624.5 624.5T512 896t112.5 271.5T896 1280zm484-217l194 194q90-171 90-361t-90-361l-194 194q28 82 28 167t-28 167z"
+                          />
+                        </g>
+                      </svg>
+  
+                      Yardım Merkezi</a
+                    >
+                  </li>
+                  <li class="my-account__list-item">
+                    {% if user.is_staff %} 
+                      <a href="/admin" class="my-account__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 14v2a6 6 0 0 0-6 6H4a8 8 0 0 1 8-8zm0-1c-3.315 0-6-2.685-6-6s2.685-6 6-6s6 2.685 6 6s-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm9 6h1v5h-8v-5h1v-1a3 3 0 0 1 6 0v1zm-2 0v-1a1 1 0 0 0-2 0v1h2z"/></svg>
+  
+    
+                        Yetkili Paneli</a >
+                    {% else %}
+                    <a href="#" class="my-account__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M12 3c5.5 0 10 3.58 10 8s-4.5 8-10 8c-1.24 0-2.43-.18-3.53-.5C5.55 21 2 21 2 21c2.33-2.33 2.7-3.9 2.75-4.5C3.05 15.07 2 13.13 2 11c0-4.42 4.5-8 10-8m5 9v-2h-2v2h2m-4 0v-2h-2v2h2m-4 0v-2H7v2h2Z"
+                        />
+                      </svg>
+  
+                      İstek Merkezi</a
+                    >
+                    {% endif %}
+      
+                  </li>
+                  <li class="my-account__list-item">
+                    <a href="/logout" class="my-account__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2a9.985 9.985 0 0 1 8 4h-2.71a8 8 0 1 0 .001 12h2.71A9.985 9.985 0 0 1 12 22zm7-6v-3h-8v-2h8V8l5 4l-5 4z"
+                        />
+                      </svg>
+  
+                      Oturumu Kapat</a
+                    >
+                  </li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="point-view" style="text-decoration:none; font-weight: 500;">Puan: {% if profile.total_point == None %}0{% else %}{{profile.total_point}}{% endif %} </a>
+        {% endif %}
+<!-- 
+        <div class="login-box" id="login">
+          <div class="login-container">
+            <h2 class="heading-secondary login-form__heading">
+              Tekrar hoş geldin!
+            </h2>
+            <form action="/login" method="post" class="login-form">
+              {% csrf_token %}
+              <div class="login-form__information-box">
+                <div class="login-form__input-box">
+                  <label for="username" class="login-form__input-label"
+                    >Kullanıcı Adı:</label
+                  >
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="meredith_grey"
+                    class="login-form__input"
+                    autocomplete="username"
+                    required
+                  />
+                </div>
+                <div class="login-form__input-box">
+                  <label for="password" class="login-form__input-label"
+                    >Kullanıcı Şifresi:</label
+                  >
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="******"
+                    class="login-form__input"
+                    autocomplete="current-password"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="login-form__action-box">
+                <div class="login-form__checkbox-box">
+                  <input
+                    type="checkbox"
+                    name="rememberme"
+                    id="rememberme"
+                    class="login-form__checkbox"
+                    
+                  />
+                  <label for="rememberme" class="login-form__checkbox-label"
+                    >Beni hatırla</label
+                  >
+                </div>
+                <input type="submit" value="Giriş Yap" class="btn btn-form" />
+              </div>
+
+              <a
+                href="#"
+                class="login-form__change-auth-mode"
+                onclick="simulateAuthModeChange()"
+                >Hesabın yok mu? Hemen aramıza katıl!</a
+              >
+            </form>
+          </div>
+
+          <div class="register-container">
+            <h2 class="heading-secondary login-form__heading">
+              Aramıza katıl!
+            </h2>
+            <form action="/register" method="post" class="login-form">
+              {% csrf_token %}
+
+              <div class="login-form__information-box">
+                <div class="login-form__input-box">
+                  <label for="username-register" class="login-form__input-label"
+                    >Kullanıcı Adı:</label
+                  >
+                  <input
+                    type="text"
+                    name="username-register"
+                    id="username-register"
+                    placeholder="meredith_grey"
+                    autocomplete="username"
+                    class="login-form__input"
+                    required
+                  />
+                </div>
+                <div class="login-form__input-box">
+                  <label for="email" class="login-form__input-label"
+                    >Kullanıcı E-Posta:</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="hello@justhink.com"
+                    autocomplete="email"
+                    class="login-form__input"
+                    pattern="[a-z0-9]+@[a-z]+\(.edu|.com|.net|.org)\.[a-z]{2,3}"
+                    required
+                  />
+                </div>
+                <div class="login-form__input-box">
+                  <label for="password-register" class="login-form__input-label"
+                    >Kullanıcı Şifre:</label
+                  >
+                  <input
+                    type="password"
+                    name="password-register"
+                    id="password-register"
+                    placeholder="******"
+                    class="login-form__input"
+                    autocomplete="current-password"
+                    minlength="5"
+                    maxlength="40"
+                    required
+                  />
+                </div>
+
+                <div class="login-form__checkbox-box mt-2">
+                  <input
+                    type="checkbox"
+                    name="kvkk"
+                    id="kvkk"
+                    class="login-form__checkbox"
+                    checked
+                    required
+                  />
+                  <label for="kvkk" class="login-form__checkbox-label"
+                    ><a
+                      href="/static/policies/user-terms.pdf"
+                      target="_blank"
+                      style="color: inherit"
+                      aria-label="KVKK politikamıza göz gezdirmek için tıkla."
+                      >KVKK politikasını</a
+                    >
+                    kabul ediyorum.</label
+                  >
+                </div>
+              </div>
+
+              <div class="login-form__action-box">
+                <input type="submit" value="Kayıt Ol" class="btn btn-form" />
+              </div>
+
+              <a
+                href="#"
+                class="login-form__change-auth-mode"
+                onclick="simulateAuthModeChange()"
+                >Hesabın var mı? Hemen giriş yap!</a
+              >
+            </form>
+          </div>
+        </div> -->
+      </div>
+    </header>
+
+    <main>
+      {% block daily_summary %}
+      <div class="daily-summary">
+        <svg
+          class="daily-summary_mobile-structor"
+          width="650"
+          height="200"
+          viewBox="0 0 650 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_191_2)">
+            <path
+              d="M0 0H650V242.715C650 242.715 609.014 253.033 547.806 258.086C486.597 263.139 349.917 265.521 339.444 258.086L353.279 241.769C353.537 241.464 353.652 241.128 353.614 240.792C353.575 240.456 353.384 240.131 353.058 239.847C352.732 239.563 352.282 239.329 351.749 239.166C351.217 239.004 350.618 238.919 350.011 238.919H297.014C296.419 238.919 295.834 239 295.31 239.156C294.785 239.311 294.338 239.536 294.009 239.81C293.679 240.084 293.476 240.399 293.419 240.727C293.362 241.054 293.452 241.385 293.681 241.689L306.038 258.089C295.656 265.989 168.996 263.141 108.33 258.089C71.3837 254.98 35.0927 249.83 0 242.715L0 0Z"
+              fill="url(#paint0_linear_191_2)"
+            />
+          </g>
+          <defs>
+            <linearGradient
+              id="paint0_linear_191_2"
+              x1="0"
+              y1="131.502"
+              x2="650"
+              y2="131.502"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#5C346B" />
+              <stop offset="1" stop-color="#400556" />
+            </linearGradient>
+            <clipPath id="clip0_191_2">
+              <rect width="650" height="263" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="1832"
+          height="385.999"
+          viewBox="0 0 1832 385.999"
+          class="daily-summary_structor"
+        >
+          {% block daily-summary-svg %} 
+          {% if section == "ideas" %} 
+          <defs>
+            <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#5C346B"/>
+              <stop offset="1" stop-color="#400556"/>
+            </linearGradient>
+          </defs>
+          <path id="Dikdörtgen_74" data-name="Dikdörtgen 74" d="M0,15A15,15,0,0,1,15,0H1822a15,15,0,0,1,15,15V311.171a15,15,0,0,1-15,15H1480.1a50,50,0,0,0-39.607,19.483L1424.507,366.4a50,50,0,0,1-39.594,19.483l-340.691.089a20,20,0,0,1-16.66-8.927l-6.3-9.472a20,20,0,0,1,3.189-25.861l9.046-8.237-55.167.189,8.313,8.943a20,20,0,0,1,2.808,23.377l-5.4,9.652a20,20,0,0,1-17.455,10.24l-951.6.1a15,15,0,0,1-15-15Z" fill="url(#linear-gradient)"/>
+          
+          {% elif section == "open-surveys" %}
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.96124 14.9611C0.982663 6.69207 7.69209 0 15.9612 0H1818C1826.29 0 1833 6.71573 1833 15V370.904C1833 379.187 1826.29 385.902 1818.01 385.904L1409.4 386L872.223 386C865.527 386 859.275 382.649 855.568 377.073L849.268 367.598C843.799 359.373 845.154 348.387 852.457 341.737L861.503 333.5L806.335 333.689L814.648 342.632C820.558 348.99 821.692 358.433 817.456 366.009L812.06 375.662C808.525 381.984 801.848 385.901 794.605 385.902L15.0406 385.99C6.74049 385.99 0.0174628 379.251 0.0389661 370.951L0.96124 14.9611Z" fill="url(#paint0_linear_0_4663)"/>
+            <defs>
+            <linearGradient id="paint0_linear_0_4663" x1="0" y1="386" x2="1833" y2="386" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#5C346B"/>
+            <stop offset="1" stop-color="#400556"/>
+            </linearGradient>
+            </defs>
+            
+          
+          {% else %}
+          <defs>
+            <linearGradient
+              id="linear-gradient"
+              y1="0.5"
+              x2="1"
+              y2="0.5"
+              gradientUnits="objectBoundingBox"
+            >
+              <stop offset="0" stop-color="#5C346B" />
+              <stop offset="1" stop-color="#400556" />
+            </linearGradient>
+          </defs>
+          <path
+            id="Dikdörtgen_64"
+            data-name="Dikdörtgen 64"
+            d="M0,15A15,15,0,0,1,15,0H1817a15,15,0,0,1,15,15V311.313a15,15,0,0,1-15,15H1477.655a50,50,0,0,0-39.666,19.559l-15.75,20.523a50,50,0,0,1-39.66,19.559L952.221,386a20,20,0,0,1-16.657-8.927l-6.3-9.474a20,20,0,0,1,3.189-25.861L941.5,333.5l-55.168.189,8.313,8.943a20,20,0,0,1,2.808,23.377l-5.4,9.652A20,20,0,0,1,874.6,385.9L15,386A15,15,0,0,1,0,371Z"
+            fill="url(#linear-gradient)"
+          />
+          {% endif %}
+          {% endblock daily-summary-svg %}
+        </svg>
+
+        <div class="daily-summary__content">
+          <form action="search" method="get" class="daily-summary_search-box">
+            {% csrf_token %}
+
+            <div class="header__search-box">
+              <a
+                href="#"
+                class="header__search-btn"
+                aria-label="Justhink veritabanlarında fikir, kullanıcı ve daha birçok şeyi sorgula."
+              >
+                <svg
+                  class="header__search-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"
+                  />
+                </svg>
+              </a>
+              <input
+                type="text"
+                name="search"
+                id="search"
+                class="header__search-field"
+                placeholder="Dilediğiniz şeyi arayın."
+                required
+              />
+            </div>
+          </form>
+
+          <a
+            href="#"
+            class="daily-summary__topic information-topic"
+           
+            aria-label="Konu hakkında kısa bir bilgi almak için tıkla."
+          >
+            {% block topic_name %}{{ topic.topic_name }}{% endblock%}
+          </a>
+
+          <div class="information-box" id="information-box">
+            {{ topic.topic_sources }}
+          </div>
+          <div class="daily-summary_statistics">
+            <!-- <p class="total-art">toplam art: 0</p> -->
+            {% block extra_code %}
+            {% endblock %} 
+            <p class="total-comment">{% block topic_comments_count %}toplam yorum: {{ comments_count }}{% endblock %}</p>
+            <p class="total-idea">{% block topic_ideas_count %}toplam fikir: {{ ideas_count }}{% endblock %}</p>
+          </div>
+
+          <nav class="daily-summary__navigation">
+            <a href="{% url 'random-ideas-page' %}" class="daily-summary__navigation-element {% if section == 'idea-overview' %}active{% endif %} {% if section != 'idea-overview' %}emphasize-page{% endif %}" aria-label="Justhink kullanıcılarından rastgele fikirler görmek için tıkla.">
+              <svg class="daily-summary__navigation-icon"  xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M14 20v-2h2.6l-3.2-3.2l1.425-1.425L18 16.55V14h2v6Zm-8.6 0L4 18.6L16.6 6H14V4h6v6h-2V7.4Zm3.775-9.425L4 5.4L5.4 4l5.175 5.175Z"/>
+              </svg>
+
+
+              <span class="daily-summary__description-text favourite">rastgele</span>
+            </a>
+
+            <div class="middle"> 
+              {% block nav_midle %} 
+              {% if section == "ideas" %}
+              <a href="{% url 'open-surveys-page' %}" class="daily-summary__navigation-element" aria-label="Diğer kullanıcıların oluşturduğu anketlere oy ver, kendi anketlerini paylaş.">
+                <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M5 22q-.825 0-1.413-.587Q3 20.825 3 20v-4.55l2.75-3.125l1.425 1.425l-2 2.25h13.65l-1.95-2.2l1.425-1.425L21 15.45V20q0 .825-.587 1.413Q19.825 22 19 22Zm5.6-7.6l-3.475-3.525Q6.55 10.3 6.55 9.45q0-.85.575-1.425l4.9-4.9q.575-.575 1.425-.575q.85 0 1.425.575L18.4 6.6q.575.575.588 1.412q.012.838-.563 1.413l-5 5q-.575.575-1.412.563q-.838-.013-1.413-.588ZM17 8l-3.55-3.5L8.5 9.45l3.55 3.5Z"/>
+                </svg>
+                  
+              
+              </a>
+              
+              <a href="{% url 'dashboard-page' %}" class="daily-summary__navigation-element space-right" aria-label="Fikirleri rahat bir şekilde gezebilmek için tıkla.">
+                <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M6 19h3v-6h6v6h3v-9l-6-4.5L6 10Zm-2 2V9l8-6l8 6v12h-7v-6h-2v6Zm8-8.75Z"/>
+                </svg>
+              </a>
+              
+              <a href="{% url 'ideas-page' %}" class="base-container"  aria-label="Justhink kullanıcılarından rastgele fikirler görmek için tıkla.">
+                <div                 
+                class="daily-summary__navigation-element daily-summary__navigation-element-base"
+              >
+              
+              <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path fill="currentColor" d="m19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575q.837 0 1.412.575l1.4 1.4q.575.575.6 1.388q.025.812-.55 1.387ZM17.85 10.4L7.25 21H3v-4.25l10.6-10.6Z"/>
+              </svg>
+              </div>
+              
+              </a>
+              {% elif section == "open-surveys" %} 
+                <a class="base-container"  href="{% url 'open-surveys-page' %}" class="daily-summary__navigation-element" aria-label="Diğer kullanıcıların oluşturduğu anketlere oy ver, kendi anketlerini paylaş.">
+                  <div class="daily-summary__navigation-element daily-summary__navigation-element-base">
+  
+                    <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M5 22q-.825 0-1.413-.587Q3 20.825 3 20v-4.55l2.75-3.125l1.425 1.425l-2 2.25h13.65l-1.95-2.2l1.425-1.425L21 15.45V20q0 .825-.587 1.413Q19.825 22 19 22Zm5.6-7.6l-3.475-3.525Q6.55 10.3 6.55 9.45q0-.85.575-1.425l4.9-4.9q.575-.575 1.425-.575q.85 0 1.425.575L18.4 6.6q.575.575.588 1.412q.012.838-.563 1.413l-5 5q-.575.575-1.412.563q-.838-.013-1.413-.588ZM17 8l-3.55-3.5L8.5 9.45l3.55 3.5Z"/>
+                    </svg>
+
+                  </div>
+                </a>
+                
+                <a href="{% url 'dashboard-page' %}" class="daily-summary__navigation-element space-right" aria-label="Fikirleri rahat bir şekilde gezebilmek için tıkla.">
+                  <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M6 19h3v-6h6v6h3v-9l-6-4.5L6 10Zm-2 2V9l8-6l8 6v12h-7v-6h-2v6Zm8-8.75Z"/>
+                  </svg>
+                </a>
+                
+                <a href="{% url 'ideas-page' %}" class="daily-summary__navigation-element" aria-label="Justhink kullanıcılarından fikirler görmek için tıkla.">
+                  <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="m19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575q.837 0 1.412.575l1.4 1.4q.575.575.6 1.388q.025.812-.55 1.387ZM17.85 10.4L7.25 21H3v-4.25l10.6-10.6Z"/>
+                  </svg>
+                </a>
+              {% else %} 
+              <a href="{% url 'open-surveys-page' %}" class="daily-summary__navigation-element" aria-label="Diğer kullanıcıların oluşturduğu anketlere oy ver, kendi anketlerini paylaş.">
+                <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M5 22q-.825 0-1.413-.587Q3 20.825 3 20v-4.55l2.75-3.125l1.425 1.425l-2 2.25h13.65l-1.95-2.2l1.425-1.425L21 15.45V20q0 .825-.587 1.413Q19.825 22 19 22Zm5.6-7.6l-3.475-3.525Q6.55 10.3 6.55 9.45q0-.85.575-1.425l4.9-4.9q.575-.575 1.425-.575q.85 0 1.425.575L18.4 6.6q.575.575.588 1.412q.012.838-.563 1.413l-5 5q-.575.575-1.412.563q-.838-.013-1.413-.588ZM17 8l-3.55-3.5L8.5 9.45l3.55 3.5Z"/>
+                </svg>
+              </a>
+
+              <a
+                href="{% url 'index-page' %}"
+                class="base-container"
+                aria-label="Fikirleri rahat bir şekilde gezebilmek için tıkla."
+              >
+                <div
+                  class="daily-summary__navigation-element daily-summary__navigation-element-base"
+                >
+                  <svg
+                    class="daily-summary__navigation-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M6 19h3v-6h6v6h3v-9l-6-4.5L6 10Zm-2 2V9l8-6l8 6v12h-7v-6h-2v6Zm8-8.75Z"
+                    />
+                  </svg>
+                </div>
+              </a>
+
+              <a href="{% url 'ideas-page' %}" class="daily-summary__navigation-element" aria-label="Justhink kullanıcılarından fikirler görmek için tıkla.">
+                <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="m19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575q.837 0 1.412.575l1.4 1.4q.575.575.6 1.388q.025.812-.55 1.387ZM17.85 10.4L7.25 21H3v-4.25l10.6-10.6Z"/>
+                </svg>
+              </a>
+              {% endif %}
+
+
+              {% endblock nav_midle %}
+            </div>
+
+            <a href="{% url 'leaderboard-page' %}" class="daily-summary__navigation-element {% if section == 'leaderboard' %}active{% endif %}" aria-label="Justhink kullanıcılarının sıralamalarına göz at.">
+
+              <svg class="daily-summary__navigation-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M399.9 80V32H112v48H32v38c0 32 9.5 62.79 26.76 86.61c13.33 18.4 34.17 31.1 52.91 37.21c5.44 29.29 20.2 57.13 50.19 79.83c22 16.66 48.45 28.87 72.14 33.86V436h-74v44h192v-44h-74v-80.49c23.69-5 50.13-17.2 72.14-33.86c30-22.7 44.75-50.54 50.19-79.83c18.74-6.11 39.58-18.81 52.91-37.21C470.5 180.79 480 150 480 118V80ZM94.4 178.8c-10.68-14.68-17.17-34.4-18.24-54.8H112v67.37c-3.94-1.14-12.92-6.12-17.6-12.57Zm323.2 0c-4.6 6.61-11.6 12.58-17.6 12.58c0-22.4 0-46.29-.05-67.38h35.9c-1.08 20.4-7.85 39.9-18.25 54.8Z"/>
+              </svg>
+
+              <span class="daily-summary__description-text trend">sıralama</span>
+            </a>
+          </nav>
+        </div>
+
+        <p class="daily-summary__tags">{{ topic.topic_keywords }}</p>
+      </div>
+
+
+      {% endblock %} {% block main %} {% endblock main %}
+    </main>
+
+    <footer class="footer">
+      {% block publish_idea %}
+      <div class="publish-idea-box">
+        <span class="publish-idea">
+          <svg
+            class="publish-idea-icon add"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <path fill="currentColor" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6Z" />
+          </svg>
+
+          <svg
+            class="publish-idea-icon close"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6Z"
+            />
+          </svg>
+        </span>
+        <div class="publish-idea-container">
+            <div class="topic-info">
+                  <a
+                href="#"
+                class="daily-summary__topic information-topic"
+              
+                aria-label="Konu hakkında kısa bir bilgi almak için tıkla."
+              >
+                {{ topic.topic_name }}
+              </a>
+              <div class="daily-summary_statistics">
+                <!-- <p class="total-art">toplam art: 0</p> -->
+                <p class="total-comment">toplam yorum: {{ comments_count }}</p>
+                <p class="total-idea">toplam fikir: {{ ideas_count }}</p>
+              </div>
+              <p class="daily-summary__tags">{{ topic.topic_keywords }}</p>
+            </div>
+          {% if section == "open-surveys" %} 
+          <form action="/publish-survey" class="publish-idea-form publish-survey-form" method="POST">
+            {% csrf_token %}
+
+            <label for="survey-content" class="publish-idea__input-label"
+              >Anket başlığını aşağıya yazabilirsin.</label
+            >
+            <input
+              type="text"
+              name="survey-content"
+              id="survey-content"
+              class="publish-idea__textarea"
+              placeholder="Sizce xxx konusunda nasıl bir tutum almalıyız?"
+              minlength="5"
+              maxlength="40"
+              required
+            ></input>
+
+            <label for="survey-options" class="publish-idea__input-label"
+            >Anket seçeneklerini aşağıya yazabilirsin. (Virgülle ayırarak)</label
+          >
+              <input
+                type="text"
+                name="survey-options"
+                id="survey-options"
+                class="publish-idea__textarea"
+                placeholder="Su, yemek, spor, krem"
+                required
+            ></input>
+
+            <label for="survey-date" class="publish-idea__input-label"
+            >Anketin sona erme tarihini takvimden seçebilirsin.</label
+          >
+              <input
+                type="datetime-local"
+                name="survey-date"
+                id="survey-date"
+                class="publish-idea__textarea"
+                required
+            ></input>
+
+            <button type="submit" class="btn btn-form publish-idea-submit">
+              Anketi Paylaş
+            </button>
+          </form>
+          {% else %}
+          <form action="/publish-idea" class="publish-idea-form" method="POST">
+            {% csrf_token %}
+
+            <label for="idea-content" class="publish-idea__input-label"
+              >Fikrini aşağıya yazabilirsin.</label
+            >
+            <textarea
+              name="idea-content"
+              id="idea-content"
+              class="publish-idea__textarea"
+              cols="50"
+              rows="6"
+              placeholder="Bence, xxx konusunda almamız gereken tutum böyle..."
+              minlength="20"
+              maxlength="6000000"
+              style="resize: none"
+              required
+            ></textarea>
+
+            <button type="submit" class="btn btn-form publish-idea-submit">
+              Fikri Paylaş
+            </button>
+          </form>
+          {% endif %} 
+        </div>
+      </div>
+      {% endblock %}
+      <div class="footer__footer">
+        <nav class="footer__navigation">
+          <ul class="footer__list">
+            <li class="footer__list-item"><a href="{% url 'home' %}" class="footer__link">Anasayfa</a></li>
+            <li class="footer__list-item"><a href="{% url 'about-us-page' %}" class="footer__link">Hakkımızda</a></li>
+            <li class="footer__list-item"><a href="{% url 'dashboard-page' %}" class="footer__link">Medya</a></li>
+          </ul>
+        </nav>
+        <div class="social-links">
+          <a href="mailto:iletisim@justhink.net" target="_blank" rel="nofollower noopener" class="social-link" aria-label="GMail üzerinden bize ulaşabilirsin."
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon social-icon" viewBox="0 0 512 512">
+            <title>Logo Google</title>
+            <path fill="currentColor" stroke="currentColor" d="M473.16 221.48l-2.26-9.59H262.46v88.22H387c-12.93 61.4-72.93 93.72-121.94 93.72-35.66 0-73.25-15-98.13-39.11a140.08 140.08 0 01-41.8-98.88c0-37.16 16.7-74.33 41-98.78s61-38.13 97.49-38.13c41.79 0 71.74 22.19 82.94 32.31l62.69-62.36C390.86 72.72 340.34 32 261.6 32c-60.75 0-119 23.27-161.58 65.71C58 139.5 36.25 199.93 36.25 256s20.58 113.48 61.3 155.6c43.51 44.92 105.13 68.4 168.58 68.4 57.73 0 112.45-22.62 151.45-63.66 38.34-40.4 58.17-96.3 58.17-154.9 0-24.67-2.48-39.32-2.59-39.96z"/>
+            </svg>
+        </a>
+          <a href="https://instagram.com/justhinkofficial" target="_blank" rel="nofollower noopener" class="social-link"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon social-icon" viewBox="0 0 512 512">
+              <title>Logo Instagram</title>
+              <path fill="currentColor" stroke="currentColor" d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z"/><path fill="currentColor" stroke="currentColor" d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z"/>
+              </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/justhink/" target="_blank" rel="nofollower noopener" class="social-link" aria-label="LinkedIn üzerinden bize ulaşabilirsin."
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon social-icon" viewBox="0 0 512 512">
+              <title>Logo Linkedin</title>
+              <path fill="currentColor" stroke="currentColor" d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"/>
+              </svg>
+          </a>
+            <a href="https://www.youtube.com/@jsthink" target="_blank" rel="nofollower noopener" class="social-link" aria-label="Youtube üzerinden bize ulaşabilirsin."
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="social-icon" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+              <path fill="currentColor" d="M508.64 148.79c0-45-33.1-81.2-74-81.2C379.24 65 322.74 64 265 64h-18c-57.6 0-114.2 1-169.6 3.6C36.6 67.6 3.5 104 3.5 149C1 184.59-.06 220.19 0 255.79q-.15 53.4 3.4 106.9c0 45 33.1 81.5 73.9 81.5c58.2 2.7 117.9 3.9 178.6 3.8q91.2.3 178.6-3.8c40.9 0 74-36.5 74-81.5c2.4-35.7 3.5-71.3 3.4-107q.34-53.4-3.26-106.9ZM207 353.89v-196.5l145 98.2Z"/>
+              </svg>
+              
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  
+  <script>
+    const likeBtns = document.querySelectorAll("a.idea__like-btn.idea__btn"),
+    sendCommentForm = document.querySelector(".send-comment-form"),
+    sendCommentBtn = document.querySelector('.send-comment-btn'),
+    commentInput = document.querySelector('.send-comment-textbox'),
+    ideaComments = document.querySelector('.idea-comments'),
+    loginForm = document.querySelector('.login-box__form'),
+    registerForm = document.querySelector('.register-box__form'),
+    authBtnContinue = document.querySelectorAll('.auth-btn__continue'),
+    notViewedNotificationItems = document.querySelectorAll('.notification-item.False'),
+    publishIdeaForm = document.querySelector('.publish-idea-form')
+
+    try {
+      publishIdeaForm.addEventListener('submit', (_e) => {
+      document.querySelector('.publish-idea-box').classList.replace('writing-idea', 'inspecting-ideas')
+    })
+    } catch {}
+
+    let userLoggedIn = "{{ user.is_authenticated }}"
+    if ( window.history.replaceState ) {
+        window.history.replaceState( false, false, window.location.href );
+    }
+
+
+    if (userLoggedIn != "False") {
+        likeBtns.forEach(likeBtn => {
+        likeBtn.addEventListener('click', (_e) => {
+        interactionIcon = likeBtn.querySelector('.idea__interaction-icon')
+        if (interactionIcon.classList.contains('non-liked')) {
+            interactionIcon.innerHTML = '<path fill="currentColor" d="M256 448a32 32 0 0 1-18-5.57c-78.59-53.35-112.62-89.93-131.39-112.8c-40-48.75-59.15-98.8-58.61-153C48.63 114.52 98.46 64 159.08 64c44.08 0 74.61 24.83 92.39 45.51a6 6 0 0 0 9.06 0C278.31 88.81 308.84 64 352.92 64c60.62 0 110.45 50.52 111.08 112.64c.54 54.21-18.63 104.26-58.61 153c-18.77 22.87-52.8 59.45-131.39 112.8a32 32 0 0 1-18 5.56Z"/>'
+            likeBtn.querySelector('.idea__like-count').textContent = parseInt(likeBtn.querySelector('.idea__like-count').textContent) + 1
+            interactionIcon.classList.remove('non-liked')
+            interactionIcon.classList.add('liked')
+        } else {
+            interactionIcon.innerHTML = '<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81c-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0 0 18 0c96.26-65.34 184.09-143.09 183-252.42c-.54-52.67-42.32-96.81-95.08-96.81Z"/>'
+            likeBtn.querySelector('.idea__like-count').textContent = parseInt(likeBtn.querySelector('.idea__like-count').textContent) - 1
+            interactionIcon.classList.remove('liked')
+            interactionIcon.classList.add('non-liked')
+        }
+
+
+        $.ajax({
+            type: 'GET',
+            url: likeBtn.getAttribute('data-url'),
+        })
+
+        })
+        });
+
+        try {
+          sendCommentForm.addEventListener('submit',  (e) => {
+    
+
+    e.preventDefault()
+
+    let commentContent = commentInput.value;
+    sendCommentForm.reset();
+
+  
+    $.ajax({
+        type: 'POST',
+        url: sendCommentBtn.getAttribute('data-url'),
+        data: {comment_content:commentContent, csrfmiddlewaretoken: document.querySelector('input[name="csrfmiddlewaretoken"]').value},
+        success: function(response) {window.location.reload()}
+
+    })
+
+    
+});
+
+        } catch (error) {
+          
+        }
+
+    } else {
+      try {
+          loginForm.addEventListener('submit',  (e) => {
+
+
+            e.preventDefault()
+
+            
+            let username = loginForm.querySelector('.auth-box__input[name="current-username"]').value, password =  loginForm.querySelector('.auth-box__input[name="current-password"]').value;
+            
+            
+
+            loginForm.reset();  
+
+            
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'authentication' %}",
+                data: {username:username, password: password, csrfmiddlewaretoken: loginForm.querySelector('input[name="csrfmiddlewaretoken"]').value},
+                success: function(response) {window.location.replace("/profile/" + username)}
+            })
+
+            
+        }); 
+
+        } catch (error) {
+          
+        }
+      try {
+        registerForm.addEventListener('submit',  (e) => {
+
+
+          e.preventDefault()
+
+          let username = registerForm.querySelector('.auth-box__input[name="username"]').value, password =  registerForm.querySelector('.auth-box__input[name="password"]').value, email = registerForm.querySelector('.auth-box__input[name="email"]').value, kvkk = registerForm.querySelector('.auth-box__input-checkbox').value, reference_code=registerForm.querySelector('.auth-box__input--ref').value
+
+          registerForm.reset();  
+
+          location.href +='#verify-credentials'
+          setTimeout(() => {
+
+            $.ajax({
+              type: 'POST',
+              url: "{% url 'register-page' %}",
+              data: {username:username, password: password, email: email, kvkk: kvkk, reference_code: reference_code, csrfmiddlewaretoken: registerForm.querySelector('input[name="csrfmiddlewaretoken"]').value},
+              success: function(response) {window.location.replace("/profile/" + username)}
+          })
+          }, 3000)
+
+
+          
+      }); 
+
+      } catch (error) {
+        
+      } 
+
+  
+
+     
+
+    }
+    // NOTIFICATIONS 
+
+    document.querySelector('.header__notifications-link').style.setProperty('--notif-count', `"${ notViewedNotificationItems.length.toString()}"`)
+    const notificationsBox = document.querySelector('.notifications-box')
+
+
+    const expandNotifications = () => {
+      notificationsBox.classList.toggle('showing')
+    };
+
+    
+  </script>
+</html>

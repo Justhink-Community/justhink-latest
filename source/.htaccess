@@ -1,0 +1,8 @@
+AddHandler fcgid-script .fcgi
+RewriteEngine On
+RewriteRule /static/ C:\Users\Administrator\Desktop\justhink-web-app\source\static
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ mysite.fcgi/$1 [QSA,L]
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+    Header set Cache-Control "max-age=84600, public"
+</filesMatch>

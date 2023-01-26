@@ -1,0 +1,297 @@
+:root {
+  --custom-hover-color: hsl(111, 65%, 96%);
+
+}
+
+::selection {
+  background-color: #637B1C;
+  color: #fafafa;
+}
+
+  linearGradient > stop:nth-of-type(1) {
+    -moz-stop-color: #8DA627;
+    stop-color: #8DA627;
+  }
+
+  linearGradient > stop:nth-of-type(2) {
+    -moz-stop-color: #055511;
+    stop-color: #055511;
+  }
+
+  .header {
+    --background-color: #fff
+  }
+  
+  .header__hamburger-menu {
+    --background-color: #8CA527
+  }
+  
+  .header__logo use, .header__logo g path, .header__logo--mobile use, .header__logo--mobile g path {
+    --background-color: #819F25;
+  }
+  
+  .header__search-box {
+    --background-color: linear-gradient(white, white) padding-box, linear-gradient(to right, #699121, #286A17) border-box;
+  }
+  
+  .header__search-icon {
+    --color: #678F21;
+  }
+  
+  .btn--primary, .rating-icon {
+    --background-color: #226616;
+    --hover-background-color: hsl(111, 65%, 32%);
+  }
+  
+  .header__notifications {
+    --color: #226616;
+    --hover-color: hsl(111, 65%, 32%);
+  }
+  
+  .notification-item.False::before {
+    --background-color: #226616;
+  }
+  
+
+  .header__language-switch {
+    --background-color: rgb(235, 235, 235);
+  }
+  
+  .header__language-switch .on {
+    --background-color: #1B6215;
+  }
+  
+  .header__language-switch .off {
+    --color: #686868;
+  }
+  
+  .header__search-field {
+    --color: #222;
+  }
+  
+  .point-view {
+    --color: inherit;
+  }
+  
+  .social-icon {
+    --color: #1B6215;
+  }
+  
+  .daily-summary__tags {
+    --color: #115C13;
+  }
+  .publish-idea-icon{
+    --color: #f5f5f5;
+  }
+  .publish-idea{
+    --background-color: #226616;
+    --hover-background-color: hsl(111, 65%, 32%);
+  }
+  .daily-summary__navigation-element-base::after{
+  --background-color:#e3e3e3;
+  }
+  .daily-summary__navigation-element-base .daily-summary__navigation-icon{
+  --color:#497E1C;
+  }
+  .daily-summary__description-text.favourite{
+  --background-color: transparent;
+  
+  }
+  .daily-summary__description-text.trend{
+  --background-color: transparent;
+  
+  }
+  .article-side{
+  --color: inherit;
+  }
+
+  .footer__footer {
+    --background-color: #FFF;
+  }
+
+  .footer__link {
+    --color: #1B6215;
+    --hover-color: hsl(115, 65%, 30%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    --background-color: #3e771a;
+    --hover-background-color: hsl(97, 64%, 36%);
+  }
+
+  
+  ::-webkit-scrollbar-track {
+    --background-color: #f2f5ef;
+  }
+
+  .idea, .survey {
+    --background-color: #f0f0f0;
+    --indicator-background-color: #497E1C;
+  }
+  .survey__option {
+    --selected-color: #4A7E1C;
+  }
+  .idea__interaction-icon {
+    --color: #4A7E1C;
+    --hover-color: hsl(92, 64%, 35%);
+  } 
+
+  .idea__counter {
+    --color: #4A7E1C;
+  }
+
+  .idea__author, .survey__author {
+    --color: #497E1C;
+  }
+
+  .idea__text {
+    --color: #686868;
+  }
+
+  .idea__administration-menu a {
+    --color: #444;
+    --hover-color: #666;
+  }
+
+  .daily-summary__navigation-element.active .daily-summary__navigation-icon {
+    --color: #497E1C;
+  }
+
+  .daily-summary__navigation-element.active {
+    --background-color: #e3e3e3;
+  }
+
+  /* IDEAS OVERVIEW (RANDOM IDEAS) */
+
+  .user-copyright, .idea-controller, .articles {
+    --color: #1E1D1E;
+    --background-color: #F0F0F0;
+  }
+
+  .controller__item {
+    --color: #1B6215;
+    --hover-color: hsl(115, 65%, 30%);
+  }
+
+  .heading-tertiary {
+    --color: #4A7E1C;
+  }
+
+  /* INSPECTING IDEAS  */
+
+  .daily-summary.inspect-idea {
+    --background: linear-gradient(#8DA627, #055511);
+  }
+
+  .idea-overview {
+    --background-color: #f0f0f0;
+  }
+
+  .idea__interaction-btns {
+    --indicator-background-color: #1B6215;
+  }
+
+  .idea-comment .idea__interaction-btns {
+    --indicator-background-color: #111;
+  }
+
+  .send-comment-btn {
+    --background-color: #1B6215;
+    --hover-background-color: hsl(115, 65%, 30%);
+
+    --color: #eee;
+  }
+
+  .send-comment-textbox {
+    --background-color: #ccc;
+  }
+
+  /* LEADERBOARD  */
+
+  .leaderboard {
+    --background-color: #f0f0f0;
+  }
+
+  .title {
+    --color: #222;
+  }
+
+  .leaderboard__list-item {
+    --color: inherit;
+  }
+
+  .notch-list > .leaderboard__index {
+    --color: hsl(115, 65%, 95%);
+    --background-color: #1B6215;
+  }
+
+  .notch-list > .leaderboard__username {
+    --color: hsl(115, 65%, 39%);
+  }
+
+  .leaderboard__index {
+    --color: hsl(0, 0%, 70%);
+    --background-color: hsl(0, 0%, 85%);
+  }
+
+  /* HOME */
+
+  .home body {
+    background-image: linear-gradient(to bottom right, #8DA627, #055511);
+  }
+
+  .topic-cta {
+    --color: hsl(115, 65%, 30%);
+  }
+  
+  .header__link {
+    --color: #1B6215;
+    --hover-color: hsl(115, 65%, 30%);
+  }
+
+  .heading-animated, .heading-secondary {
+    --background: linear-gradient(to right, #8DA627, #055511);
+  }
+  .btn-c--theme {
+    --background: #055511
+  }
+  body {
+    --color: #777;
+  }
+
+  /* PROFILE */
+
+  .profile__user-details {
+    --color: #111;
+  }
+
+  .profile-card {
+    --background-color: #fcfcfc;
+  }
+
+  /* PUBLISH IDEA  */
+
+  .publish-idea-container {
+    --background-color: hsl(115, 65%, 25%);
+  }
+
+  .btn-form {
+    --background-color: hsl(115, 65%, 35%);
+    --hover-background-color: hsl(115, 65%, 40%);
+    --color: #eee;
+  }
+
+
+  /* AUTHENTICATION  */
+
+  .my-account__link {
+    --hover-color: hsl(115, 65%, 25%);
+  }
+
+
+    /* SHOP  */
+
+    .confirm-purchase__btn--confirm {
+      --background-color: #226616;
+      --hover-background-color: hsl(111, 65%, 32%);
+    }

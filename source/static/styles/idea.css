@@ -1,0 +1,235 @@
+main {
+  padding: 0;
+  height: calc(100vh - 14.4rem);
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 3.2rem;
+  grid-template-rows: 100%;
+}
+
+footer {
+  margin: 0 !important;
+}
+
+/* DAILY SUMMARY  */
+
+.daily-summary {
+  background: var(--background);
+  width: clamp(30rem, 25vw, 40rem);
+  height: 100%;
+  padding: 10rem 3.5rem;
+  border-radius: 11px;
+}
+
+.daily-summary__tags {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  color: #eee;
+  opacity: .8;
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.daily-summary__topic {
+  font-size: 4rem;
+}
+
+.daily-summary_statistics {
+  flex-direction: column;
+  gap: .5rem;
+  font-size: 2.2rem;
+}
+
+/* IDEA OVERVIEW  */
+
+.idea-overview {
+  background-color: var(--background-color);
+  border-radius: 11px;
+  height: 100%;
+  position: relative;
+}
+
+.idea-container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: calc(100% - 4.5rem);
+}
+
+.idea {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  background: none;
+  border-radius: 0;
+}
+
+.idea:not(.idea-comment) {
+  padding-bottom: 1.6rem;
+}
+
+
+
+.idea__content {
+  grid-column: 1;
+  width: 90%;
+}
+
+.idea__interaction-btns {
+  position: relative;
+  flex-direction: row;
+}
+
+.idea__interaction-btns::after {
+  content: '';
+  position: absolute;
+  bottom: -2.5rem;
+  left: 0;
+  width: 100%;
+  height: .2rem;
+  background-color: var(--indicator-background-color);
+}
+
+.idea__btn {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.idea:nth-of-type(even)::after {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+}
+
+/* IDEA COMMENTS  */
+
+.idea-comment {
+  padding-top: 0;
+}
+
+.idea-comment .idea__interaction-btns::after {
+  width: 45%;
+  background-color: var(--indicator-background-color);
+}
+
+/* SEND COMMENT  */
+
+.send-comment {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.send-comment-form {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  height: 4.5rem;
+}
+
+.send-comment-form input {
+  outline: none;
+  border: none;
+}
+
+.send-comment-textbox {
+  border-bottom-left-radius: 11px;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  background-color: var(--background-color);
+}
+
+.send-comment-btn {
+  display: grid;
+  place-items: center;
+  background-color: var(--background-color); 
+  color: var(--color);
+  border-bottom-right-radius: 11px;
+  transition: background-color .2s ease;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.send-comment-btn:hover {
+  background-color: var(--hover-background-color); 
+}
+
+
+/* SORTING  */
+
+.sort-by {
+  margin-top: 1.6rem;
+  margin-bottom: 1.2rem;
+  display: inline-flex;
+  margin-left: 1.5rem;
+  padding: .5rem;
+  gap: .4rem;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: .3rem;
+  transition: all .2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sort-by:hover {
+  background-color: hsl(0, 0%, 91%);
+}
+
+.sort-by svg {
+  font-size: 2rem;
+}
+
+/* ARTICLES  */
+
+
+
+@media only screen and (max-width: 37em) {
+  .daily-summary_statistics {flex-direction: column !important; gap: 1rem !important; text-align: center;}
+
+  main {
+    grid-template-rows: .5fr 1fr .5fr !important;
+  }
+
+  .daily-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sort-by {
+    padding: 0;
+    margin-left: clamp(1rem,1vw,2.4rem);
+    margin-bottom: .6rem;
+    margin-top: .8rem;
+  }
+
+}
+
+@media only screen and (max-width: 80em) {
+  main {
+    grid-template-columns: 95%;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .daily-summary {
+    width: 100%;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .daily-summary__topic {
+    width: 100% !important;
+    font-size: 4rem !important;
+    text-align: center !important;
+    /* padding: 0 !important; */
+  }
+  .daily-summary_statistics {flex-direction: row; gap: 3rem;}
+}
+

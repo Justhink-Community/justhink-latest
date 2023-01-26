@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justhink &mdash; ARGE Süreci</title>
+
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #e3e3e3;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        h1 {
+            position: relative;
+            text-align: center;
+            margin-bottom: 1.6rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            height: .1rem;
+            width: 150%;
+            transform: translateX(-50%);
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    <h1>Justhink ARGE Süreci (v0.5b)</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <td>ID (#)</td>
+                <td>Tür</td>
+                <td>Yapılan İş</td>
+                <td>Tarih</td>
+                <td>Geliştiriciler</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for update in updates %} 
+            <tr>
+                <td>#{{update.pk}}</td>
+                <td>{{update.update_genre}}</td>
+                <td>{{update.update_work}}</td>
+                <td>{{update.update_date}}</td>
+                <td>{{update.update_authors}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

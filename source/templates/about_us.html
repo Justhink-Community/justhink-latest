@@ -1,0 +1,60 @@
+{% extends 'base.html' %} 
+
+
+{% block head %} 
+<link rel="stylesheet" href="/static/styles/about_us.css?version=100102">
+{% endblock %}
+
+{% block scripts %} 
+<script src="//code.jivosite.com/widget/EECNwVyQi1" async></script>
+
+{% endblock %}
+
+{% block header_center %} 
+<ul class="header-center__list">
+  <li class="header__list-item">
+    <a href="{% url 'about-us-page' %}" class="header__link">hakkımızda</a>
+</li>
+<li class="header__list-item">
+    <a href="{% url 'contact-us-page' %}" class="header__link">iletişime geç</a>
+</li>
+<li class="header__list-item">
+    <a href="{% url 'dashboard-page' %}" class="header__link">beta versiyon</a>
+</li>
+</ul>
+{% endblock %}
+{% block title %}Justhink &ndash; Hakkımızda{% endblock %}
+
+
+{% block heading_link %} 
+{% url 'home' %}
+{% endblock %}
+
+{% block daily_summary %} 
+
+{% endblock %} 
+
+{% block publish_idea %} 
+
+{% endblock %}
+{% block main %} 
+<div class="section-about">
+  <div class="text-center mb-big">
+    <h2 class="heading-animated">
+      Bizi yakından tanımaya başlayın!
+    </h2>
+  </div>
+  <div class="section-about__content">
+    <div class="section-about__text-content">
+
+      <h3 class="heading-tertiary-special mb-sm">Justhink nasıl kuruldu?</h3>
+      <p class="paragraph">jusTHINK, Limitless Makers kapsamında başlatılmış bir proje olup 6 üniversite ve 4 lise öğrencisi tarafından yürütülen bir fikir paylaşma platformudur. 12 Kasım’dan bari aktif olan ve inovatif fikirlerin öncelendiği bu platformda kullanıcılar jusTHINK ekibi tarafından seçilen günün konusu hakkındaki fikirlerini belirtirler.</p>
+      
+      <h3 class="heading-tertiary-special mb-sm">Justhink nedir?</h3>
+      <p class="paragraph">JusTHINK sayesinde seçilen günün konusu hakkında editörlerimiz tarafından hazırlanan bilgi metninden/videosundan faydalanabilir, diğer insanların bu konu hakkındaki fikirlerinini görebilir ve fikirleri beğenip yorum atabilir. Her fikre saygı duyulan jusTHINK ortamında kullanıcılar, alınan beğeniler sayesinde puan kazanabilir, bu puanlarla liderlik tablosunda diğer kullanıcılar ile yarışabilir ve uygulama arayüzünü kişiselleştirebilirler.</p>
+    </div>
+
+  </div>
+</div>
+{% endblock main %} 
+

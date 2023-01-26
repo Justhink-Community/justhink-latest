@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Justhink - Status</title>
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+  />
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-size: 1.6rem;
+    }
+
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    .database-details {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+    }
+
+    .database-detail {
+      background-color: #f0f0f0;
+      color: #222;
+      width: 20rem;
+      height: 20rem;
+      text-align: center;
+      display: flex;    
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 5rem;
+    }
+
+    .icon {
+      font-size: 8rem;
+    }
+
+    .database-detail h3 {
+      font-size: 3rem;
+      font-weight: 500;
+    }
+    
+    .database-detail span.value {
+      font-size: 3.5rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+    {% if request.user.is_superuser %} 
+      <h1>Hoş geldin: {{ request.user.username }}</h1>
+      <hr>
+      <section id="database-details">
+        <ul class="database-details">
+          <li class="database-detail">
+            <span class="material-symbols-outlined icon">
+              account_circle
+              </span>
+            <h3>Hesap Sayısı:</h3>
+            <span class="value">{{ accounts|length }}</span>
+          </li>
+          <li class="database-detail">
+            <span class="material-symbols-outlined icon">
+              tips_and_updates
+              </span>
+            <h3>Fikir Sayısı:</h3>
+            <span class="value">{{ ideas|length }}</span>
+          </li>
+          <li class="database-detail">
+            <span class="material-symbols-outlined icon">
+              chat
+              </span>
+            <h3>Yorum Sayısı:</h3>
+            <span class="value">{{ comments|length }}</span>
+          </li>
+        </ul>
+      </section>
+      
+      
+      
+    {% else %} 
+      <h1>Hay aksi!</h1>
+      <p>Bu sayfaya erişim izniniz yok!</p>
+    {% endif %}
+</body>
+</html>

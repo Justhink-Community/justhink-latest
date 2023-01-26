@@ -1,0 +1,99 @@
+{% extends 'base.html' %} 
+
+{% block title %}Justhink &ndash; Market{% endblock title %} 
+
+{% block daily_summary %} 
+
+{% endblock %} 
+
+{% block publish_idea %} 
+
+{% endblock %}
+
+{% block head %} 
+<link rel="stylesheet" href="/static/styles/shop.css?version={% now 'U' %}{% now 'U' %}">
+{% endblock %}
+
+{% block scripts %} 
+<script src="/static/src/shop.js" defer></script>
+{% endblock %}
+
+{% block main %}
+<div class="wrapper">
+  <div class="title">
+    <h1 class="heading-primary">Justhink Marketi</h1>
+    <p class="heading-description">Justhink'te aktif olarak ve diğer insanlarla konuşarak kazandığın puanları burada harcayabilirsin!</p>
+
+    <div class="filter-buttons">
+      <a href="#themes" class="filter-button active">Temalar</a>
+      <a href="#surprise-box" class="filter-button">İkonlar</a>
+    </div>
+  </div>
+  <div class="shop" id="surprise-box">
+    a
+  </div>
+  <div class="shop" id="themes">
+    <div class="categories-nav">
+      
+    </div>
+    <div class="products">
+      {% for product in products %} 
+      <div class="product">
+        <img class="product-image" src="{{ product.product_image }}" />
+        <div class="product__content">
+          <h4 class="product-title">{{ product.product_name }}</h4>
+          <p class="product-description">{{ product.product_description }}</p>
+          <div class="product-details">
+            <span class="product-fee">Ücret: <span>{{ product.product_fee }} Puan</span></span>
+            {% if product.product_name == "Thinker Tema" %}
+            {% if profile.web_theme == "default-theme" or profile.web_theme == "Thinker Tema" %} 
+            <a href="#" class="btn btn--primary product-active" data-product="{{ product.product_name }}" data-fee = "{{ product.product_fee }}" data-niche = "theme">
+
+              Aktif</a>
+            {% else %} 
+            <a href="#" class="btn btn--primary product-use" data-product="{{ product.product_name }}" data-fee = "{{ product.product_fee }}" data-niche = "theme">
+
+              Kullan</a>
+              {% csrf_token %}
+            {% endif %}
+ 
+
+            {% elif product.product_name in profile.shop_bought_products %}
+            {% if profile.web_theme == product.product_name %} 
+            <a href="#" class="btn btn--primary product-active" data-product="{{ product.product_name }}" data-fee = "{{ product.product_fee }}" data-niche = "theme">
+
+              Aktif</a>
+            {% else %}
+            <a href="#" class="btn btn--primary product-use" data-product="{{ product.product_name }}" data-fee = "{{ product.product_fee }}" data-niche = "theme">
+
+              Kullan</a>
+              {% csrf_token %}
+            {% endif %} 
+
+            {% else %}
+            <a href="#confirm-purchase" class="btn btn--primary product-buy" data-product="{{ product.product_name }}" data-fee = "{{ product.product_fee }}">
+
+              Satın Al</a>
+            {% endif %}
+          
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <div class="confirm-purchase" id="confirm-purchase">
+    <div class="confirm-purchase__content">
+      <p class="confirm-purchase__text">Forest Teması adlı ürün için 100 puan kullanmayı onaylıyor musun?</p>
+    <div class="confirm-purchase__controls">
+      {% csrf_token %}
+      <a href="#shop" class="confirm-purchase__btn">Hayır</a>
+      
+      <a href="#" class="confirm-purchase__btn confirm-purchase__btn--confirm">Evet</a>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

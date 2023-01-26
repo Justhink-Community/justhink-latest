@@ -1,0 +1,69 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+<link rel="stylesheet" href="/static/styles/idea.css">
+<link rel="stylesheet" href="/static/styles/leaderboard.css">
+<style>
+
+
+  .daily-summary {
+    position: static;
+  }
+
+
+</style>
+{% endblock %}
+
+{% block scripts %} 
+{% endblock %}
+
+{% block daily_summary %} {% endblock %} 
+
+{% block title %}Justhink &ndash; Liderlik Tablosu{% endblock %}
+
+{% block main %} 
+
+
+  <section class="daily-summary inspect-idea">
+
+    
+
+    <p class="daily-summary__tags">{{ topic.topic_keywords }}</p>
+
+    <a href="#" class="daily-summary__topic information-topic"  aria-label="Konu hakkında kısa bilgi almak için tıkla.">
+      {{ topic.topic_name }}
+    </a>
+
+
+    <div class="daily-summary_statistics">
+      <!-- <p class="total-art">toplam art: 0</p> -->
+      <p class="total-comment">toplam yorum: {{ comments_count }}</p>
+      <p class="total-idea">toplam fikir: {{ ideas_count }}</p>
+    </div>
+  </section>
+
+  <section class="leaderboard">
+    <h2 class="heading-secondary title">Liderlik Tablosu</h2>
+
+    <ul class="leaderboard__list">
+        {% for profile in profiles %} 
+        <li class="leaderboard__list-item {% if user == profile.account %}notch-list{% endif %}">
+
+            <p class="leaderboard__index"><span>{{ forloop.counter }}</span></p>
+            
+            <p class="leaderboard__username">{{ profile.account.username }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+  </section>
+  <section class="articles">
+    <h3 class="articles-heading heading-tertiary">Beğenileceğini düşündüğümüz metinler:</h3>
+    <ul class="articles-list">
+      <li class="article"><a href="#" class="article-link" aria-label="Bu bilginin kaynağına gitmek için tıkla.">#123</a></li>
+      <li class="article"><a href="#" class="article-link" aria-label="Bu bilginin kaynağına gitmek için tıkla.">#456</a></li>
+      <li class="article"><a href="#" class="article-link" aria-label="Bu bilginin kaynağına gitmek için tıkla.">#789</a></li>
+    </ul>   
+  </section>
+
+
+{% endblock %}

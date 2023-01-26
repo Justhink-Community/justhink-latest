@@ -1,0 +1,184 @@
+{% extends 'base.html' %} 
+{% load groups_extras %}
+{% load themes_extras %}
+
+{% block head %} 
+<link rel="stylesheet" href="/static/styles/profile.css?version=1001065">
+{% endblock %} 
+ 
+{% block title %} 
+@{{ puser.username }} &bull; Justhink fikirleri ve yorumları
+{% endblock %}
+
+{% block page_description %}
+{{ pprofile.profile_followers|length }} Takipçi, {{ user_ideas|length }} Fikir, {{ user_comments |length }} Yorum &bull; @{{ puser.username }}'e ait Justhink fikirlerini ve yorumlarını gör
+{% endblock %}
+
+{% block onseo_text %}
+{{ pprofile.profile_followers|length }} Takipçi, {{ user_ideas|length }} Fikir, {{ user_comments |length }} Yorum &bull; @{{ puser.username }}'e ait Justhink fikirlerini ve yorumlarını gör
+{% endblock %}
+
+{% block main %} 
+<div class="profile-card" id="{{puser.username}}">
+  <header class="profile__header">
+    <img src="/static/banners/{% get_theme_banner profile.web_theme %}" alt="{{ puser.username }} isimli kullanıcının banner'ı" class="profile__banner">
+    {% if profile == pprofile %} 
+    <a href="#" class="profile__header-link profile__change-banner">
+      <svg class="profile__header-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 17.5q1.875 0 3.188-1.312Q16.5 14.875 16.5 13q0-1.875-1.312-3.188Q13.875 8.5 12 8.5q-1.875 0-3.188 1.312Q7.5 11.125 7.5 13q0 1.875 1.312 3.188Q10.125 17.5 12 17.5Zm0-2q-1.05 0-1.775-.725Q9.5 14.05 9.5 13q0-1.05.725-1.775Q10.95 10.5 12 10.5q1.05 0 1.775.725q.725.725.725 1.775q0 1.05-.725 1.775q-.725.725-1.775.725ZM4 21q-.825 0-1.412-.587Q2 19.825 2 19V7q0-.825.588-1.412Q3.175 5 4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588Q22 6.175 22 7v12q0 .825-.587 1.413Q20.825 21 20 21Zm16-2V7h-4.05l-1.825-2h-4.25L8.05 7H4v12Zm-8-6Z"/>
+      </svg>
+
+
+    </a>
+    {% endif %}
+    <nav class="profile__operations">
+      <ul class="profile__operations-list">
+        {% if profile != pprofile %}
+        <li class="profile__operations-item">
+          <a href="#" class="profile__header-link" >
+ 
+            <svg class="profile__header-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+              <path fill="currentColor" d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376v103.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3l123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6L190.1 336l1.2 1l-123.1-51.3zm335.1 139.7l-166.6-69.5l214.1-239.3l-47.5 308.8z"/>
+            </svg>
+          </a>
+        </li>
+        {% endif %}
+        {% if profile != pprofile %} 
+        <li class="profile__operations-item">
+          <a class="profile__header-link follow-btn">
+            {% csrf_token %}
+            <svg class="profile__header-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4Zm1 5q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"/>
+            </svg>
+
+
+          </a>
+        </li>
+        {% endif %}
+        {% if profile == pprofile %} 
+        <li class="profile__operations-item">
+          <a href="#" class="profile__header-link">
+            <svg class="profile__header-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+              <path fill="currentColor" d="m9.25 22l-.4-3.2q-.325-.125-.612-.3q-.288-.175-.563-.375L4.7 19.375l-2.75-4.75l2.575-1.95Q4.5 12.5 4.5 12.337v-.675q0-.162.025-.337L1.95 9.375l2.75-4.75l2.975 1.25q.275-.2.575-.375q.3-.175.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3q.287.175.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.337v.675q0 .163-.05.338l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375q-.3.175-.6.3l-.4 3.2Zm2.8-6.5q1.45 0 2.475-1.025Q15.55 13.45 15.55 12q0-1.45-1.025-2.475Q13.5 8.5 12.05 8.5q-1.475 0-2.488 1.025Q8.55 10.55 8.55 12q0 1.45 1.012 2.475Q10.575 15.5 12.05 15.5Z"/>
+            </svg>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <img src="/static/logos/{% get_theme_logo profile.web_theme %}" alt="{{ puser.username }} isimli kullanıcının profil fotoğrafı" class="profile__photo">
+
+  </header>
+  <div class="profile__details">
+    <div class="profile__user-details">
+      <p class="profile__username"><span>{{ puser.username }}</span> <abbr title="Yetkili Rozeti - @{{ puser.username }}">{% get_group_icon puser %}</abbr></p>
+      <ul class="profile__statistics">
+        <li class="profile__statistics-item"><span class="profile__statistics-value followers-count">{{ pprofile.profile_followers|length }}</span><span class="profile__statistics-tag">Takipçi</span></li>
+        <li class="profile__statistics-item"><span class="profile__statistics-value">{{ user_ideas|length }}</span><span class="profile__statistics-tag">Fikir</span></li>
+        <li class="profile__statistics-item"><span class="profile__statistics-value">{{ user_comments|length }}</span><span class="profile__statistics-tag">Yorum</span></li>
+      </ul>
+    </div>
+    <div class="profile__user-history">
+      <div class="profile__comments-history profile__history-box">
+        <h4 class="profile__history-title">Geçmiş Fikirlerin:</h4>
+        <ul class="profile__history-elements">
+          {% for user_idea in user_ideas %} 
+          {% if user_idea.idea_topic is not None %} 
+          <li class="profile__history-element">
+            <a href="{% url 'inspect-idea-page' user_idea.pk %}" class="profile__history-link">
+              <div class="profile-history profile-history--idea">
+                <div class="profile-history__details">
+                  <p class="profile-history__topic">{{ user_idea.idea_topic }}</p>
+                  <p class="profile-history__date">{{ user_idea.idea_publish_date|date:"d.m.Y - H.i" }}</p>
+                </div>
+                <ul class="profile-history__statistics">
+                  <li class="profile-history__statistic">
+                    <svg class="profile-history__statistic-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6Z"/>
+                    </svg>
+                    <p class="profile-history__statistic-value">{{ user_idea.idea_like_count }}</p>
+                  </li>
+                  <li class="profile-history_statistic">
+                    <svg class="profile-history__statistic-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+                      <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M408 64H104a56.16 56.16 0 0 0-56 56v192a56.16 56.16 0 0 0 56 56h40v80l93.72-78.14a8 8 0 0 1 5.13-1.86H408a56.16 56.16 0 0 0 56-56V120a56.16 56.16 0 0 0-56-56Z"/><circle cx="160" cy="216" r="32" fill="currentColor"/><circle cx="256" cy="216" r="32" fill="currentColor"/><circle cx="352" cy="216" r="32" fill="currentColor"/>
+                    </svg>
+                    <p class="profile-history__statistic-value">{{ user_idea.idea_comments|length }}</p>
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </li>
+          {% endif %}
+
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="profile__comments--history profile__history-box">
+        <h4 class="profile__history-title">Geçmiş Yorumların:</h4>
+        <ul class="profile__history-elements">
+          {% for user_comment in user_comments %} 
+          {% if user_comment.comment_topic is not None %} 
+          <li class="profile__history-element">
+            <a href="{% url 'inspect-idea-page' user_comment.comment_idea.pk %}" class="profile__history-link">
+              <div class="profile-history profile-history--idea">
+                <div class="profile-history__details">
+                  <p class="profile-history__topic">{{ user_comment.comment_topic }} ({{ user_comment.comment_idea.idea_author.account.username }})</p>
+                  <p class="profile-history__date">{{ user_comment.comment_publish_date|date:"d.m.Y - H.i" }}</p>
+                </div>
+                <ul class="profile-history__statistics">
+                  <li class="profile-history__statistic">
+                    <svg class="profile-history__statistic-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6Z"/>
+                    </svg>
+                    <p class="profile-history__statistic-value">{{ user_comment.comment_like_count }}</p>
+                  </li>
+                  <li class="profile-history_statistic">
+                    <svg class="profile-history__statistic-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M19 12.998H5v-2h14z"/>
+                    </svg>
+                    <p class="profile-history__statistic-value">{{ user_comment.comment_dislike_count }}</p>
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const followBtn = document.querySelector('.follow-btn'),
+  followersCount = document.querySelector('.followers-count')
+
+  if (followBtn) {
+    let isFollowing = "{% if user.username in pprofile.profile_followers %}true{% else %}false{% endif %}"
+      followBtn.addEventListener('click', (_e) => {
+          if (isFollowing == 'true') {
+            followersCount.textContent = parseInt(followersCount.textContent) - 1
+            isFollowing = 'false'
+          } else {
+            followersCount.textContent = parseInt(followersCount.textContent) + 1
+            isFollowing = 'true'
+          }
+          $.ajax({
+              type: 'POST',
+              url: "{% url 'follow-profile' pprofile.pk %}",
+              data: { csrfmiddlewaretoken: followBtn.querySelector('input[name="csrfmiddlewaretoken"]').value},
+ 
+          })
+      });
+  }
+</script>
+{% endblock %}
+
+
+{% block daily_summary %} 
+
+{% endblock %} 
+
+{% block publish_idea %} 
+
+{% endblock %}

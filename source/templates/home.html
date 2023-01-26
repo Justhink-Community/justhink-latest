@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="/static/styles/home.css?version=5">
+{% endblock %}
+
+{% block scripts %} 
+<script>
+  document.querySelector('html').classList.add('home')
+</script>
+<script src="//code.jivosite.com/widget/EECNwVyQi1" async></script>
+
+{% endblock %}
+
+{% block header_center %} 
+<ul class="header-center__list">
+    <li class="header__list-item">
+      <a href="{% url 'about-us-page' %}" class="header__link">hakkımızda</a>
+  </li>
+  <li class="header__list-item">
+      <a href="{% url 'contact-us-page' %}" class="header__link">iletişime geç</a>
+  </li>
+  <li class="header__list-item">
+      <a href="{% url 'dashboard-page' %}" class="header__link">beta versiyon</a>
+  </li>
+  </ul>
+{% endblock %}
+
+{% block heading_link %} 
+{% url 'home' %}
+{% endblock %}
+
+{% block title %} 
+Justhink &ndash; Anasayfa
+{% endblock %}
+
+{% block main %} 
+
+<div class="section-hero">
+    <div class="heading">
+        <h2 class="heading-secondary">Günlük <br> inovasyon dozu</h2>
+        <h3 class="topic-name">Günün konusu: {{ topic_name }}</h3>
+        <p class="topic-description">{{ topic_sources }}</p>
+        <a href="{% if not user.is_anonymous %}{% url 'index-page' %}{% else %}{% url 'authentication' %}{% endif %}" class="btn topic-cta">Fikir Yaz</a>
+    </div>
+
+    <figure class="image-composition">
+        <svg class="image-composition__branding-image" width="711" height="600" viewBox="0 0 711 890" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10.2959" y="414.976" width="625.804" height="464.353" rx="72" stroke="white" stroke-width="20"/>
+            <path d="M380.47 230.071C380.47 261.701 354.829 287.342 323.199 287.342C291.568 287.342 265.927 261.701 265.927 230.071C265.927 198.441 291.568 172.8 323.199 172.8C354.829 172.8 380.47 198.441 380.47 230.071Z" fill="white" stroke="white" stroke-width="20"/>
+            <ellipse cx="202.108" cy="741.333" rx="40.3628" ry="40.3627" fill="white"/>
+            <ellipse cx="444.284" cy="741.333" rx="40.3628" ry="40.3627" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M283.111 783.111C281.624 787.319 283.111 778.395 283.111 783.111C283.111 805.403 301.182 823.474 323.474 823.474C345.766 823.474 363.837 805.404 363.837 783.112C363.837 783.112 363.837 783.112 363.837 783.111V783.111V783.111C363.837 778.395 364.089 787.674 363.837 783.112L283.111 783.111L283.111 783.111Z" fill="white"/>
+            <mask id="path-6-inside-1_6_2" fill="white">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M323.197 297.342V404.976Z"/>
+            </mask>
+            <path d="M343.197 297.342V277.342H303.197V297.342H343.197ZM303.197 404.976V424.976H343.197V404.976H303.197ZM303.197 297.342V404.976H343.197V297.342H303.197Z" fill="white" mask="url(#path-6-inside-1_6_2)"/>
+            <path d="M320.208 297.402V404.707" stroke="white" stroke-width="20" stroke-linecap="square"/>
+            <path opacity="0.5" d="M194.4 230H94.3999" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path opacity="0.5" d="M555.5 229H455.5" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M206 170.8L207.397 170.5" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M206 170.3L207.397 170" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M175 152.3L174.5 152.5" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M322.5 65L322 65.1998" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M322.5 11L322 11.1998" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M523.5 119L523 119.2" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M475.5 324L475 324.2" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M140.5 132L140 132.2" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M113.5 116L113 116.2" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M171.3 329L219.106 300.98" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M430 171.02L477.806 143" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M430 297L449.5 308.5" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path d="M501.5 339.5L521.5 350.5" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path opacity="0.5" d="M206 32.7975L256 119.4" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <path opacity="0.5" d="M440.5 30.4L390.5 117.003" stroke="white" stroke-width="20" stroke-linecap="round"/>
+            <rect x="64.1118" y="468.793" width="518.17" height="195.268" rx="22" stroke="white" stroke-width="20"/>
+            </svg>
+            
+    </figure>
+</div>
+
+
+
+{% endblock %}
+
+{% block daily_summary %} 
+
+{% endblock %} 
+
+{% block publish_idea %} 
+
+{% endblock %}

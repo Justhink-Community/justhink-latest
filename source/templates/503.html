@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justhink Hizmetleri Bakımda</title>
+    <link rel="stylesheet" href="/static/fonts/stylesheet.css" />
+
+    <style>
+        *, *:before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-size: 1.6rem;
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            background-color: #e3e3e3;
+            color: #121212;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* MAIN STYLES  */
+
+        .heading-primary {
+            font-weight: 600;
+            font-size: 4.8rem;
+            position: relative;
+            margin-bottom: 1.2rem;
+        }   
+    
+        .heading-primary::after {
+            content: "";
+            position: absolute;
+            display: block;
+            height: .1rem;
+            background-color: #aaa;
+            width: 200%;
+            left: -50%;
+            bottom: 0;
+        }
+
+        .paragraph {
+            line-height: 1.3;
+            font-weight: 500;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .deadline {
+            margin-top: 2.4rem;
+        }
+
+        p span {
+            font-weight: 600;
+        }
+
+        .btn { 
+            display: inline-block;
+            text-decoration: none;
+            padding: .5rem 1rem;
+            color: #51266a;
+            transition: all .2s ease;
+            position: relative;
+            margin-top: 2.4rem;
+            border-bottom: .1rem solid #51266a;
+        }
+
+
+        .btn--primary:hover, .btn--primary:active {
+            background-color: #51266a;
+            color: #fafafa;
+            border-bottom-color: transparent;
+            transform: translateY(-.5rem);
+            perspective: 1;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        }
+
+        .btn--primary:active {
+            transform: translateY(0);
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <main class="main">
+        <h1 class="heading-primary">Justhink Hizmetleri Bakımda</h1>
+        <p class="paragraph">Size daha iyi hizmet sağlayabilmek amacıyla sitemizi planlı olarak bakım moduna almış bulunmaktayız.</p>
+        <p class="deadline">Tahmini Süre &mdash; <span class="date">7.01.2023 21.10 - 8.01.2023 08:10</span></p>
+        <p class="reason">Sebep &mdash; <span class="reason-label">Ölçeklendirme Çalışmaları</span></p>
+        <p class="authors">Yetkili &mdash; <span class="devs-label">Furkan Esen (Justhink Yazılım ve Ağ Teknolojileri Genel Sorumlusu)</span></p>
+        <a href="mailto:iletisim@justhink.net" class="btn btn--primary" rel="nofollower noopener" target="_self">İletişime Geç</a>
+    </main>
+</body>
+</html>

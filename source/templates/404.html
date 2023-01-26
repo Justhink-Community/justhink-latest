@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+
+{% block head %} 
+<style>
+  main {
+    position: static;
+  }
+
+  .wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .heading-secondary {
+    color: #222;
+    font-size: 4.8rem;
+  }
+
+  .static-paragraph {
+    font-size: 2rem;
+  }
+
+  a {
+    color: inherit;
+  }
+</style>
+{% endblock %}
+
+{% block main %} 
+<div class="wrapper">
+  <h2 class="heading-secondary">Oops... Aradığınız sayfa kaldırılmış gibi</h2>
+<p class="static-paragraph">Bunun bir hata olduğunu düşünüyorsanız, <a href="mailto:iletisim@justhink.net" aria-label="Bizimle iletişime geçmek için tıkla.">bizimle iletişime geçin</a></p>
+</div>
+{% endblock %}
+
+{% block daily_summary %} 
+
+{% endblock %} 
+
+{% block publish_idea %} 
+
+{% endblock %}

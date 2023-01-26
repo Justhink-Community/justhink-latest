@@ -1,0 +1,29 @@
+{
+    "name": "Justhink",
+    "short_name": "Justhink",
+    "description": "Justhink, insanları belirli bir konu hakkında tartışmak için bir araya getiren ve bunları etik bir ortamda yapmalarına aracılık eden öncü bir yeni nesil sosyal medya platformudur.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#e3e3e3",
+    "theme_color": "#4d1a5f",
+    "orientation": "any",
+    "categories": ["books", "education", "lifestyle"],
+    "dir": "ltr",
+    "lang": "tr-TR",
+    "icons": [
+      {
+        "src": "/static/logos/app_logo-192.png",
+        "type": "image/png", "sizes": "192x192", "purpose": "any"
+      },
+      {
+        "src": "/static/logos/app_logo-512.png",
+        "type": "image/png", "sizes": "512x512", "purpose": "any"
+      },
+      {
+        "src": "/static/logos/maskable-logo.png",
+        "sizes": "196x196",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }

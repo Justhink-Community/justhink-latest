@@ -1,0 +1,366 @@
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  padding-top: 0;
+}
+.footer {
+  margin-top: 0 !important;
+}
+.profile-card {
+  display: grid;
+  max-width: 110rem;
+  margin: auto;
+  background-color: var(--background-color);
+  border-radius: 1.1rem;
+}
+
+/* PROFILE HEADER  */
+
+.profile__header {
+  width: 100%;
+  position: relative;
+}
+
+.profile__banner {
+  max-width: 100%;
+  height: 100%;
+}
+
+.profile__header-link:link, .profile__header-link:visited {
+  text-decoration: none;
+  color: #333;
+  transition: all .2s ease;
+  position: relative;
+  height: auto;
+  cursor: pointer;
+}
+
+.profile__header-icon {
+  font-size: 2.4rem;
+  padding: .6rem;
+  border-radius: 50%;
+  display: block;
+  box-sizing: content-box;
+  transition: all .1s ease;
+}
+
+.profile__header-link:hover .profile__header-icon, .profile__header-link:active .profile__header-icon {
+  background-color: #e3e3e3;
+}
+
+.profile__change-banner {
+  position: absolute !important;
+  top: 1.4rem;
+  right: 2rem;
+}
+
+.profile__operations {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.profile__operations-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: .4rem;
+  align-items: center;
+}
+
+.profile__photo {
+  position: absolute;
+  left: 3rem;
+  bottom: -5rem;
+  width: 20rem;
+  height: 20rem;
+  object-fit: contain;
+  
+}
+
+/* PROFILE DETAILS  */
+
+.profile__details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 2rem;
+  grid-template-rows: 1fr 9fr;
+}
+
+.profile__user-details {
+  grid-column: 2 / span 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color);
+}
+
+
+.profile__username {
+  font-weight: 500;
+  font-size: 3.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.profile__username span {
+  margin-right: 1.2rem;
+}
+
+.profile__statistics {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.6rem;
+}
+
+.profile__statistics-item {
+  display: flex;
+  gap: .4rem;
+  font-size: 2rem;
+}
+
+.profile__statistics-value {
+  font-weight: 500;
+}
+
+.profile__statistics-tag {
+  font-weight: 400;
+}
+
+/* PROFILE HISTORY  */
+
+.profile__user-history {
+  margin-top: 3rem;
+  position: relative;
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10rem;
+  padding: 3rem 0;
+}
+
+.profile__user-history::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  width: calc(100% + 4rem);
+  height: .1rem;
+  background-color: #e3e3e3;
+}
+
+.profile__history-box {
+  background-color: #d9d9d9;
+  max-height: 30.4rem;
+  overflow-y: scroll;
+  border-radius: .65rem;
+}
+
+.profile__history-title {
+  margin-top: .6rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.profile__history-elements {
+  padding: 2.4rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.profile__history-element {
+  background-color: #f2f2f2;
+  border-radius: .375rem;
+}
+
+.profile__history-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-history  {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 1rem;
+}
+
+.profile-history__details {
+  position: relative;
+}
+
+.profile-history__details::after {
+  content: "";
+  position: absolute;
+  display: block;
+  right: 1rem;
+  top: -1rem;
+  height: calc(100% + 2rem);
+  width: .1rem;
+  background-color: #d9d9d9;
+}
+
+.profile-history__topic {
+  font-weight: 500;
+}
+
+.profile-history__date {
+  font-size: 1.5rem;
+}
+
+.profile-history__statistic-icon {
+  font-size: 2rem;
+}
+
+.profile-history__statistics {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.profile-history__statistic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+}
+
+/* RESPONSIVENESS  */
+
+
+
+
+@media only screen and (max-width: 80em) {
+  .profile-card {
+    max-width: 220rem;
+    margin: 4.5rem 0;
+  }
+  
+  .profile__user-history {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .profile__photo  {
+    width: 30rem;
+    height: 30rem;
+    bottom: -7.5rem;
+  }
+
+  .profile__user-details {
+    transform: translateX(-10%);
+    width: 110%;
+  }
+  
+  .profile__username {
+    font-size: 5.2rem;
+  }
+  
+  .profile__statistics-item {
+    font-size: 3rem;
+  }
+
+  .profile__statistics {
+    gap: 3.6rem;
+  }
+
+  .profile__details {
+    transform: translateY(-1rem);
+  }
+  
+  .profile__header-icon, .profile__history-title {
+    font-size: 4.8rem;
+  }
+
+  .profile__operations-list {
+    gap: 2.4rem;
+  }
+
+  .profile-history__topic {
+    font-size: 3.6rem;
+  }
+
+  .profile-history__statistic-icon {
+    font-size: 4rem;
+  }
+
+  .profile-history__date, .profile-history__statistic-value {
+    font-size: 3.2rem !important;
+  }
+
+  .profile__history-element {
+    padding-left: 1.6rem;
+  }
+}
+@media only screen and (max-width: 50em) {
+  .profile__history-box {
+    max-height: 60rem;
+  }
+  
+  .profile__details {
+    grid-template-rows: 1fr 9fr;
+  }
+
+  .profile-history {
+        grid-template-columns: 4fr 1.5fr !important;
+  }
+  
+  .profile__details {
+    margin-top: 6.4rem !important;
+  }
+
+  .profile__user-details {
+    transform: translateX(0%) !important;
+    width: 100% !important;
+    grid-column: span 4;
+    gap: 2.4rem;
+  }
+
+  .profile__statistics-item {
+    gap: 1rem !important;
+  }
+
+  .profile__statistics-item {
+    font-size: 3.6rem !important;
+  }
+
+  .profile__username {
+    font-size: 6rem !important;
+  }
+
+  .profile__details {
+    padding: 0 3.2rem !important;
+    width: 100% !important;
+
+  }
+
+  
+} 
+
+
+@media only screen and (max-width: 37em) {
+  .profile__user-details {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 1rem;
+  }
+
+  
+  .profile__header {
+    height: calc(150% - .4rem);
+  }
+
+  .profile__details {
+    margin-top: 26rem !important;
+  }
+  
+
+}
