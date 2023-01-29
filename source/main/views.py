@@ -740,21 +740,21 @@ def StatisticsView(request):
 
         users_who_has_used_website_2_days = [idea.idea_author for idea in ideas if len(Idea.objects.filter(Q(idea_author = idea.idea_author))) >= 2]
         
-        char_count_of_total_ideas = sum([len(idea.idea_content) for idea in ideas]) 
-        word_count_of_total_ideas = sum([len(idea.idea_content.split(' ')) for idea in ideas]) 
-        sentence_count_of_total_ideas = sum([len(idea.idea_content.split('.')) for idea in ideas]) 
+        char_count_of_total_ideas = sum(len(idea.idea_content) for idea in ideas)
+        word_count_of_total_ideas = sum(len(idea.idea_content.split(' ')) for idea in ideas) 
+        sentence_count_of_total_ideas = sum(len(idea.idea_content.split('.')) for idea in ideas) 
 
-        today_char_count_of_total_ideas = sum([len(idea.idea_content) for idea in ideas if idea.idea_archived == False]) 
-        today_word_count_of_total_ideas = sum([len(idea.idea_content.split(' ')) for idea in ideas if idea.idea_archived == False]) 
-        today_sentence_count_of_total_ideas = sum([len(idea.idea_content.split('.')) for idea in ideas if idea.idea_archived == False]) 
+        today_char_count_of_total_ideas = sum(len(idea.idea_content) for idea in ideas if idea.idea_archived == False) 
+        today_word_count_of_total_ideas = sum(len(idea.idea_content.split(' ')) for idea in ideas if idea.idea_archived == False) 
+        today_sentence_count_of_total_ideas = sum(len(idea.idea_content.split('.')) for idea in ideas if idea.idea_archived == False) 
 
-        char_count_of_total_comments = sum([len(comment.comment_content) for comment in comments]) 
-        word_count_of_total_comments = sum([len(comment.comment_content.split(' ')) for comment in comments]) 
-        sentence_count_of_total_comments = sum([len(comment.comment_content.split('.')) for comment in comments]) 
+        char_count_of_total_comments = sum(len(comment.comment_content) for comment in comments) 
+        word_count_of_total_comments = sum(len(comment.comment_content.split(' ')) for comment in comments) 
+        sentence_count_of_total_comments = sum(len(comment.comment_content.split('.')) for comment in comments) 
 
-        today_char_count_of_total_comments = sum([len(comment.comment_content) for comment in comments if comment.comment_archived == False]) 
-        today_word_count_of_total_comments = sum([len(comment.comment_content.split(' ')) for comment in comments if comment.comment_archived == False]) 
-        today_sentence_count_of_total_comments = sum([len(comment.comment_content.split('.')) for comment in comments if comment.comment_archived == False]) 
+        today_char_count_of_total_comments = sum(len(comment.comment_content) for comment in comments if comment.comment_archived == False) 
+        today_word_count_of_total_comments = sum(len(comment.comment_content.split(' ')) for comment in comments if comment.comment_archived == False) 
+        today_sentence_count_of_total_comments = sum(len(comment.comment_content.split('.')) for comment in comments if comment.comment_archived == False) 
 
         words = [word.lower() for idea in ideas for word in idea.idea_content.split(' ')] + [word.lower() for comment in comments for word in comment.comment_content.split(' ')]  
 
@@ -1382,7 +1382,7 @@ def RateTopicView(request):
         if request.user.username not in topic_voted:
             user_rate = request.GET['rate']
             topic.topic_rate['voted'][request.user.username] = int(user_rate) 
-            topic.topic_rate['rate'] = sum([int(topic_rate) for topic_rate in topic.topic_rate['voted'].values()]) / len(topic.topic_rate['voted'])
+            topic.topic_rate['rate'] = sum(int(topic_rate) for topic_rate in topic.topic_rate['voted'].values()) / len(topic.topic_rate['voted'])
             topic.save()
             return redirect('index-page')
         else:

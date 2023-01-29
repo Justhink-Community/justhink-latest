@@ -4,21 +4,25 @@ from user_profile.models import Profile
 from idea.models import Idea 
 
 class StaticViewSiteMap(Sitemap):
-    def items(self):
+    @staticmethod
+    def items():
         return ['index-page', 'ideas-page', 'random-ideas-page',  'home', 'about-us-page']
-    def location(self, item):
+    @staticmethod
+    def location(item):
         return reverse(item)
 
 class ProfileSiteMap(Sitemap):
     changefreq = 'hourly'
     priority = 0.9
 
-    def items(self):
+    @staticmethod
+    def items():
         return Profile.objects.all()
 
 class IdeaSiteMap(Sitemap):
     changefreq = 'daily'
     priority = 1.0
 
-    def items(self):
+    @staticmethod
+    def items():
         return Idea.objects.all()
