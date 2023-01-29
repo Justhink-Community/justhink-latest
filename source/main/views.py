@@ -735,7 +735,7 @@ def StatisticsView(request):
                 profile.save()
 
         users, ideas, comments = User.objects.all(), Idea.objects.all(), Comment.objects.all()
-        users_who_has_written_idea = set([idea.idea_author for idea in ideas])
+        users_who_has_written_idea = {idea.idea_author for idea in ideas}
 
 
         users_who_has_used_website_2_days = [idea.idea_author for idea in ideas if len(Idea.objects.filter(Q(idea_author = idea.idea_author))) >= 2]
@@ -776,7 +776,7 @@ def StatisticsView(request):
                 idea_publish_dates[idea.idea_publish_date.day] += 1 
             except KeyError:
                 idea_publish_dates[idea.idea_publish_date.day] = 1 
-        ideas_per_days = [x for x in  sorted(idea_publish_dates.values())]
+        ideas_per_days = list(sorted(idea_publish_dates.values()))
         idea_per_day = sum(ideas_per_days) // len(ideas_per_days)
         print()
 

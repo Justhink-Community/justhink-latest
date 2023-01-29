@@ -34,9 +34,6 @@ def send_mass_html_mail(datatuple, fail_silently=False, user=None, password=None
         messages.append(message)
     return connection.send_messages(messages)
 
-class OldJSONField(fields.JSONField):
-    def db_type(self, connection):
-        return 'json'
         
 class Idea(models.Model):
     idea_author = models.ForeignKey(to=Profile, on_delete=models.CASCADE)

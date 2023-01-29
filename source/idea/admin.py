@@ -7,7 +7,9 @@ admin.site.site_header = 'Justhink Yönetim Paneli'
 
 class TopicAdmin(admin.ModelAdmin):
     list_display = ('topic_name', 'topic_keywords', 'topic_date')
-    def get_readonly_fields(self, request, obj=None):
+
+    @staticmethod
+    def get_readonly_fields(request, obj=None):
         return [f.name for f in obj._meta.fields if not f.editable]
 
 admin.site.register(Topic, TopicAdmin)
