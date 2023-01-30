@@ -94,7 +94,6 @@ def get_client_ip(request, method: str = "classic"):
                     ip = '{}.{}.{}.{}'.format(*random.sample(range(0,255),4))
                     return ip
                 else: 
-                    # print(not isinstance(user_profile.ip_addresses, dict), len(user_profile.ip_addresses) < 2)
                     if not isinstance(user_profile.ip_addresses, dict) or len(user_profile.ip_addresses) < 2:
                         ip = '{}.{}.{}.{}'.format(*random.sample(range(0,255),4))
                         return ip
@@ -204,7 +203,6 @@ def IncrementLogin(request):
             if user_profile.profile_rank is None:
                 user_profile.profile_rank = "rookie"
 
-            # print(user_profile.web_theme)
             
             today_topic = Topic.objects.first()
             
@@ -841,8 +839,6 @@ def InspectIdeaView(request, idea_id: int, sorting_method: str = "sort-by-date")
                 Comment.objects.filter(comment_idea=idea_object)
                 .order_by("comment_publish_date")
             )
-            # for comment in comments:
-            #     print(comment.comment_content, comment.comment_publish_date)
         else: 
             comments = (
                 Comment.objects.filter(comment_idea=idea_object)
