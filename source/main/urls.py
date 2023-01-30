@@ -10,7 +10,6 @@ from .views import (
     SendCommentView,
     LikeCommentView,
     DislikeCommentView,
-    IdeasOverview,
     FavouriteIdeasView,
     TrendIdeasView,
     IdeasOverview,

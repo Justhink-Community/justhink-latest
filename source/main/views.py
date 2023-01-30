@@ -3,7 +3,6 @@ import random
 import uuid
 import string
 import httpagentparser
-import random
 import os
 import sys
 import magic
@@ -23,9 +22,6 @@ from django.template import Context
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.mail import send_mail, EmailMessage
-
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
 from django.core.mail import get_connection, EmailMultiAlternatives
 
 from idea.models import send_mass_html_mail

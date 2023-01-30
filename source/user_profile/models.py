@@ -6,8 +6,6 @@ from django.db import models
 from django.db.models import Q
 from django.shortcuts import reverse
 
-import hashlib
-
 JUSTHINK_RANKS = {"ranks": (("rookie", "ROOKIE"),), "points": {"rookie": 0}}
 
 
