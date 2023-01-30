@@ -95,10 +95,7 @@ class Survey(models.Model):
         return True
 
     def check_user_participation(self, username: str):
-        for value in self.survey_votes.values():
-            if username in value['participants']: 
-                return True 
-        return False
+        return any(username in value['participants'] for value in self.survey_votes.values())
 
     @property
     def is_past_due(self):
