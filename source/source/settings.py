@@ -178,33 +178,22 @@ SESSION_COOKIE_AGE = 525948 * 60 * 10
 
 # HTTPS SETTINGS
 
-<<<<<<< Updated upstream
-=======
 SESSION_COOKIE_SECURE = True 
 CSRF_COOKIE_SECURE = True 
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
->>>>>>> Stashed changes
 
 
 # HSTS SETTINGS 
 
-<<<<<<< Updated upstream
-=======
 SECURE_HSTS_SECONDS = 3153600 # 1 year 
 SECURE_HSTS_PRELOAD = True 
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
->>>>>>> Stashed changes
 
 # USER PRIVACY
 
-<<<<<<< Updated upstream
-
-# # XSS FILTER
-=======
 SECURE_REFERRER_POLICY = 'strict-origin'
 
 # XSS FILTER
 
 SECURE_BROWSER_XSS_FILTER = True
->>>>>>> Stashed changes
