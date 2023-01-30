@@ -1,9 +1,7 @@
-import hashlib
 import random
 
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import Q
 from django.shortcuts import reverse
 
 JUSTHINK_RANKS = {"ranks": (("rookie", "ROOKIE"),), "points": {"rookie": 0}}

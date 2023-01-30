@@ -11,25 +11,17 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import user_passes_test
 from django.db.models import Q
 
 from user_profile.models import Profile
 from idea.models import Idea, Survey, Comment, Topic, Update, Product, Feedback
-
-from django.template import Context
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
 from django.core.mail import send_mail, EmailMessage
-from django.core.mail import get_connection, EmailMultiAlternatives
-
-from idea.models import send_mass_html_mail
 
 from django.conf import settings
 
 from django.http import JsonResponse
-from django.core.cache import cache
 
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
