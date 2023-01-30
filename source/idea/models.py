@@ -109,7 +109,7 @@ class Survey(models.Model):
 
     @classmethod 
     def get_available_surveys(cls):
-        return [survey for survey in cls.objects.all() if survey.survey_archived == False and survey.is_past_due == False]
+        return [survey for survey in cls.objects.all() if survey.survey_archived is False and survey.is_past_due is False]
 
 
     def __str__(self):

@@ -744,17 +744,17 @@ def StatisticsView(request):
         word_count_of_total_ideas = sum(len(idea.idea_content.split(' ')) for idea in ideas) 
         sentence_count_of_total_ideas = sum(len(idea.idea_content.split('.')) for idea in ideas) 
 
-        today_char_count_of_total_ideas = sum(len(idea.idea_content) for idea in ideas if idea.idea_archived == False) 
-        today_word_count_of_total_ideas = sum(len(idea.idea_content.split(' ')) for idea in ideas if idea.idea_archived == False) 
-        today_sentence_count_of_total_ideas = sum(len(idea.idea_content.split('.')) for idea in ideas if idea.idea_archived == False) 
+        today_char_count_of_total_ideas = sum(len(idea.idea_content) for idea in ideas if idea.idea_archived is False) 
+        today_word_count_of_total_ideas = sum(len(idea.idea_content.split(' ')) for idea in ideas if idea.idea_archived is False) 
+        today_sentence_count_of_total_ideas = sum(len(idea.idea_content.split('.')) for idea in ideas if idea.idea_archived is False) 
 
         char_count_of_total_comments = sum(len(comment.comment_content) for comment in comments) 
         word_count_of_total_comments = sum(len(comment.comment_content.split(' ')) for comment in comments) 
         sentence_count_of_total_comments = sum(len(comment.comment_content.split('.')) for comment in comments) 
 
-        today_char_count_of_total_comments = sum(len(comment.comment_content) for comment in comments if comment.comment_archived == False) 
-        today_word_count_of_total_comments = sum(len(comment.comment_content.split(' ')) for comment in comments if comment.comment_archived == False) 
-        today_sentence_count_of_total_comments = sum(len(comment.comment_content.split('.')) for comment in comments if comment.comment_archived == False) 
+        today_char_count_of_total_comments = sum(len(comment.comment_content) for comment in comments if comment.comment_archived is False) 
+        today_word_count_of_total_comments = sum(len(comment.comment_content.split(' ')) for comment in comments if comment.comment_archived is False) 
+        today_sentence_count_of_total_comments = sum(len(comment.comment_content.split('.')) for comment in comments if comment.comment_archived is False) 
 
         words = [word.lower() for idea in ideas for word in idea.idea_content.split(' ')] + [word.lower() for comment in comments for word in comment.comment_content.split(' ')]  
 
