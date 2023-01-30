@@ -69,7 +69,7 @@ class Profile(models.Model):
             self.user_secret = str(random.randint(100_000, 999_999))
 
             if len(Profile.objects.filter(user_secret=self.user_secret)) > 0:
-                self.get_user_secret()
+                self.get_user_secret
 
             self.save()
         return self.user_secret

@@ -14,7 +14,7 @@ with open(BASE_DIR / 'secret_key.txt') as secret_key_file:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["justhink.net", "www.justhink.net", "3.65.51.36", "127.0.0.1"]
+ALLOWED_HOSTS = ["justhink.net", "www.justhink.net", "3.65.51.36", "127.0.0.1", "0.0.0.0", "localhost"]
 
 
 # Application definition
@@ -92,7 +92,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://37.59.221.234",
     "https://ipapi.co",  
     "http://localhost",
-    "http://127.0.0.1"
+    "http://127.0.0.1",
+    "http://0.0.0.0",
+    "http://3.65.51.36"
 ]
 
 
@@ -159,7 +161,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 
-CSRF_TRUSTED_ORIGINS = ["https://justhink.net", "https://www.justhink.net", "http://3.65.51.36", "http://127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ["https://justhink.net", "https://www.justhink.net", "http://3.65.51.36", "http://127.0.0.1", "http://0.0.0.0", "http://localhost"]
 
 # EMAIL SETTINGS 
 
@@ -174,14 +176,35 @@ EMAIL_USE_TLS = True
 SITE_ID = 1
 SESSION_COOKIE_AGE = 525948 * 60 * 10
 
-# # HTTPS SETTINGS
+# HTTPS SETTINGS
+
+<<<<<<< Updated upstream
+=======
+SESSION_COOKIE_SECURE = True 
+CSRF_COOKIE_SECURE = True 
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+>>>>>>> Stashed changes
 
 
+# HSTS SETTINGS 
 
-# # HSTS SETTINGS 
+<<<<<<< Updated upstream
+=======
+SECURE_HSTS_SECONDS = 3153600 # 1 year 
+SECURE_HSTS_PRELOAD = True 
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+>>>>>>> Stashed changes
 
+# USER PRIVACY
 
-# # USER PRIVACY
-
+<<<<<<< Updated upstream
 
 # # XSS FILTER
+=======
+SECURE_REFERRER_POLICY = 'strict-origin'
+
+# XSS FILTER
+
+SECURE_BROWSER_XSS_FILTER = True
+>>>>>>> Stashed changes
