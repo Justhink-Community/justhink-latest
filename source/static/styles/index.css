@@ -18,6 +18,21 @@
 /* ARTICLE SIDE  */
 
 
+.topic-interactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+
+.suggest-topic {
+  color: var(--color);
+  transition: all .2s ease;
+}
+
+.suggest-topic:hover {
+  color: var(--hover-color);
+}
 
 
 .article-side {
@@ -34,7 +49,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.2rem;
 }
 
 .rating {

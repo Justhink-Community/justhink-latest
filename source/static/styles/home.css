@@ -155,12 +155,16 @@ display: inline-block;
 @media only screen and (max-width: 80em) {
 
     .section-hero {
-        width: 75vw;
+        width: 66vw;
     }
 
     .image-composition__branding-image {
         max-width: 30% !important;
     }
+
+    html {
+        font-size: 43.75% !important;
+      }
 }
 
 @media only screen and (max-width: 50em) {
@@ -174,21 +178,24 @@ display: inline-block;
 }
 
 @media only screen and (max-width: 43em) {
+    html {
+        font-size: 25.15% !important;
+    }
     .heading-secondary {
         font-size: 6.6rem;
     }
 
     .topic-name {
-        font-size: 2.2rem;
+        font-size: 3.2rem;
     }
 
     .topic-description {
-        font-size: 1.5rem;
+        font-size: 2.4rem;
     }
     
     .topic-cta {
         width: 33% !important;
-        font-size: 2.1rem !important;
+        font-size: 3rem !important;
     }
 } 
 
@@ -198,7 +205,7 @@ display: inline-block;
     }
 
     .heading-secondary {
-        font-size: 5.6rem;
+        font-size: 8.4rem;
     }
 
     .topic-cta {
@@ -208,4 +215,13 @@ display: inline-block;
     .image-composition__branding-image {
         width: 50% !important;
     }
+
+    .section-hero {
+        width: 75vw !important;
+    }
+}
+
+
+@media only screen and (max-width: 65em) {
+
 }

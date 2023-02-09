@@ -12,11 +12,11 @@ def get_theme_logo(theme):
 
 @register.simple_tag(name='get_theme_favicon')
 def get_theme_favicon(theme):
-    if theme == 'default-theme': return 'thinker-favicon.png'
+    if theme == 'default-theme': return 'thinker-icon.png'
     theme_formatted: str = theme.split(' ')[0].lower()
     if theme_formatted == '':
-        return 'thinker-favicon.png'
-    return f'{theme_formatted}-favicon.png'
+        return 'thinker-icon.png'
+    return f'{theme_formatted}-icon.png'
   
 @register.simple_tag(name='get_theme_banner')
 def get_theme_banner(theme):

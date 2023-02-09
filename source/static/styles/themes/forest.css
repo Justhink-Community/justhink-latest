@@ -131,7 +131,7 @@
   .survey__option {
     --selected-color: #4A7E1C;
   }
-  .idea__interaction-icon {
+  .idea__interaction-icon, .suggest-topic {
     --color: #4A7E1C;
     --hover-color: hsl(92, 64%, 35%);
   } 

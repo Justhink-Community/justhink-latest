@@ -45,7 +45,7 @@
          * The "Add another MyModel" button below the inline forms.
          */
         const addInlineAddButton = function() {
-            if (addButton === false) {
+            if (addButton === null) {
                 if ($this.prop("tagName") === "TR") {
                     // If forms are laid out as table rows, insert the
                     // "add" button in a new table row:
@@ -88,7 +88,12 @@
             if (options.added) {
                 options.added(row);
             }
-            $(document).trigger('formset:added', [row, options.prefix]);
+            row.get(0).dispatchEvent(new CustomEvent("formset:added", {
+                bubbles: true,
+                detail: {
+                    formsetName: options.prefix
+                }
+            }));
         };
 
         /**
@@ -130,7 +135,11 @@
             if (options.removed) {
                 options.removed(row);
             }
-            $(document).trigger('formset:removed', [row, options.prefix]);
+            document.dispatchEvent(new CustomEvent("formset:removed", {
+                detail: {
+                    formsetName: options.prefix
+                }
+            }));
             // Update the TOTAL_FORMS form count.
             const forms = $("." + options.formCssClass);
             $("#id_" + options.prefix + "-TOTAL_FORMS").val(forms.length);
@@ -195,9 +204,9 @@
         deleteCssClass: "delete-row", // CSS class applied to the delete link
         emptyCssClass: "empty-row", // CSS class applied to the empty row
         formCssClass: "dynamic-form", // CSS class applied to each form in a formset
-        added: false, // Function called each time a new form is added
-        removed: false, // Function called each time a form is deleted
-        addButton: false // Existing add button to use
+        added: null, // Function called each time a new form is added
+        removed: null, // Function called each time a form is deleted
+        addButton: null // Existing add button to use
     };
 
 
@@ -296,7 +305,13 @@
                     dependency_list = input.data('dependency_list') || [],
                     dependencies = [];
                 $.each(dependency_list, function(i, field_name) {
-                    dependencies.push('#' + row.find('.form-row .field-' + field_name).find('input, select, textarea').attr('id'));
+                    // Dependency in a fieldset.
+                    let field_element = row.find('.form-row .field-' + field_name);
+                    // Dependency without a fieldset.
+                    if (!field_element.length) {
+                        field_element = row.find('.form-row.field-' + field_name);
+                    }
+                    dependencies.push('#' + field_element.find('input, select, textarea').attr('id'));
                 });
                 if (dependencies.length) {
                     input.prepopulate(dependencies, input.attr('maxlength'));

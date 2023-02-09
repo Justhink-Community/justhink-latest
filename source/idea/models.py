@@ -158,6 +158,18 @@ class Topic(models.Model):
         fail_silently=True)
 
 
+class TopicSuggestion(models.Model):
+    topic_suggestion_content = models.CharField(max_length=200)
+    topic_suggestion_author = models.ForeignKey(to=Profile, on_delete=models.CASCADE)
+    topic_suggestion_approved = models.BooleanField(default=False)
+
+    topic_suggestion_publish_date = models.DateTimeField(auto_now=True)
+
+    topic_suggestion_likes = models.JSONField(default=dict)
+    topic_suggestion_like_count = models.IntegerField(editable=False, default=0)
+    topic_suggestion_comments = models.IntegerField(editable=False, default=0)
+    topic_suggestion_archived = models.BooleanField(default=False)
+
 UPDATE_GENRES = (
     ('bugfix', 'Bugfix'),
     ('design', 'Design'),

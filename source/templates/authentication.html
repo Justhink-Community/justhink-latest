@@ -1,17 +1,21 @@
 {% extends 'base.html' %} 
 
 {% block head %} 
-<link rel="stylesheet" href="/static/styles/utilities.css?version=9999999991001052">
-<link rel="stylesheet" href="/static/styles/authentication.css?version=9999999991001054">
+<link rel="stylesheet" href="/static/styles/utilities.css?version={% now 'U' %}">
+<link rel="stylesheet" href="/static/styles/authentication.css?version={% now 'U' %}">
 
 {% endblock %} 
 
 {% block title %}Justhink &ndash; Giriş Yap{% endblock %}
 
 {% block scripts %} 
-<script src="//code.jivosite.com/widget/EECNwVyQi1" async></script>
-
+<!-- <script src="//code.jivosite.com/widget/EECNwVyQi1" async></script> -->
 {% endblock %}
+
+{% block page_description %}
+JusTHINK’e buradan giriş yapabilir veya kaydolabilirsin. Hoş geldin, jusTHINK iyi düşünmeler diler.
+{% endblock %}
+
 
 {% block main %}
 <div class="wrapper auth">
@@ -36,16 +40,16 @@
         {% csrf_token %}
          <div class="auth-box__input-box">
               <label for="username" class="auth-box__label">Kullanıcı adı:</label>
-              <input type="text" name="username" id="username" placeholder="meredith_grey" class="auth-box__input" minlength="2" maxlength="20" oninvalid="setCustomValidity('Kullanıcı adınız 2 - 20 karakter arasında, alfanumerik bir yapıda olmalı.')" required>
+              <input type="text" name="username" id="username" placeholder="meredith_grey" class="auth-box__input" minlength="2" maxlength="20" oninvalid="setCustomValidity('Kullanıcı adınız 2 - 20 karakter arasında, alfanumerik bir yapıda olmalı.')" oninput="setCustomValidity('')" required>
          </div>
          <div class="auth-box__input-box">
               <label for="email" class="auth-box__label">Elektronik Posta:</label>
-              <input type="email" name="email" id="email" placeholder="hello@justhink.net" class="auth-box__input" oninvalid="setCustomValidity('E-posta adresinizi doğru girmelisiniz.')" required>
+              <input type="email" name="email" id="email" placeholder="hello@justhink.net" class="auth-box__input" oninvalid="setCustomValidity('E-posta adresinizi doğru girmelisiniz.')" oninput="setCustomValidity('')" required>
           </div>
           
           <div class="auth-box__input-box">
               <label for="password" class="auth-box__label">Şifre:</label>
-              <input type="password" name="password" id="password" placeholder="*******" class="auth-box__input" autocomplete="new-password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="setCustomValidity('Şifreniz; en az bir büyük harf, bir küçük harf, bir özel karakter veya rakamdan oluşan, minimum 8 haneli bir yapıda olmalı.')" required>
+              <input type="password" name="password" id="password" placeholder="*******" class="auth-box__input" autocomplete="new-password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="setCustomValidity('Şifreniz; en az bir büyük harf, bir küçük harf, bir özel karakter veya rakamdan oluşan, minimum 8 haneli bir yapıda olmalı.')" oninput="setCustomValidity('')" required>
           </div>
           <div class="auth-box__input-box ref-code">
             <label for="reference-code" class="auth-box__label">Referans Kodu (Zorunlu Değil):</label>
@@ -74,11 +78,11 @@
 
            <div class="auth-box__input-box">
                 <label for="current-username" class="auth-box__label">Kullanıcı adı:</label>
-                <input type="text" name="current-username" id="current-username" placeholder="meredith_grey" class="auth-box__input" oninvalid="setCustomValidity('Kullanıcı adınız 2 - 20 karakter arasında, alfanumerik bir yapıda olmalı.')" required>
+                <input type="text" name="current-username" id="current-username" placeholder="meredith_grey" class="auth-box__input" oninvalid="setCustomValidity('Kullanıcı adınız 2 - 20 karakter arasında, alfanumerik bir yapıda olmalı.')" oninput="setCustomValidity('')" required>
            </div>
            <div class="auth-box__input-box">
                 <label for="current-password" class="auth-box__label">Şifre:</label>
-                <input type="password" name="current-password" id="current-password" placeholder="*******" class="auth-box__input" oninvalid="setCustomValidity('Şifreniz; en az bir büyük harf, bir küçük harf, bir özel karakter veya rakamdan oluşan, minimum 8 haneli bir yapıda olmalı.')" required>
+                <input type="password" name="current-password" id="current-password" placeholder="*******" class="auth-box__input" oninvalid="setCustomValidity('Şifreniz; en az bir büyük harf, bir küçük harf, bir özel karakter veya rakamdan oluşan, minimum 8 haneli bir yapıda olmalı.')" oninput="setCustomValidity('')" required>
             </div>
             <a href="{% url 'forgot-password-page' %}" class="auth__forget-password">Şifremi unuttum</a>
             <div class="bottom-box">

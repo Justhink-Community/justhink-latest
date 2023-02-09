@@ -24,7 +24,7 @@ daily_backup()
 for _time in TIMES_TO_BACKUP:
     schedule.every().day.at(_time).do(daily_backup)
 
-schedule.every().monday.at(TIME_TO_RESET).do(daily_reset)
+schedule.every().monday.at("16:00").do(daily_reset)
 schedule.every().tuesday.at(TIME_TO_RESET).do(daily_reset)
 schedule.every().wednesday.at(TIME_TO_RESET).do(daily_reset)
 schedule.every().thursday.at(TIME_TO_RESET).do(daily_reset)

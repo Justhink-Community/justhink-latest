@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 
 {% block head %} 
-<link rel="stylesheet" href="/static/styles/home.css?version=5">
+<link rel="stylesheet" href="/static/styles/home.css?version={% now 'U' %}">
+{% endblock %}
+
+{% block page_description %}
+JusTHINK platformunun giriş kapısına hoş geldin, iyi eğlenceler!
 {% endblock %}
 
 {% block scripts %} 
 <script>
   document.querySelector('html').classList.add('home')
 </script>
-<script src="//code.jivosite.com/widget/EECNwVyQi1" async></script>
+<!-- <script src="//code.jivosite.com/widget/EECNwVyQi1" async></script> -->
 
 {% endblock %}
 
@@ -31,7 +35,7 @@
 {% endblock %}
 
 {% block title %} 
-Justhink &ndash; Anasayfa
+Justhink
 {% endblock %}
 
 {% block main %} 

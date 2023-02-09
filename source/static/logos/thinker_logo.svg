@@ -39,11 +39,11 @@
       <path d="M25.0515 4.17526C25.0515 1.86933 26.9209 0 29.2268 0C31.5327 0 33.4021 1.86933 33.4021 4.17526C33.4021 6.48119 31.5327 8.35052 29.2268 8.35052C26.9209 8.35052 25.0515 6.48119 25.0515 4.17526Z" id="Oval-2" fill="#926CA3" fill-rule="evenodd" stroke="none" />
     </g>
     <path d="M29.2553 64.1671C29.1014 64.6024 29.2552 63.6792 29.2552 64.1671C29.2552 66.4731 31.1246 68.3424 33.4305 68.3424C35.7365 68.3424 37.6058 66.4731 37.6058 64.1672C37.6058 64.1672 37.6058 64.1671 37.6058 64.1671C37.6058 64.1671 37.6058 64.1671 37.6058 64.1671C37.6058 64.1671 37.6058 64.1671 37.6058 64.1671C37.6058 63.6793 37.6319 64.6391 37.6058 64.1672C37.6058 64.1672 29.2552 64.1671 29.2552 64.1671L29.2553 64.1671Z" id="Vektör" fill="#926CA3" fill-rule="evenodd" stroke="none" />
-    <g id="Çizgi">
+    <g id="çizgi">
       <g clip-path="url(#clip_4)">
         <use xlink:href="#path_4" fill="none" stroke="#926CA3" stroke-width="40" stroke-linecap="square" />
       </g>
     </g>
-    <path d="M33.0928 13.9237L33.0928 25.0237" id="Çizgi-4" fill="none" fill-rule="evenodd" stroke="#926CA3" stroke-width="3" stroke-linecap="square" />
+    <path d="M33.0928 13.9237L33.0928 25.0237" id="çizgi-4" fill="none" fill-rule="evenodd" stroke="#926CA3" stroke-width="3" stroke-linecap="square" />
   </g>
 </svg>

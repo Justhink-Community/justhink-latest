@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "user_profile",
     "idea",
     "corsheaders",
+    "sslserver"
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,7 @@ MAINTENANCE_MODE_IGNORE_URLS = ('/home', '/contact-us', '/about-us')
 
 
 LANGUAGES = (
-    ("tr", ("Türkçe")),
+    ("tr", ("Türkce")),
     ("en", ("English")),
 )
 USE_I18N = True
@@ -94,7 +95,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://127.0.0.1",
     "http://0.0.0.0",
-    "http://3.65.51.36"
+    "https://3.65.51.36"
 ]
 
 
@@ -104,11 +105,22 @@ WSGI_APPLICATION = "source.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'justhink',
+        'HOST': 'justhink-database-rds.ccud6ib6fcj0.eu-central-1.rds.amazonaws.com',
+        'USER': 'admin',
+        'PASSWORD': '(7L]v!0EEvt|D77]<_Y>2$c*.#kI',
+        'PORT': '3306',
+    },
 }
 
 
@@ -161,7 +173,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 
-CSRF_TRUSTED_ORIGINS = ["https://justhink.net", "https://www.justhink.net", "http://3.65.51.36", "http://127.0.0.1", "http://0.0.0.0", "http://localhost"]
+CSRF_TRUSTED_ORIGINS = ["https://justhink.net", "https://www.justhink.net", "https://3.65.51.36", "http://127.0.0.1", "http://0.0.0.0", "http://localhost"]
 
 # EMAIL SETTINGS 
 
@@ -176,24 +188,24 @@ EMAIL_USE_TLS = True
 SITE_ID = 1
 SESSION_COOKIE_AGE = 525948 * 60 * 10
 
-# HTTPS SETTINGS
+# # # HTTPS SETTINGS
 
-SESSION_COOKIE_SECURE = True 
-CSRF_COOKIE_SECURE = True 
-SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = False
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-# HSTS SETTINGS 
+# #  HSTS SETTINGS 
 
 SECURE_HSTS_SECONDS = 3153600 # 1 year 
 SECURE_HSTS_PRELOAD = True 
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-# USER PRIVACY
+# # USER PRIVACY
 
 SECURE_REFERRER_POLICY = 'strict-origin'
 
-# XSS FILTER
+# # XSS FILTER
 
 SECURE_BROWSER_XSS_FILTER = True

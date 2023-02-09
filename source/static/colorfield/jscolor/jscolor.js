@@ -82,13 +82,13 @@ var jsc = {
 			var dataOpts, m;
 
 			if (
-				(dataOpts = jsc.getDataAttr(elms[i], 'jscolor')) !== false ||
+				(dataOpts = jsc.getDataAttr(elms[i], 'jscolor')) !== null ||
 				(elms[i].className && (m = elms[i].className.match(matchClass))) // installation using className (DEPRECATED)
 			) {
 				var targetElm = elms[i];
 
 				var optsStr = '';
-				if (dataOpts !== false) {
+				if (dataOpts !== null) {
 					optsStr = dataOpts;
 
 				} else if (m) { // installation using className (DEPRECATED)
@@ -98,7 +98,7 @@ var jsc = {
 					}
 				}
 
-				var opts = false;
+				var opts = null;
 				if (optsStr.trim()) {
 					try {
 						opts = jsc.parseOptionsStr(optsStr);
@@ -118,7 +118,7 @@ var jsc = {
 
 
 	parseOptionsStr : function (str) {
-		var opts = false;
+		var opts = null;
 
 		try {
 			opts = JSON.parse(str);
@@ -160,18 +160,18 @@ var jsc = {
 
 	node : function (nodeOrSelector) {
 		if (!nodeOrSelector) {
-			return false;
+			return null;
 		}
 
 		if (typeof nodeOrSelector === 'string') {
 			// query selector
 			var sel = nodeOrSelector;
-			var el = false;
+			var el = null;
 			try {
 				el = window.document.querySelector(sel);
 			} catch (e) {
 				console.warn(e);
-				return false;
+				return null;
 			}
 			if (!el) {
 				console.warn('No element matches the selector: %s', sel);
@@ -185,7 +185,7 @@ var jsc = {
 		}
 
 		console.warn('Invalid node of type %s: %s', typeof nodeOrSelector, nodeOrSelector);
-		return false;
+		return null;
 	},
 
 
@@ -235,7 +235,7 @@ var jsc = {
 			case 'input': return (!el.value || el.value.trim() === '');
 			case 'button': return (el.textContent.trim() === '');
 		}
-		return false; // could not determine element's text
+		return null; // could not determine element's text
 	},
 
 
@@ -247,8 +247,8 @@ var jsc = {
 			var opts = Object.defineProperty({}, 'passive', {
 				get: function () { supported = true; }
 			});
-			window.addEventListener('testPassive', false, opts);
-			window.removeEventListener('testPassive', false, opts);
+			window.addEventListener('testPassive', null, opts);
+			window.removeEventListener('testPassive', null, opts);
 		} catch (e) {}
 
 		return supported;
@@ -392,7 +392,7 @@ var jsc = {
 		// IE
 		if (jsc._capturedTarget) {
 			jsc._capturedTarget.releaseCapture();
-			jsc._capturedTarget = false;
+			jsc._capturedTarget = null;
 		}
 	},
 
@@ -402,7 +402,7 @@ var jsc = {
 			return;
 		}
 
-		var ev = false;
+		var ev = null;
 
 		if (typeof Event === 'function') {
 			ev = new Event(eventName, {
@@ -448,7 +448,7 @@ var jsc = {
 		} else if (ev.keyCode !== undefined && keys.hasOwnProperty(ev.keyCode)) {
 			return keys[ev.keyCode];
 		}
-		return false;
+		return null;
 	},
 
 
@@ -518,7 +518,7 @@ var jsc = {
 	getCompStyle : function (elm) {
 		var compStyle = window.getComputedStyle ? window.getComputedStyle(elm) : elm.currentStyle;
 
-		// Note: In Firefox, getComputedStyle returns false in a hidden iframe,
+		// Note: In Firefox, getComputedStyle returns null in a hidden iframe,
 		// that's why we need to check if the returned value is non-empty
 		if (!compStyle) {
 			return {};
@@ -528,19 +528,19 @@ var jsc = {
 
 
 	// Note:
-	//   Setting a property to false reverts it to the state before it was first set
+	//   Setting a property to NULL reverts it to the state before it was first set
 	//   with the 'reversible' flag enabled
 	//
 	setStyle : function (elm, styles, important, reversible) {
 		// using '' for standard priority (IE10 apparently doesn't like value undefined)
 		var priority = important ? 'important' : '';
-		var origStyle = false;
+		var origStyle = null;
 
 		for (var prop in styles) {
 			if (styles.hasOwnProperty(prop)) {
-				var setVal = false;
+				var setVal = null;
 
-				if (styles[prop] === false) {
+				if (styles[prop] === null) {
 					// reverting a property value
 
 					if (!origStyle) {
@@ -568,7 +568,7 @@ var jsc = {
 					setVal = styles[prop];
 				}
 
-				if (setVal !== false) {
+				if (setVal !== null) {
 					elm.style.setProperty(prop, setVal, priority);
 				}
 			}
@@ -609,7 +609,7 @@ var jsc = {
 			Math.round(r) + ',' +
 			Math.round(g) + ',' +
 			Math.round(b) + ',' +
-			(Math.round((a===undefined || a===false ? 1 : a) * 100) / 100) +
+			(Math.round((a===undefined || a===null ? 1 : a) * 100) / 100) +
 		')';
 	},
 
@@ -740,7 +740,7 @@ var jsc = {
 		var n = Math.min(Math.min(r,g),b);
 		var v = Math.max(Math.max(r,g),b);
 		var m = v - n;
-		if (m === 0) { return [ false, 0, 100 * v ]; }
+		if (m === 0) { return [ null, 0, 100 * v ]; }
 		var h = r===n ? 3+(b-g)/m : (g===n ? 5+(r-b)/m : 1+(g-r)/m);
 		return [
 			60 * (h===6?0:h),
@@ -759,7 +759,7 @@ var jsc = {
 	HSV_RGB : function (h, s, v) {
 		var u = 255 * (v / 100);
 
-		if (h === false) {
+		if (h === null) {
 			return [ u, u, u ];
 		}
 
@@ -784,8 +784,8 @@ var jsc = {
 
 	parseColorString : function (str) {
 		var ret = {
-			rgba: false,
-			format: false // 'hex' | 'hexa' | 'rgb' | 'rgba'
+			rgba: null,
+			format: null // 'hex' | 'hexa' | 'rgb' | 'rgba'
 		};
 
 		var m;
@@ -810,7 +810,7 @@ var jsc = {
 					parseInt(m[1].substr(0,2),16),
 					parseInt(m[1].substr(2,2),16),
 					parseInt(m[1].substr(4,2),16),
-					false
+					null
 				];
 
 			} else if (m[1].length === 3) {
@@ -820,7 +820,7 @@ var jsc = {
 					parseInt(m[1].charAt(0) + m[1].charAt(0),16),
 					parseInt(m[1].charAt(1) + m[1].charAt(1),16),
 					parseInt(m[1].charAt(2) + m[1].charAt(2),16),
-					false
+					null
 				];
 
 			} else {
@@ -847,7 +847,7 @@ var jsc = {
 					parseFloat(mR[1]) || 0,
 					parseFloat(mG[1]) || 0,
 					parseFloat(mB[1]) || 0,
-					false
+					null
 				];
 
 				if (
@@ -895,7 +895,7 @@ var jsc = {
 	containsTranparentColor : function (colors) {
 		for (var i = 0; i < colors.length; i++) {
 			var a = colors[i].rgba[3];
-			if (a !== false && a < 1.0) {
+			if (a !== null && a < 1.0) {
 				return true;
 			}
 		}
@@ -962,7 +962,7 @@ var jsc = {
 			ctx.fillRect(0, 0, cWidth, cHeight);
 		}
 
-		var start = false;
+		var start = null;
 		switch (separatorPos) {
 			case 'left':
 				start = 0;
@@ -973,7 +973,7 @@ var jsc = {
 				ctx.clearRect(cWidth - (sepW/2), 0, sepW/2, cHeight);
 				break;
 		}
-		if (start !== false) {
+		if (start !== null) {
 			ctx.lineWidth = 1;
 			for (var i = 0; i < jsc.pub.previewSeparator.length; i += 1) {
 				ctx.beginPath();
@@ -1088,7 +1088,7 @@ var jsc = {
 			jsc.picker.boxS,
 			thisObj.shadow ?
 				new jsc.BoxShadow(0, vShadow, thisObj.shadowBlur, 0, thisObj.shadowColor) :
-				false);
+				null);
 	},
 
 
@@ -1182,7 +1182,7 @@ var jsc = {
 				case 'v': return 'v'; break;
 			}
 		}
-		return false;
+		return null;
 	},
 
 
@@ -1191,7 +1191,7 @@ var jsc = {
 		if (!thisObj[prop]) {
 			return; // callback func not specified
 		}
-		var callback = false;
+		var callback = null;
 
 		if (typeof thisObj[prop] === 'string') {
 			// string with code
@@ -1231,8 +1231,8 @@ var jsc = {
 	},
 
 
-	_pointerOrigin : false,
-	_capturedTarget : false,
+	_pointerOrigin : null,
+	_capturedTarget : null,
 
 
 	onDocumentKeyUp : function (e) {
@@ -1325,7 +1325,7 @@ var jsc = {
 		case 'pad':
 			// if the value slider is at the bottom, move it up
 			if (jsc.getSliderChannel(thisObj) === 'v' && thisObj.channels.v === 0) {
-				thisObj.fromHSVA(false, false, 100, false);
+				thisObj.fromHSVA(null, null, 100, null);
 			}
 			jsc.setPad(thisObj, e, 0, 0);
 			break;
@@ -1392,7 +1392,7 @@ var jsc = {
 		}
 
 		// if this color doesn't specify alpha, use alpha of 1.0 (if applicable)
-		if (color.rgba[3] === false) {
+		if (color.rgba[3] === null) {
 			if (thisObj.paletteSetsAlpha === true || (thisObj.paletteSetsAlpha === 'auto' && thisObj._paletteHasTransparency)) {
 				color.rgba[3] = 1.0;
 			}
@@ -1418,8 +1418,8 @@ var jsc = {
 		var yVal = 100 - (y * (100 / (thisObj.height - 1)));
 
 		switch (jsc.getPadYChannel(thisObj)) {
-		case 's': thisObj.fromHSVA(xVal, yVal, false, false); break;
-		case 'v': thisObj.fromHSVA(xVal, false, yVal, false); break;
+		case 's': thisObj.fromHSVA(xVal, yVal, null, null); break;
+		case 'v': thisObj.fromHSVA(xVal, null, yVal, null); break;
 		}
 	},
 
@@ -1430,8 +1430,8 @@ var jsc = {
 		var yVal = 100 - (y * (100 / (thisObj.height - 1)));
 
 		switch (jsc.getSliderChannel(thisObj)) {
-		case 's': thisObj.fromHSVA(false, yVal, false, false); break;
-		case 'v': thisObj.fromHSVA(false, false, yVal, false); break;
+		case 's': thisObj.fromHSVA(null, yVal, null, null); break;
+		case 'v': thisObj.fromHSVA(null, null, yVal, null); break;
 		}
 	},
 
@@ -1449,15 +1449,15 @@ var jsc = {
 			}
 		}
 
-		thisObj.fromHSVA(false, false, false, yVal);
+		thisObj.fromHSVA(null, null, null, yVal);
 	},
 
 
 	createPadCanvas : function () {
 
 		var ret = {
-			elm: false,
-			draw: false
+			elm: null,
+			draw: null
 		};
 
 		var canvas = jsc.createEl('canvas');
@@ -1506,8 +1506,8 @@ var jsc = {
 	createSliderGradient : function () {
 
 		var ret = {
-			elm: false,
-			draw: false
+			elm: null,
+			draw: null
 		};
 
 		var canvas = jsc.createEl('canvas');
@@ -1537,8 +1537,8 @@ var jsc = {
 	createASliderGradient : function () {
 
 		var ret = {
-			elm: false,
-			draw: false
+			elm: null,
+			draw: null
 		};
 
 		var canvas = jsc.createEl('canvas');
@@ -1628,14 +1628,14 @@ var jsc = {
 
 
 	deprecatedOpts : {
-		// <old_option>: <new_option>  (<new_option> can be false)
+		// <old_option>: <new_option>  (<new_option> can be null)
 		'styleElement': 'previewElement',
 		'onFineChange': 'onInput',
 		'overwriteImportant': 'forceStyle',
 		'closable': 'closeButton',
 		'insetWidth': 'controlBorderWidth',
 		'insetColor': 'controlBorderColor',
-		'refine': false,
+		'refine': null,
 	},
 
 
@@ -1811,13 +1811,13 @@ var jsc = {
 				// setting channel value
 				var res = false;
 				switch (name.toLowerCase()) {
-					case 'r': res = this.fromRGBA(value, false, false, false); break;
-					case 'g': res = this.fromRGBA(false, value, false, false); break;
-					case 'b': res = this.fromRGBA(false, false, value, false); break;
-					case 'h': res = this.fromHSVA(value, false, false, false); break;
-					case 's': res = this.fromHSVA(false, value, false, false); break;
-					case 'v': res = this.fromHSVA(false, false, value, false); break;
-					case 'a': res = this.fromHSVA(false, false, false, value); break;
+					case 'r': res = this.fromRGBA(value, null, null, null); break;
+					case 'g': res = this.fromRGBA(null, value, null, null); break;
+					case 'b': res = this.fromRGBA(null, null, value, null); break;
+					case 'h': res = this.fromHSVA(value, null, null, null); break;
+					case 's': res = this.fromHSVA(null, value, null, null); break;
+					case 'v': res = this.fromHSVA(null, null, value, null); break;
+					case 'a': res = this.fromHSVA(null, null, null, value); break;
 					default:
 						console.warn('Setting unknown channel: ' + name);
 						return false;
@@ -1844,7 +1844,7 @@ var jsc = {
 				var ev = evs[i].toLowerCase();
 
 				// trigger a callback
-				var callbackProp = false;
+				var callbackProp = null;
 				switch (ev) {
 					case 'input': callbackProp = 'onInput'; break;
 					case 'change': callbackProp = 'onChange'; break;
@@ -1864,25 +1864,25 @@ var jsc = {
 		// v: 0-100
 		// a: 0.0-1.0
 		//
-		this.fromHSVA = function (h, s, v, a, flags) { // false = don't change
-			if (h === undefined) { h = false; }
-			if (s === undefined) { s = false; }
-			if (v === undefined) { v = false; }
-			if (a === undefined) { a = false; }
+		this.fromHSVA = function (h, s, v, a, flags) { // null = don't change
+			if (h === undefined) { h = null; }
+			if (s === undefined) { s = null; }
+			if (v === undefined) { v = null; }
+			if (a === undefined) { a = null; }
 
-			if (h !== false) {
+			if (h !== null) {
 				if (isNaN(h)) { return false; }
 				this.channels.h = Math.max(0, Math.min(360, h));
 			}
-			if (s !== false) {
+			if (s !== null) {
 				if (isNaN(s)) { return false; }
 				this.channels.s = Math.max(0, Math.min(100, this.maxS, s), this.minS);
 			}
-			if (v !== false) {
+			if (v !== null) {
 				if (isNaN(v)) { return false; }
 				this.channels.v = Math.max(0, Math.min(100, this.maxV, v), this.minV);
 			}
-			if (a !== false) {
+			if (a !== null) {
 				if (isNaN(a)) { return false; }
 				this.channels.a = this.hasAlphaChannel() ?
 					Math.max(0, Math.min(1, this.maxA, a), this.minA) :
@@ -1908,25 +1908,25 @@ var jsc = {
 		// b: 0-255
 		// a: 0.0-1.0
 		//
-		this.fromRGBA = function (r, g, b, a, flags) { // false = don't change
-			if (r === undefined) { r = false; }
-			if (g === undefined) { g = false; }
-			if (b === undefined) { b = false; }
-			if (a === undefined) { a = false; }
+		this.fromRGBA = function (r, g, b, a, flags) { // null = don't change
+			if (r === undefined) { r = null; }
+			if (g === undefined) { g = null; }
+			if (b === undefined) { b = null; }
+			if (a === undefined) { a = null; }
 
-			if (r !== false) {
+			if (r !== null) {
 				if (isNaN(r)) { return false; }
 				r = Math.max(0, Math.min(255, r));
 			}
-			if (g !== false) {
+			if (g !== null) {
 				if (isNaN(g)) { return false; }
 				g = Math.max(0, Math.min(255, g));
 			}
-			if (b !== false) {
+			if (b !== null) {
 				if (isNaN(b)) { return false; }
 				b = Math.max(0, Math.min(255, b));
 			}
-			if (a !== false) {
+			if (a !== null) {
 				if (isNaN(a)) { return false; }
 				this.channels.a = this.hasAlphaChannel() ?
 					Math.max(0, Math.min(1, this.maxA, a), this.minA) :
@@ -1934,11 +1934,11 @@ var jsc = {
 			}
 
 			var hsv = jsc.RGB_HSV(
-				r===false ? this.channels.r : r,
-				g===false ? this.channels.g : g,
-				b===false ? this.channels.b : b
+				r===null ? this.channels.r : r,
+				g===null ? this.channels.g : g,
+				b===null ? this.channels.b : b
 			);
-			if (hsv[0] !== false) {
+			if (hsv[0] !== null) {
 				this.channels.h = Math.max(0, Math.min(360, hsv[0]));
 			}
 			if (hsv[2] !== 0) { // fully black color stays black through entire saturation range, so let's not change saturation
@@ -1961,7 +1961,7 @@ var jsc = {
 		//
 		this.fromHSV = function (h, s, v, flags) {
 			console.warn('fromHSV() method is DEPRECATED. Using fromHSVA() instead.' + jsc.docsRef);
-			return this.fromHSVA(h, s, v, false, flags);
+			return this.fromHSVA(h, s, v, null, flags);
 		};
 
 
@@ -1969,14 +1969,14 @@ var jsc = {
 		//
 		this.fromRGB = function (r, g, b, flags) {
 			console.warn('fromRGB() method is DEPRECATED. Using fromRGBA() instead.' + jsc.docsRef);
-			return this.fromRGBA(r, g, b, false, flags);
+			return this.fromRGBA(r, g, b, null, flags);
 		};
 
 
 		this.fromString = function (str, flags) {
 			if (!this.required && str.trim() === '') {
 				// setting empty string to an optional color input
-				this.setPreviewElementBg(false);
+				this.setPreviewElementBg(null);
 				this.setValueElementValue('');
 				return true;
 			}
@@ -2135,7 +2135,7 @@ var jsc = {
 
 
 		this.processAlphaInput = function (str) {
-			if (!this.fromHSVA(false, false, false, parseFloat(str))) {
+			if (!this.fromHSVA(null, null, null, parseFloat(str))) {
 				// could not parse the alpha value - let's just expose the current color
 				this.exposeColor();
 			}
@@ -2163,7 +2163,7 @@ var jsc = {
 			}
 
 			if (!(flags & jsc.flags.leavePreview) && this.previewElement) {
-				var previewPos = false; // 'left' | 'right' (false -> fill the entire element)
+				var previewPos = null; // 'left' | 'right' (null -> fill the entire element)
 
 				if (
 					jsc.isTextInput(this.previewElement) || // text input
@@ -2188,8 +2188,8 @@ var jsc = {
 				return;
 			}
 
-			var position = false; // color preview position:  false | 'left' | 'right'
-			var width = false; // color preview width:  px | false = fill the entire element
+			var position = null; // color preview position:  null | 'left' | 'right'
+			var width = null; // color preview width:  px | null = fill the entire element
 			if (
 				jsc.isTextInput(this.previewElement) || // text input
 				(jsc.isButton(this.previewElement) && !jsc.isButtonEmpty(this.previewElement)) // button with text
@@ -2215,7 +2215,7 @@ var jsc = {
 					image: jsc.genColorPreviewGradient(
 						color,
 						position,
-						width ? width - jsc.pub.previewSeparator.length : false
+						width ? width - jsc.pub.previewSeparator.length : null
 					),
 					position: 'left top',
 					size: 'auto',
@@ -2226,7 +2226,7 @@ var jsc = {
 				// data URL of generated PNG image with a gray transparency chessboard
 				var preview = jsc.genColorPreviewCanvas(
 					'rgba(0,0,0,0)',
-					position ? {'left':'right', 'right':'left'}[position] : false,
+					position ? {'left':'right', 'right':'left'}[position] : null,
 					width,
 					true
 				);
@@ -2267,8 +2267,8 @@ var jsc = {
 
 			// set/restore previewElement's padding
 			var padding = {
-				left: false,
-				right: false,
+				left: null,
+				right: null,
 			};
 			if (position) {
 				padding[position] = (this.previewSize + this.previewPadding) + 'px';
@@ -2438,7 +2438,7 @@ var jsc = {
 
 			if (!jsc.picker) {
 				jsc.picker = {
-					owner: false, // owner picker instance
+					owner: null, // owner picker instance
 					wrap : jsc.createEl('div'),
 					box : jsc.createEl('div'),
 					boxS : jsc.createEl('div'), // shadow area
@@ -2768,7 +2768,7 @@ var jsc = {
 			for (var r = 0; r < pickerDims.palette.rows; r++) {
 				for (var c = 0; c < pickerDims.palette.cols && si < THIS._palette.length; c++, si++) {
 					var sampleColor = THIS._palette[si];
-					var sampleCssColor = jsc.rgbaColor.apply(false, sampleColor.rgba);
+					var sampleCssColor = jsc.rgbaColor.apply(null, sampleColor.rgba);
 
 					var sc = jsc.createEl('div'); // color sample's color
 					sc.style.width = (pickerDims.palette.cellW - 2 * THIS.controlBorderWidth) + 'px';
@@ -2787,7 +2787,7 @@ var jsc = {
 					sw.style.border = THIS.controlBorderWidth + 'px solid';
 					sw.style.borderColor = THIS.controlBorderColor;
 					sw.style.cursor = 'pointer';
-					if (sampleColor.rgba[3] !== false && sampleColor.rgba[3] < 1.0) { // only create chessboard background if the sample has transparency
+					if (sampleColor.rgba[3] !== null && sampleColor.rgba[3] < 1.0) { // only create chessboard background if the sample has transparency
 						sw.style.backgroundImage = 'url(\'' + chessboard.canvas.toDataURL() + '\')';
 						sw.style.backgroundRepeat = 'repeat';
 						sw.style.backgroundPosition = 'center center';
@@ -3010,7 +3010,7 @@ var jsc = {
 			}
 
 			if (THIS.alphaElement) {
-				THIS.fromHSVA(false, false, false, parseFloat(THIS.alphaElement.value), jsc.flags.leaveAlpha);
+				THIS.fromHSVA(null, null, null, parseFloat(THIS.alphaElement.value), jsc.flags.leaveAlpha);
 			}
 
 			jsc.triggerCallback(THIS, 'onInput');
@@ -3179,8 +3179,8 @@ var jsc = {
 				// leave it undefined
 			}
 
-		} else if (this.valueElement === false) { // explicitly set to false
-			// leave it false
+		} else if (this.valueElement === null) { // explicitly set to null
+			// leave it null
 
 		} else { // explicitly set to custom element
 			this.valueElement = jsc.node(this.valueElement);
@@ -3195,8 +3195,8 @@ var jsc = {
 		if (this.previewElement === undefined) {
 			this.previewElement = this.targetElement; // default previewElement is targetElement
 
-		} else if (this.previewElement === false) { // explicitly set to false
-			// leave it false
+		} else if (this.previewElement === null) { // explicitly set to null
+			// leave it null
 
 		} else { // explicitly set to custom element
 			this.previewElement = jsc.node(this.previewElement);
@@ -3210,7 +3210,7 @@ var jsc = {
 			var valueElementOrigEvents = {
 				onInput: this.valueElement.oninput
 			};
-			this.valueElement.oninput = false;
+			this.valueElement.oninput = null;
 
 			this.valueElement.addEventListener('keydown', onValueKeyDown, false);
 			this.valueElement.addEventListener('change', onValueChange, false);
@@ -3260,7 +3260,7 @@ var jsc = {
 
 		// determine current format based on the initial color value
 		//
-		this._currentFormat = false;
+		this._currentFormat = null;
 
 		if (['auto', 'any'].indexOf(this.format.toLowerCase()) > -1) {
 			// format is 'auto' or 'any' -> let's auto-detect current format
@@ -3489,7 +3489,7 @@ jsc.pub.options = {};
 // By default, we'll search for all elements with class="jscolor" and install a color picker on them.
 //
 // You can change what class name will be looked for by setting the property jscolor.lookupClass
-// anywhere in your HTML document. To completely disable the automatic lookup, set it to false.
+// anywhere in your HTML document. To completely disable the automatic lookup, set it to null.
 //
 jsc.pub.lookupClass = 'jscolor';
 

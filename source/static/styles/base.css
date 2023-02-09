@@ -1147,6 +1147,7 @@ input, textarea {
   padding: 1.2rem 2.4rem;
   max-width: 40rem;
   max-height: 38rem;
+  min-width: 32rem;
   right: 14rem;
   z-index: 9999999999999;
   display: grid;
@@ -1622,6 +1623,15 @@ input, textarea {
 
   .articles {
     display: none !important;
+  }
+
+  .notifications-box.showing {
+    width: 75vw;
+    min-height: 10vh;
+    left: 0;
+    margin-left: 12.5vw;
+    margin-top: 2rem;
+    max-width: none;
   }
 }
 

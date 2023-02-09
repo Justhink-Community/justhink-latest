@@ -91,7 +91,7 @@
     window.Actions = function(actionCheckboxes, options) {
         options = Object.assign({}, defaults, options);
         let list_editable_changed = false;
-        let lastChecked = false;
+        let lastChecked = null;
         let shiftPressed = false;
 
         document.addEventListener('keydown', (event) => {

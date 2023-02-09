@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.db.models import Q
 
 from user_profile.models import Profile
-from idea.models import Idea, Survey, Comment, Topic, Update, Product, Feedback
+from idea.models import Idea, Survey, Comment, Topic, Update, Product, Feedback, TopicSuggestion
 from django.core.mail import send_mail, EmailMessage
 
 from django.conf import settings
@@ -342,6 +342,22 @@ def DashBoardView(request):
         },
     )
 
+def TopicSuggestionsView(request):
+
+    suggestions = TopicSuggestion.objects.filter(Q(topic_suggestion_archived=False))
+    IncrementLogin(request)
+    return render(
+        request,
+        "index.html",
+        {
+            "profile": get_user_profile(request.user),
+            'suggestions': suggestions, 
+            'approved_topic_suggestions': len( TopicSuggestion.objects.filter(Q(topic_suggestion_approved=True))),
+            "topic": 'Bir konu önermek için + sembolünü kullanabilirsin.',
+            'section': 'topic-suggestions'
+        },
+    ) 
+
 def OpenSurveysView(request):
 
 
@@ -354,7 +370,7 @@ def OpenSurveysView(request):
         "index.html",
         {
             "profile": get_user_profile(request.user),
-            "topic": 'Bir oylama başlatmak için + sembolünü kullanabilirsin.',
+            "topic": 'Bir oylama başlatmak icin + sembolünü kullanabilirsin.',
             "total_votes": get_total_votes(surveys),
             "surveys": surveys,
             "section": "open-surveys",
@@ -596,7 +612,9 @@ def ProfileView(request, username):
         if user:
             profile = Profile.objects.get(account = user)
             ideas = Idea.objects.filter(Q(idea_author = profile)).order_by('-idea_publish_date')
-            return render(request, 'profile.html', {'pprofile': profile, 'profile':  get_user_profile(request.user),'puser': user, 'user_ideas': ideas, 'user_comments': Comment.objects.filter(Q(comment_author = profile)).order_by('-comment_publish_date')})
+            if len(ideas) >= 10:
+                ideas = ideas[:10]
+            return render(request, 'profile.html', {'pprofile': profile, 'profile':  get_user_profile(request.user),'puser': user, 'user_ideas': ideas, 'user_comments': Comment.objects.filter(Q(comment_author = profile)).order_by('-comment_publish_date')[:10]})
         else:
             return redirect('authentication')
     except UnboundLocalError:
@@ -642,6 +660,8 @@ def FollowProfileView(request, profile_id: int):
         finally:
             profile.save()
             return redirect('profile-page', profile.account.username)
+
+
 
 
 def FavouriteIdeasView(request):
@@ -907,7 +927,7 @@ def RegisterView(request):
         except KeyError:
             messages.error(
                 request,
-                "Kayıt olmak için KVKK'yı kabul etmelisin.",
+                "Kayıt olmak icin KVKK'yı kabul etmelisin.",
                 extra_tags=NOTIFICATION_TAGS["error"],
             )
             return redirect(request.META.get("HTTP_REFERER"))
@@ -997,7 +1017,7 @@ def RegisterView(request):
 def LogoutView(request):
     messages.info(
         request,
-        f"Hesabınızdan çıkış yaptınız: {request.user.username}",
+        f"Hesabınızdan cıkış yaptınız: {request.user.username}",
         extra_tags=NOTIFICATION_TAGS["info"],
     ),
 
@@ -1017,7 +1037,7 @@ def PublishIdeaView(request):
     
         messages.error(
             request,
-            "Bu işlem için giriş yapman gerekiyor!",
+            "Bu işlem icin giriş yapman gerekiyor!",
             extra_tags=NOTIFICATION_TAGS["error"],
         )
         return redirect('authentication')
@@ -1051,7 +1071,7 @@ def PublishIdeaView(request):
                 referenced_profile.save()
                 
                 profile.user_notifications[str(uuid.uuid4())] = {
-                    'notification_content': f'Fikir paylaştığın için referansın ve sen 50 puan kazandınız!',
+                    'notification_content': f'Fikir paylaştığın icin referansın ve sen 50 puan kazandınız!',
                     'notification_details': str(datetime.datetime.now()),
                     'notification_image': 'robot',
                     'notification_link': '/',
@@ -1069,6 +1089,12 @@ def PublishIdeaView(request):
         )
         idea.save()
 
+
+        # if not request.user.is_staff:
+
+        #     for idea in Idea.objects.filter(idea_archived=False):
+        #         LikePostView(request, idea.pk)
+
         if not no_msg:
             messages.success(
                 request,
@@ -1079,12 +1105,33 @@ def PublishIdeaView(request):
 
         return redirect('inspect-idea-page', idea.pk)
 
+def SuggestTopicView(request):
+    if request.user.is_anonymous: 
+    
+        messages.error(
+            request,
+            "Bu işlem icin giriş yapman gerekiyor!",
+            extra_tags=NOTIFICATION_TAGS["error"],
+        )
+        return redirect('authentication')
+
+    if request.POST:
+
+        suggestion_content = request.POST["topic-content"]
+        suggestion = TopicSuggestion.objects.create(
+            topic_suggestion_author=Profile.objects.get(account=request.user),
+            topic_suggestion_content=suggestion_content
+        )
+        suggestion.save()
+
+    return redirect('topic-suggestions-page')
+
 def PublishSurveyView(request):
     if request.user.is_anonymous: 
     
         messages.error(
             request,
-            "Bu işlem için giriş yapman gerekiyor!",
+            "Bu işlem icin giriş yapman gerekiyor!",
             extra_tags=NOTIFICATION_TAGS["error"],
         )
         return redirect('authentication')
@@ -1138,11 +1185,55 @@ def PublishSurveyView(request):
 
         return redirect('open-surveys-page')
 
+def LikeSuggestionView(request, suggestion_id: int):
+    if request.user.is_anonymous:
+        messages.error(
+            request,
+            "Bu işlem icin giriş yapman gerekiyor!",
+            extra_tags=NOTIFICATION_TAGS["error"],
+        )
+        return redirect('authentication')
+
+    try:
+        suggestion_object = TopicSuggestion.objects.get(id=suggestion_id)
+    except TopicSuggestion.DoesNotExist:
+        return redirect("index-page")
+    else:
+        try:
+            suggestion_object.topic_suggestion_likes[request.user.username]
+        except KeyError:
+            suggestion_object.topic_suggestion_like_count += 1
+            suggestion_object.topic_suggestion_likes[request.user.username] = True
+            suggestion_object.save()
+
+            suggestion_object.topic_suggestion_author.user_notifications[create_hash(16)] = {
+              'notification_content': f'{request.user.username} konu önerinizi beğendi',
+              'notification_details': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'),
+              'notification_image': 'robot',
+              'notification_link': f'/inspect-idea/{suggestion_id}',
+              'viewed': False
+            }
+            
+            suggestion_object.topic_suggestion_author.save()
+            
+            GivePoint(suggestion_object.topic_suggestion_author.account, POINT_POLICY["like_idea"])
+
+        else:
+            suggestion_object.topic_suggestion_like_count -= 1
+            del suggestion_object.topic_suggestion_likes[request.user.username]
+            suggestion_object.save()
+
+            TakePoint(suggestion_object.topic_suggestion_author.account, POINT_POLICY["like_idea"])
+
+
+        return redirect('topic-suggestions-page')
+   
+
 def LikePostView(request, post_id: int):
     if request.user.is_anonymous:
         messages.error(
             request,
-            "Bu işlem için giriş yapman gerekiyor!",
+            "Bu işlem icin giriş yapman gerekiyor!",
             extra_tags=NOTIFICATION_TAGS["error"],
         )
         return redirect('authentication')
@@ -1187,7 +1278,7 @@ def SendCommentView(request, idea_id: int):
     if request.user.is_anonymous: 
         messages.error(
             request,
-            "Bu işlem için giriş yapman gerekiyor!",
+            "Bu işlem icin giriş yapman gerekiyor!",
             extra_tags=NOTIFICATION_TAGS["error"],
         )
         return redirect('authentication')
@@ -1229,7 +1320,7 @@ def LikeCommentView(request, idea_id: int,  comment_id: int):
     if request.user.is_anonymous: 
       messages.error(
           request,
-          "Bu işlem için giriş yapman gerekiyor!",
+          "Bu işlem icin giriş yapman gerekiyor!",
           extra_tags=NOTIFICATION_TAGS["error"],
       )
       return redirect('authentication')
@@ -1278,7 +1369,7 @@ def DislikeCommentView(request, idea_id: int, comment_id: int):
     if request.user.is_anonymous:
         messages.error(
             request,
-            "Bu işlem için giriş yapman gerekiyor!",
+            "Bu işlem icin giriş yapman gerekiyor!",
             extra_tags=NOTIFICATION_TAGS["error"],
         )
         return redirect('authentication')
@@ -1373,7 +1464,7 @@ def RateTopicView(request):
             return redirect('index-page')
 
 def DailyResetView(request, token: str):   
-    if token == "DAILY_BACKUP" and get_client_ip(request, 'server') == '37.59.221.234':
+    if token == "DAILY_BACKUP" and get_client_ip(request, 'server') == '3.65.51.36':
         mail = EmailMessage('Günlük Veritabanı Yedeği Alındı - justhink.net', 'Bugüne ait veritabanı yedeğinin SQL ve JSON dosyaları.', settings.EMAIL_HOST_USER, ['furkanesen1900@gmail.com', 'ogulcanozturk72@gmail.com'])
         backup_file_name = fr'C:\Users\Administrator\Desktop\Database Backups\Daily Backups\Database Backup'
         sysout = sys.stdout
@@ -1397,7 +1488,7 @@ def DailyResetView(request, token: str):
             mail.attach(f.name, f.read(), mime.from_file(f'{backup_file_name}.sql'))
         mail.send()
 
-    elif token == "DAILY_RESET" and get_client_ip(request, 'server') == '37.59.221.234':
+    elif token == "DAILY_RESET" and get_client_ip(request, 'server') == '3.65.51.36':
         not_archived_ideas = Idea.objects.filter(idea_archived = False)
         not_archived_ideas.update(idea_archived = True)
         
@@ -1429,7 +1520,7 @@ def ContactUsView(request):
 
         feedback = Feedback.objects.create(feedback_author = author, feedback_fullname=full_name, feedback_email=email_address, feedback_message=message)
 
-        send_mail('Yeni bir geribildirim var! - justhink.net', f'Yeni bir geribildirim mevcut! \n\nGönderen: {full_name} ({email_address})\nMesaj: {message}\n\nAdmin Panelde Görüntülemek için: https://justhink.net/admin/idea/feedback/{feedback.pk}/change/', 'iletisim@justhink.net', ['furkanesen1900@gmail.com', 'paladilasu@gmail.com', 'ogulcanozturk72@gmail.com'], fail_silently=True) #, 'kadircantuzuner@gmail.com', 'paladilasu@gmail.com'
+        send_mail('Yeni bir geribildirim var! - justhink.net', f'Yeni bir geribildirim mevcut! \n\nGönderen: {full_name} ({email_address})\nMesaj: {message}\n\nAdmin Panelde Görüntülemek icin: https://justhink.net/admin/idea/feedback/{feedback.pk}/change/', 'iletisim@justhink.net', ['furkanesen1900@gmail.com', 'paladilasu@gmail.com', 'ogulcanozturk72@gmail.com'], fail_silently=True) #, 'kadircantuzuner@gmail.com', 'paladilasu@gmail.com'
 
 
     return render(request, 'contact_us.html', {"profile": get_user_profile(request.user),

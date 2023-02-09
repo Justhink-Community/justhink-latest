@@ -297,7 +297,6 @@ main {
   .bottom-box input[type = "submit"] {
     font-size: 4rem !important;
     padding: 3rem 6rem !important;
-    width: 100% !important;
   }
 }
 
@@ -318,9 +317,10 @@ main {
 }
 
 @media only screen and (max-width: 43em) {
-  .ref-code {
-    display: none;
+  .bottom-box input[type= "submit"] {
+    width: 100% !important;
   }
+
 
   .wrapper {
     position: absolute;

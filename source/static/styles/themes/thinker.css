@@ -125,7 +125,7 @@
     --selected-color: #4d1a5f;
   }
   
-  .idea__interaction-icon {
+  .idea__interaction-icon, .suggest-topic {
     --color: #4d1a5f;
     --hover-color: #5a2a76;
   } 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Idea, Survey, Comment, Topic, Update, Product, Feedback
+from .models import Idea, Survey, Comment, Topic, Update, Product, Feedback, TopicSuggestion
 
 # Register your models here.
 
@@ -23,6 +23,16 @@ class IdeaAdmin(admin.ModelAdmin):
         return obj.idea_author.account.username
 
 admin.site.register(Idea, IdeaAdmin)
+
+class TopicSuggestionAdmin(admin.ModelAdmin):
+    list_display = ('get_suggestion_author','pk', 'topic_suggestion_content')
+    list_filter = ('topic_suggestion_content', 'topic_suggestion_publish_date')
+
+    @admin.display(ordering='topic_suggestion_author', description='Suggested Author')
+    def get_suggestion_author(self, obj):
+        return obj.topic_suggestion_author.account.username
+
+admin.site.register(TopicSuggestion, TopicSuggestionAdmin)
 
 class SurveyAdmin(admin.ModelAdmin):
     list_display = ('get_survey_author','pk', 'survey_content')

@@ -130,7 +130,7 @@
     --selected-color: #065A85;
   }
   
-  .idea__interaction-icon {
+  .idea__interaction-icon, .suggest-topic {
     --color: #065A85;
     --hover-color: hsl(200, 91%, 35%);
   } 

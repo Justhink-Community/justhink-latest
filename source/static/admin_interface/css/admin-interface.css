@@ -156,7 +156,6 @@
     background: var(--admin-interface-module-background-selected-color);
 }
 
-
 .admin-interface #changelist table tbody tr.selected {
     background-color: var(--admin-interface-module-background-selected-color);
 }

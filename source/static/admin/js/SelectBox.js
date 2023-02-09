@@ -42,7 +42,7 @@
             SelectBox.redisplay(id);
         },
         delete_from_cache: function(id, value) {
-            let delete_index = false;
+            let delete_index = null;
             const cache = SelectBox.cache[id];
             for (const [i, node] of cache.entries()) {
                 if (node.value === value) {

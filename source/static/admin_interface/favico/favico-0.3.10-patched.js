@@ -20,7 +20,7 @@
  *    position : 'down',
  *    animation : 'slide',
  *    elementId: false,
- *    element: false,
+ *    element: null,
  *    dataUrl: function(url){},
  *    win: window
  * });
@@ -39,7 +39,7 @@
             position: 'down', // down, up, left, leftup (upleft)
             animation: 'slide',
             elementId: false,
-            element: false,
+            element: null,
             dataUrl: false,
             win: window
         };
@@ -468,7 +468,7 @@
 
         var setOpt = function (key, value) {
             var opts = key;
-            if (!(value == false && Object.prototype.toString.call(key) == '[object Object]')) {
+            if (!(value == null && Object.prototype.toString.call(key) == '[object Object]')) {
                 opts = {};
                 opts[key] = value;
             }

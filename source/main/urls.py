@@ -33,6 +33,9 @@ from .views import (
     DailyResetView,
     ContactUsView,
     SurveyView,
+    TopicSuggestionsView,
+    SuggestTopicView,
+    LikeSuggestionView,
     BlogPartyView
 )
 from django.contrib.sitemaps.views import sitemap
@@ -62,6 +65,8 @@ urlpatterns = [
     path('change-theme', ChangeThemeView, name = 'change-theme-page'),
     path('updates', UpdatesView),
     path('ideas', FavouriteIdeasView, name = 'ideas-page'),
+    path('topic-suggestions', TopicSuggestionsView, name = 'topic-suggestions-page'),
+    path('suggest-topic', SuggestTopicView, name = 'topic-suggest-page'),
     path('leaderboard', LeaderboardView, name = 'leaderboard-page'),
     path('open-surveys', OpenSurveysView, name = 'open-surveys-page'),
     path('vote-open-survey/<int:survey_id>/<str:option_id>', VoteOpenSurveyView, name = 'vote-open-survey-page'),
@@ -70,6 +75,7 @@ urlpatterns = [
     path("publish-idea", PublishIdeaView, name="publish-idea-page"),
     path("publish-survey", PublishSurveyView, name = 'publish-survey-page'),
     path("like-idea/<int:post_id>", LikePostView, name="like-post-page"),
+    path("like-suggestion/<int:suggestion_id>", LikeSuggestionView, name="like-suggestion-page"),
     path("inspect-idea/<int:idea_id>", InspectIdeaView, name="inspect-idea-page"),
     path("inspect-idea/<int:idea_id>/<str:sorting_method>", InspectIdeaView, name="inspect-idea-page-sorted"),
     path("send-comment/<int:idea_id>", SendCommentView, name = 'send-comment-page'),
